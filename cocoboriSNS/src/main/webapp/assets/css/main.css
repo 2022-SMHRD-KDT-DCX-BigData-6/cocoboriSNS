@@ -1,6 +1,7 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 
+
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -2651,14 +2652,3 @@ input, select, textarea {
 	#top {
 		background-color: #FFFFDE;
 	}
-	
-	@font-face { 
-		font-family: 'omu';
-		font-style: normal;
-		src:url("./asseets/font/omu.ttf");
-	}
-	
-	body {
-		font-family: "omu";
-	}
-	
