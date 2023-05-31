@@ -2662,3 +2662,8 @@ input, select, textarea {
 		font-family: "omu";
 	}
 	
+/* add */
+	.friendBox { color: #fff; background-color: #ABEBC6; }
+	.friendBox:hover { background-color: #58D68D; }
+	.chatBox { color: #fff; background-color: #ABEBC6; }
+	.chatBox:hover { background-color: #58D68D; }
