@@ -19,7 +19,7 @@
 	%> 
 
 	<div id="board">
-	<form action="FriendSearch.jsp">
+	<form action="FriendSearch2.jsp">
 			<table id="list">
 				<tr>
 					<td>친구 검색</td>
