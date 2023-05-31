@@ -2652,3 +2652,10 @@ input, select, textarea {
 	#top {
 		background-color: #FFFFDE;
 	}
+
+/* add */
+	.friendBox { color: #fff; background-color: #ABEBC6; }
+	.friendBox:hover { background-color: #58D68D; }
+	.chatBox { color: #fff; background-color: #ABEBC6; }
+	.chatBox:hover { background-color: #58D68D; }
+

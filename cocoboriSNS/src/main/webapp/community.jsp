@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.CocoFriendDAO"%>
+<%@page import="com.smhrd.model.CocoFriendDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.CocoMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -5,23 +8,22 @@
 <html>
 <head>
 <title>COCOBORI</title>
-<style type="text/css">
-	@font-face {
-   	 	font-family: 'omyu_pretty';
-   	 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-    	font-weight: normal;
-   	 	font-style: normal;
-	}
-</style>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="is-preload" style="font-family: 'omyu_pretty'">
+<body class="is-preload">
 
-	<% CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember"); %>	
+	<% 
+		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
+		
+		// CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("member");
+		String user_email = "user_email 001"; // member.getUser_email();
+		
+		List<CocoFriendDTO> friendList = new CocoFriendDAO().showAllFriends(user_email);
+	%>	
 	<!-- Header -->
 	<div id="header">
 
@@ -35,7 +37,7 @@
 				<h1 id="title">COCOBORI</h1>
 				<p>
 					<% if (member == null) { %>
-							SNS
+							커뮤니티
 					<% } else { %>
 						<%= member.getUser_nick() %>
 					<% } %>	
@@ -92,7 +94,7 @@
 		<!-- Intro -->
 		<section id="top" class="#">
 			<div class="container">
-				<h1>메인페이지</h1>
+				<h1>커뮤니티</h1>
 				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
 			</div>
 		</section>
@@ -101,56 +103,61 @@
 		<section id="#" class="two">
 			<div class="container">
 				<div class="row">
-					<div class="col-4 col-12-mobile">
-						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic02.jpg"
-								alt="" /></a>
-							<header>
-								<h3>Ipsum Feugiat</h3>
-							</header>
-						</article>
-						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic03.jpg"
-								alt="" /></a>
-							<header>
-								<h3>Rhoncus Semper</h3>
-							</header>
-						</article>
+					<div class="col-3 col-12-mobile">
+						<div class="friendBox p-2">
+							<i class="fa fa-3x fa-address-book-o d-block mb-4 text-center"></i>
+							<h3 class="text-center">친구</h3>
+						</div>
 					</div>
-					<div class="col-4 col-12-mobile">
-						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic04.jpg"
-								alt="" /></a>
-							<header>
-								<h3>Magna Nullam</h3>
-							</header>
-						</article>
-						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic05.jpg"
-								alt="" /></a>
-							<header>
-								<h3>Natoque Vitae</h3>
-							</header>
-						</article>
-					</div>
-					<div class="col-4 col-12-mobile">
-						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic06.jpg"
-								alt="" /></a>
-							<header>
-								<h3>Dolor Penatibus</h3>
-							</header>
-						</article>
-						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic07.jpg"
-								alt="" /></a>
-							<header>
-								<h3>Orci Convallis</h3>
-							</header>
-						</article>
+					<div class="col-3 col-12-mobile">
+						<div class="chatBox p-2">
+							<i class="fa fa-3x fa-comments-o d-block mb-4 text-center"></i>
+							<h3 class="text-center">채팅</h3>
+						</div>
 					</div>
 				</div>
-
+				<!-- row -->
+				
+				<div class="friend_list container" style="display: none;">
+					<div class="row">
+						<div class="col-md-9">
+							<table class="table">
+								<tr>
+									<td>친구</td>
+									<td><button type="button" onclick="location.href='Friend.jsp'">친구 추가</button></td>
+								</tr>
+								<% for (int i = 0; i < friendList.size(); i++) {%>
+								<tr>
+									<td onclick="location.href='FriendDetail.do?user_email=<%= friendList.get(i).getFriend_email()%>'">
+										<img alt="" src="">사진
+										<%= friendList.get(i).getFriend_email()%>
+									</td>
+								</tr>
+								<% }%>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="chatting container" style="display: none;">
+					<div class="row">
+						<div class="col-md-9">
+							<table class="table">
+								<tr>
+									<td>채팅방</td>
+								</tr>
+								<%-- <% for (int i = 0; i < #.size(); i++) {%> --%>
+								<tr>
+									<td class="chat">
+										<img alt="" src="">사진
+										<%-- <%= #.get(i).#()%> --%>
+									</td>
+								</tr>
+								<%-- <% }%> --%>
+							</table>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</section>
 	</div>
@@ -174,7 +181,36 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript">
+		$(".friendBox").click(function () {
+			$(".friend_list").toggle();
+			$(".chatBox").css("background-color","#ABEBC6");
+			$(".chatting").hide();
+			
+			var friend_dp = $(".friend_list").css("display");
+
+			if (friend_dp == "none") {
+				$(".friendBox").css("background-color","#ABEBC6");
+			} else {
+				$(".friendBox").css("background-color","#58D68D");
+			}
+		});
+
+		$(".chatBox").click(function () {
+			$(".chatting").toggle();
+			$(".friendBox").css("background-color","#ABEBC6");
+			$(".friend_list").hide();
+
+			var chat_dp = $(".chatting").css("display");
+			
+			if (chat_dp == "none") {
+				$(".chatBox").css("background-color","#ABEBC6");
+			} else {
+				$(".chatBox").css("background-color","#58D68D");
+			}
+		});
+	</script>
 
 </body>
 </html>

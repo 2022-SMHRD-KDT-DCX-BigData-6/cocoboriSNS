@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -18,11 +20,11 @@ public class CocoMemberDAO {
 	}
 	// 로그인 기능
 	public CocoMemberDTO selectMember(CocoMemberDTO dto) {
-		CocoMemberDTO member = null;
-		member = sqlSession.selectOne("com.smhrd.database.CocoMemberMapper.selectMember", dto);
-		System.out.println(member);
+	
+		CocoMemberDTO Member = null;
+		Member = sqlSession.selectOne("com.smhrd.database.CocoMemberMapper.selectMember", Member);
 		sqlSession.close();
-		return member;
+		return Member;
 	}
 	
 	// 회원정보수정 기능
@@ -31,5 +33,13 @@ public class CocoMemberDAO {
 		cnt = sqlSession.update("com.smhrd.database.CocoMemberMapper.updateMember", dto);
 		sqlSession.close();
 		return cnt ; 
+	}
+	
+	public List<CocoMemberDTO> searchFriend(String user_email) {
+		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchFriend", user_email);
+		
+		sqlSession.close();
+		
+		return searchFriend;
 	}
 }

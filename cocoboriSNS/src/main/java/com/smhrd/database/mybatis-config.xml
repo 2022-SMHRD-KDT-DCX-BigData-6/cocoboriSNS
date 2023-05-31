@@ -28,5 +28,6 @@
 	<mappers>
 		<mapper resource="com/smhrd/database/CocoMemberMapper.xml" />
 		<mapper resource="com/smhrd/database/CocoBoardMapper.xml" />
+		<mapper resource="com/smhrd/database/CocoFriendMapper.xml" />
 	</mappers>
 </configuration>
