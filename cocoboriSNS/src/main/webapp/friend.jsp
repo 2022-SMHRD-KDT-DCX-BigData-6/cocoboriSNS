@@ -55,13 +55,14 @@
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } else { %>
+						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
+						<li><a href="chat.jsp" id="community-link"><span class="icon solid fa-envelope">SNS</span></a></li>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } %>
 					<% } %>
-						<li><a href="community.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
-						<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
-						<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
+					<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 					
 				</ul>
 			</nav>
@@ -94,67 +95,31 @@
 		<!-- Intro -->
 		<section id="top" class="#">
 			<div class="container">
-				<h1>커뮤니티</h1>
+				<h1>친구</h1>
 				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
 			</div>
 		</section>
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-			<div class="container">
-				<div class="row">
-					<div class="col-3 col-12-mobile">
-						<div class="friendBox p-2">
-							<i class="fa fa-3x fa-address-book-o d-block mb-4 text-center"></i>
-							<h3 class="text-center">친구</h3>
-						</div>
-					</div>
-					<div class="col-3 col-12-mobile">
-						<div class="chatBox p-2">
-							<i class="fa fa-3x fa-comments-o d-block mb-4 text-center"></i>
-							<h3 class="text-center">채팅</h3>
-						</div>
-					</div>
-				</div>
-				<!-- row -->
 				
-				<div class="friend_list container" style="display: none;">
-					<div class="row">
-						<div class="col-md-9">
-							<table class="table">
-								<tr>
-									<td>친구</td>
-									<td><button type="button" onclick="location.href='Friend.jsp'">친구 추가</button></td>
-								</tr>
-								<% for (int i = 0; i < friendList.size(); i++) {%>
-								<tr>
-									<td onclick="location.href='FriendDetail.do?user_email=<%= friendList.get(i).getFriend_email()%>'">
-										<img alt="" src="">사진
-										<%= friendList.get(i).getFriend_email()%>
-									</td>
-								</tr>
-								<% }%>
-							</table>
-						</div>
-					</div>
-				</div>
-				<div class="chatting container" style="display: none;">
-					<div class="row">
-						<div class="col-md-9">
-							<table class="table">
-								<tr>
-									<td>채팅방</td>
-								</tr>
-								<%-- <% for (int i = 0; i < #.size(); i++) {%> --%>
-								<tr>
-									<td class="chat">
-										<img alt="" src="">사진
-										<%-- <%= #.get(i).#()%> --%>
-									</td>
-								</tr>
-								<%-- <% }%> --%>
-							</table>
-						</div>
+			<div class="friend_list container">
+				<div class="row">
+					<div class="col-md-9">
+						<table class="table">
+							<tr>
+								<td>친구</td>
+								<td><button type="button" onclick="location.href='FriendSearch1.jsp'">친구 추가</button></td>
+							</tr>
+							<% for (int i = 0; i < friendList.size(); i++) {%>
+							<tr>
+								<td onclick="location.href='FriendDetail.do?user_email=<%= friendList.get(i).getFriend_email()%>'">
+									<img alt="" src="">사진
+									<%= friendList.get(i).getFriend_email()%>
+								</td>
+							</tr>
+							<% }%>
+						</table>
 					</div>
 				</div>
 				
@@ -182,35 +147,6 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript">
-		$(".friendBox").click(function () {
-			$(".friend_list").toggle();
-			$(".chatBox").css("background-color","#ABEBC6");
-			$(".chatting").hide();
-			
-			var friend_dp = $(".friend_list").css("display");
-
-			if (friend_dp == "none") {
-				$(".friendBox").css("background-color","#ABEBC6");
-			} else {
-				$(".friendBox").css("background-color","#58D68D");
-			}
-		});
-
-		$(".chatBox").click(function () {
-			$(".chatting").toggle();
-			$(".friendBox").css("background-color","#ABEBC6");
-			$(".friend_list").hide();
-
-			var chat_dp = $(".chatting").css("display");
-			
-			if (chat_dp == "none") {
-				$(".chatBox").css("background-color","#ABEBC6");
-			} else {
-				$(".chatBox").css("background-color","#58D68D");
-			}
-		});
-	</script>
 
 </body>
 </html>
