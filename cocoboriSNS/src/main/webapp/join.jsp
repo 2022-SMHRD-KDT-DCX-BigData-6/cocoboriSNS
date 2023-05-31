@@ -1,9 +1,18 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>COCOBORI</title>
+<style type="text/css">
+	@font-face {
+   	 	font-family: 'omyu_pretty';
+   	 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    	font-weight: normal;
+   	 	font-style: normal;
+	}
+</style>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -11,7 +20,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <!-- CSS only -->
 </head>
-<body class="is-preload">
+<body class="is-preload" style="font-family: 'omyu_pretty'">
 
 	<!-- Header -->
 	<div id="header">
@@ -68,7 +77,7 @@
 		
 		<section id="portfolio" class="two">
 			<div class="container-a">
-				<form action="JoinService" method="post">
+				<form action="JoinService" method="post" enctype="multipart/form-data">
 					<div class="form-floating">
 						<input type="email" name="user_email" class="form-control-sm"
 							placeholder="Email">
@@ -99,12 +108,13 @@
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox"	name="user_pet" value="파충류">파충류
 					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"	name="user_pet" value="조류">조류
 					</div>
+					<div>
+						<input type="file"	name="user_file" vlaue="파일등록">
 					</div>
-					<button style="margin-top: 10px" type="submit" class="btn btn-info">SIGN UP</button>
-					
+					<div>
+						<button style="margin-top: 10px" type="submit" class="btn btn-info">SIGN UP</button>
+					</div>
 				</form>
 			</div>
 		</section>

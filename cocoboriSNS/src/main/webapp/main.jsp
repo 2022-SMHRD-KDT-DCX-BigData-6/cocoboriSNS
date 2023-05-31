@@ -5,21 +5,13 @@
 <html>
 <head>
 <title>COCOBORI</title>
-<style type="text/css">
-	@font-face {
-   	 	font-family: 'omyu_pretty';
-   	 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-    	font-weight: normal;
-   	 	font-style: normal;
-	}
-</style>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body class="is-preload" style="font-family: 'omyu_pretty'">
+<body class="is-preload">
 
 	<% CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember"); %>	
 	<!-- Header -->
@@ -57,7 +49,7 @@
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } %>
 					<% } %>
-						<li><a href="community.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
+						<li><a href="#" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
 						<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
 						<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 					
