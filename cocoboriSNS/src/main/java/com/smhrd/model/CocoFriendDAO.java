@@ -11,24 +11,53 @@ public class CocoFriendDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-	public List<CocoFriendDTO> showAllFriends() {
-		List<CocoFriendDTO> friend_list = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.showAllFriends");
+	public List<CocoFriendDTO> showAllFriends(String user_email) {
+		List<CocoFriendDTO> friendList = null;
+				
+		friendList = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.showAllFriends", user_email);
 
 		sqlSession.close();
 		
-		return friend_list;
+		return friendList;
 	}
 
-	public CocoFriendDTO selectFriend() {
-		CocoFriendDTO selectFriend = sqlSession.selectOne("com.smhrd.database.CocoFriendMapper.selectFriend");
+	public List<CocoFriendDTO> searchFriend(CocoFriendDTO dto) {
+		List<CocoFriendDTO> searchResult = null;
+				
+		searchResult = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.searchFriend", dto);
 		
 		sqlSession.close();
 		
-		return selectFriend;
+		return searchResult;
 	}
 	
-	public void insertFriend() {
+	public List<CocoBoardDTO> friendDetail(String user_email) {
+		List<CocoBoardDTO> friendInfo = null;
+				
+		friendInfo = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.friendDetail", user_email);
 		
+		sqlSession.close();
 		
+		return friendInfo;
+	}
+	
+	public int insertFriend(CocoFriendDTO dto) {
+		int insertResult = 0;
+		
+		insertResult = sqlSession.insert("com.smhrd.database.CocoFriendMapper.insertFriend", dto);
+		
+		sqlSession.close();
+		
+		return insertResult;
+	}
+	
+	public int deleteFriend(CocoFriendDTO dto) {
+		int deleteResult = 0;
+		
+		deleteResult = sqlSession.delete("com.smhrd.database.CocoFriendMapper.deleteFriend", dto);
+		
+		sqlSession.close();
+		
+		return deleteResult;
 	}
 }

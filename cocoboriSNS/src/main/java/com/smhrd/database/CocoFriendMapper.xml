@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.smhrd.database.CocoCommunityMapper">
-	<select id="showAllFriends" resultType="CocoFriend">
-		SELECT FROM tb_friend WHERE = #{user_email} ORDER BY uploaded_at DESC
+<mapper namespace="com.smhrd.database.CocoFriendMapper">
+	<!-- 친구 목록 출력 -->
+	<select id="showAllFriends" parameterType="String" resultType="CocoFriend">
+		SELECT * FROM tb_friend WHERE user_email = #{user_email} ORDER BY friend_email
 	</select>
-	<select id="selectFriend" resultType="CocoFriend">
-		SELECT FROM tb_friend WHERE = #{user_email}
+	<!-- 친구 찾기 -->
+	<select id="searchFriend" parameterType="CocoFriend" resultType="CocoFriend">
+		SELECT * FROM tb_friend WHERE user_email = #{user_email} AND friend_email = #{friend_email}
 	</select>
-	<insert id="">
-		INSERT
+	<!-- 친구 상세 정보 -->
+	<select id="friendDetail" parameterType="String" resultType="CocoBoard">
+		SELECT * FROM tb_board WHERE user_email = #{user_email} ORDER BY uploaded_at DESC
+	</select>
+	<!-- 친구 추가 -->
+	<insert id="insertFriend" parameterType="CocoFriend">
+		INSERT INTO tb_friend VALUES(tb_friend_seq.nextval, #{user_email}, #{friend_email}, SYSDATE)
 	</insert>
+	<!-- 친구 삭제 -->
+	<delete id="deleteFriend" parameterType="CocoFriend">
+		DELETE FROM tb_friend WHERE = user_email = #{user_email} AND friend_email = #{friend_email}
+	</delete>
 </mapper>
