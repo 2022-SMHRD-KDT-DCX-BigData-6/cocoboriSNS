@@ -76,7 +76,7 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
-  	<url-pattern>/FrontController</url-pattern>
+  	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>UpdateService</servlet-name>
