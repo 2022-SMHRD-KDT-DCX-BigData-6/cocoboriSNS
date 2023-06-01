@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.database.ChatMapper">
+
+	<!-- 친구코드 -->
+	<select id="ChatCode"
+			parameterType="CocoFriend"
+			resultType="CocoFriend">
+		SELECT FRIEND_SEQ FROM FRIEND WHERE FRIEND_EMAIL = #{FRIEND_EMAIL}
+	</select>
+	
+	<!-- 채팅 저장 -->
+	<insert id="SaveChat"
+			parameterType="CocoChatting">
+		INSERT INTO CHAT VALUES (num_board.nextval, #{CR_SEQ}, #{TALKER}, #{TALKING}, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'))
+	</insert>
+	
+	<!-- 채팅출력 -->
+	<select id="ChatList"
+			parameterType="CocoChatting"
+			resultType="CocoChatting">
+		SELECT TALKER, TALKING, TALKING_AT FROM CHAT WHERE CR_SEQ = #{CR_SEQ} ORDER BY CHAT_SEQ ASC
+	</select>
+	
+</mapper>
