@@ -125,13 +125,12 @@
 				<div class="row">
 					<div class="col-md-9">
 	<%
-		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");	// 멤버 dto 변경
+		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");
 		String me = member.getUser_email();
 	
-		String FRIEND_EMAIL = (String)session.getAttribute("friend_email");
+		String FRIEND_EMAIL = (String)session.getAttribute("friend_email"); // friend_Email 세션에 담음
 		session.setAttribute("me", member.getUser_email());
 		int FriendCode = (int)new CocoChattingDAO().ChatCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
-		/* int FriendCode = 6; // 친구 이메일을 이용하여 친구 코드 가져오는 메소드 */
 		
 		List<CocoChattingDTO> chatList = new CocoChattingDAO().ShowChat(FriendCode); // 채팅 리스트 값
 		LocalDate now = LocalDate.now(); // 현재 날짜
