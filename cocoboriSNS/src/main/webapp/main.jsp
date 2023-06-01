@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="is-preload">
+<body class="is-preload" style="font-family: 'omyu_pretty'">
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
