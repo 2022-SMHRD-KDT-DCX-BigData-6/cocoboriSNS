@@ -41,6 +41,12 @@
 			where user_email=#{user_email}
 	</delete>
 
+<!-- 친구 찾기 -->
+	<select id="searchFriend"
+			parameterType="CocoMember"
+			resultType="CocoMember">
+		SELECT USER_EMAIL FROM TB_USER WHERE SUBSTR(USER_EMAIL, 1, INSTR(USER_EMAIL, '@') -1) LIKE '%'||#{USER_EMAIL}||'%'
+	</select>
 
 
 </mapper>
