@@ -22,6 +22,7 @@
 		// 친구 상세정보
 		@SuppressWarnings("unchecked")
 		List<CocoMemberDTO> friendDetail = (List<CocoMemberDTO>)session.getAttribute("friendDetail");
+		session.setAttribute("friend_email", friendDetail.get(0).getUser_email());
 	%>
 
 	<!-- Header -->
@@ -105,7 +106,7 @@
 							<td class="text-center" colspan="2"><%= friendDetail.get(0).getUser_email()%></td>
 						</tr>
 						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='chat.jsp?friend_email=<%= friendDetail.get(0).getUser_email()%>'">채팅</button></td>
+							<td class="text-center"><button type="button" onclick="location.href='chat.jsp'">채팅</button></td>
 						</tr>
 						<tr>
 							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendDetail.get(0).getUser_email()%>'">팔로우 해제</button></td>
