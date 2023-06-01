@@ -5,7 +5,7 @@
 	<insert id="insertMember"
 			parameterType="CocoMember">
 			insert into TB_USER 
-			values (#{user_email},#{user_pw},#{user_name},#{user_nick},#{user_phone},#{user_pet},#{user_joindate},#{admin_yn},#{user_file})
+			values (#{user_email}, #{user_pw}, #{user_name}, #{user_nick}, #{user_phone}, #{user_joindate}, #{admin_yn}, #{user_file})
 	</insert>
 
 <!-- 로그인 -->
@@ -20,7 +20,7 @@
 	<update id="updateMember"
 			parameterType="CocoMember">
 			update TB_USER 
-			set user_pw=#{user_pw}, user_nick=#{user_nick}, user_phone=#{user_phone}, user_pet=#{user_pet}, user_file=#{user_file} where user_email=#{user_email}
+			set user_pw=#{user_pw}, user_nick=#{user_nick}, user_phone=#{user_phone}, user_file=#{user_file} where user_email=#{user_email}
 	</update>
 
 <!-- 전체회원정보조회 -->
@@ -41,12 +41,6 @@
 			where user_email=#{user_email}
 	</delete>
 
-<!-- 친구 찾기 -->
-	<select id="searchFriend"
-			parameterType="CocoMember"
-			resultType="CocoMember">
-		SELECT USER_EMAIL FROM TB_USER WHERE SUBSTR(USER_EMAIL, 1, INSTR(USER_EMAIL, '@') -1) LIKE '%'||#{USER_EMAIL}||'%'
-	</select>
 
 
 </mapper>

@@ -87,9 +87,23 @@
 						<input type="password" name="user_pw" class="form-control-sm"
 							placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-warning">LOGIN</button>
-					<button type="button" class="btn btn-info"
-						onclick="location.href='join.jsp'">SIGN UP</button>
+					
+					<div>
+					<button style="margin-top: 10px" type="submit" class="btn btn-info" onclick="login()" >Login</button>
+					</div>
+					
+					<script>
+					function login() {
+  					alert("로그인되었습니다.");
+  					window.location.href ="LoginService";
+					}
+					</script>
+					
+					<button type="button" class="btn btn-info" >Sign UP</button>
+					
+					
+					
+					
 				</form>
 			</div>
 			

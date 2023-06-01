@@ -58,12 +58,11 @@ public class JoinService extends HttpServlet {
 		String user_name = multi.getParameter("user_name");
 		String user_nick = multi.getParameter("user_nick");
 		String user_phone = multi.getParameter("user_phone");
-		String user_pet = multi.getParameter("user_pet");
 		Date user_joindate = now;
 		String admin_yn = "N";
 		String user_file = multi.getFilesystemName("user_file");
 		
-		CocoMemberDTO dto = new CocoMemberDTO(user_email, user_pw, user_name, user_nick, user_phone, user_pet, user_joindate, admin_yn, user_file);
+		CocoMemberDTO dto = new CocoMemberDTO(user_email, user_pw, user_name, user_nick, user_phone, user_joindate, admin_yn, user_file);
 		System.out.println(dto);
 		CocoMemberDAO dao = new CocoMemberDAO();
 		
