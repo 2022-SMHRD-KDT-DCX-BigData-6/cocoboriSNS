@@ -103,7 +103,8 @@
 						<td><%=l.getUser_phone()%></td>
 						<!-- 쿼리스트링방식 : url?name=value&name=value -->
 						<td><a
-							href="DeleteService?user_email=<%=l.getUser_email()%>">삭제</a></td>
+							href="DeleteService?user_email=<%=l.getUser_email()%>">삭제</a>
+						</td>
 					</tr>
 					<%
 					}

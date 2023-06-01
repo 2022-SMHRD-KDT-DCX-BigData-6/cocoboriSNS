@@ -24,7 +24,7 @@
 <body class="is-preload" style="font-family: 'omyu_pretty'">
 	<% CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember"); %>
 	<% String user_email = member.getUser_email(); %>
-	<% String user_name = member.getUser_name(); %>
+	<%-- <% String user_name = member.getUser_name(); %> --%>
 	<!-- Header -->
 	<div id="header">
 
@@ -81,7 +81,7 @@
 		<section id="portfolio" class="two">
 			<div class="container-a">
 				<h1><%= user_email %></h1>
-				<h1><%= user_name %></h1>
+			<%-- <h1><%= user_name %></h1> --%>
 				<form action="UpdateService" method="post" enctype="multipart/form-data">
 					<div class="form-floating">
 						<input type="password" name="user_pw" class="form-control-sm"
@@ -112,7 +112,14 @@
 					<div>
 						<button style="margin-top: 10px" type="submit" class="btn btn-info">UPDATE</button>
 					</div>
+					
+					<div>
+					<button style="margin-top: 10px" type="button" class="btn btn-link" onclick="location.href='MemberDeleteService?user_email=<%=user_email%>'">회원삭제</button>
+					</div>
 				</form>
+					
+					
+					
 			</div>
 		</section>
 
