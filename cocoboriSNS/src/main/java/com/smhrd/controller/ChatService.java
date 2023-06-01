@@ -18,20 +18,12 @@ public class ChatService extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String me = (String)session.getAttribute("me");
-		
-		String FRIEND_EMAIL = request.getParameter("friend_email");
-		/* String FRIEND_EMAIL = "scott@gmail.com"; */
-		
-		int FriendCode = (int)new CocoChattingDAO().ChatCode(FRIEND_EMAIL); 
-			
-		/*
-		 * int FriendCode = 6; // 친구DAO 변경
-		 */		
-		
-		// 발화자 수정해야 함. 로그인한 내 닉네임 값 가져올 것.
+		String FRIEND_EMAIL = (String)session.getAttribute("friend_email");
 		String talker = me;
 		String talking = request.getParameter("talking");
 		
+		int FriendCode = (int)new CocoChattingDAO().ChatCode(FRIEND_EMAIL); 
+			
 		CocoChattingDTO dto = new CocoChattingDTO(FriendCode, talker, talking); // 채팅방 번호는 친구 테이블에서 가져온다.
 		CocoChattingDAO dao = new CocoChattingDAO();
 		int cnt = dao.SaveChat(dto);
