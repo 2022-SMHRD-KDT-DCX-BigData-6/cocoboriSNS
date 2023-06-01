@@ -10,8 +10,8 @@
 		SELECT * FROM tb_friend WHERE user_email = #{user_email} AND friend_email = #{friend_email}
 	</select>
 	<!-- 친구 상세 정보 -->
-	<select id="friendDetail" parameterType="String" resultType="CocoBoard">
-		SELECT * FROM tb_board WHERE user_email = #{user_email} ORDER BY uploaded_at DESC
+	<select id="friendDetail" parameterType="String" resultType="CocoMember">
+		SELECT * FROM tb_user WHERE user_email = #{user_email}
 	</select>
 	<!-- 친구 추가 -->
 	<insert id="insertFriend" parameterType="CocoFriend">
@@ -19,6 +19,6 @@
 	</insert>
 	<!-- 친구 삭제 -->
 	<delete id="deleteFriend" parameterType="CocoFriend">
-		DELETE FROM tb_friend WHERE = user_email = #{user_email} AND friend_email = #{friend_email}
+		DELETE FROM tb_friend WHERE user_email = #{user_email} AND friend_email = #{friend_email}
 	</delete>
 </mapper>

@@ -31,8 +31,8 @@ public class CocoFriendDAO {
 		return searchResult;
 	}
 	
-	public List<CocoBoardDTO> friendDetail(String user_email) {
-		List<CocoBoardDTO> friendInfo = null;
+	public List<CocoMemberDTO> friendDetail(String user_email) {
+		List<CocoMemberDTO> friendInfo = null;
 				
 		friendInfo = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.friendDetail", user_email);
 		

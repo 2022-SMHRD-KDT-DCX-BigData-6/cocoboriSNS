@@ -14,7 +14,7 @@ public class InsertFriend implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("member");
+		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
 		
 		String user_email = member.getUser_email();
 		String friend_email = request.getParameter("friend_email");

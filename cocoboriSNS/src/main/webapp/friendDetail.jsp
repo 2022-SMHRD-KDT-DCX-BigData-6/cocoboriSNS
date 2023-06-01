@@ -5,152 +5,145 @@
 <%@page import="com.smhrd.model.CocoFriendDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>코코보리</title>
-<!--
-
-Template 2094 Mason
-
-http://www.tooplate.com/view/2094-mason
-
--->
-
-<!-- load stylesheets -->
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400"> <!-- Google web font "Open Sans", https://fonts.google.com/ -->
-<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> <!-- Font Awesome, http://fontawesome.io/ -->
-<link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap styles, https://getbootstrap.com/ -->
-<link rel="stylesheet" href="css/tooplate-style.css"> <!-- Templatemo style -->
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+<title>COCOBORI</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-	<% 
-		// 친구 목록
-		// CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("member");
-		String user_email = "user_email 001"; // member.getUser_email();
-	
-		List<CocoFriendDTO> friendList = new CocoFriendDAO().showAllFriends(user_email);
-		
+<body class="is-preload">
+
+	<%
+		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
+
 		// 친구 상세정보
 		@SuppressWarnings("unchecked")
-		List<CocoBoardDTO> friendDetail = (List<CocoBoardDTO>)session.getAttribute("friendDetail");
+		List<CocoMemberDTO> friendDetail = (List<CocoMemberDTO>)session.getAttribute("friendDetail");
 	%>
-	<div class="container-fluid">
-		<div class="tm-body">
-			<div class="tm-sidebar sticky">
-				<section id="welcome" class="tm-content-box tm-banner margin-b-15">
-					<div class="tm-banner-inner">
-						<h1><a href="index.jsp" class="tm-banner-title">코코보리</a></h1>
-						<p class="tm-banner-subtitle">반려동물 SNS</p>
-					</div>
-				</section>
-				<nav class="tm-main-nav">
-					<ul class="tm-main-nav-ul">
-						<li class="tm-nav-item"><a href="pet_info.jsp" class="tm-nav-item-link tm-button">반려동물 정보</a></li>
-						<li class="tm-nav-item"><a href="board.jsp" class="tm-nav-item-link tm-button">게시판</a></li>
-						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button active">커뮤니티</a></li>
-						<li class="tm-nav-item"><a href="info_me.jsp" class="tm-nav-item-link tm-button">내 주변 정보</a></li>
-						<li class="tm-nav-item"><a href="#" class="tm-nav-item-link tm-button">로그인</a></li>
-					</ul>
-				</nav>
+
+	<!-- Header -->
+	<div id="header">
+
+		<div class="top">
+
+			<!-- Logo -->
+			<div id="logo">
+				<!-- 프로필 사진 넣는 자리 -->
+				<span class="image avatar48"><img src="images/retriever.webp"
+					alt="" /></span>
+				<h1 id="title">COCOBORI</h1>
+				<p>
+					<% if (member == null) {%>
+						친구
+					<% } else {%>
+						<%=member.getUser_nick()%>
+					<% }%>
+				</p>
 			</div>
-			<!-- side menu -->
-			
-			<div class="tm-main-content">
-				<div class="row mb-4">
-					<div class="col-sm mb-4">
-						<div class="friendBox p-2" onclick="location.href='community.jsp'" style="background-color: #58D68D;">
-							<i class="fa fa-3x fa-address-book-o d-block mb-4 text-center"></i>
-							<h3 class="text-center">친구</h3>
-						</div>
-					</div>
-					<div class="col-sm mb-4">
-						<div class="chatBox p-2" onclick="location.href='community.jsp'">
-							<i class="fa fa-3x fa-comments-o d-block mb-4 text-center"></i>
-							<h3 class="text-center">채팅</h3>
-						</div>
-					</div>
-				</div>
-				<!-- row -->
-				
-				<div>
-					<table class="table">
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">HOME</span></a></li>
+					<% if (member == null) {%>
+						<li><a href="login.jsp" id="login-link"><span class="icon solid fa-envelope">LOGIN</span></a></li>
+					<% } else {%>
+						<% if (member.getUser_email().equals("admin@admin.com")) {%>
+							<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
+							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<% } else {%>
+							<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
+							<li><a href="chat.jsp" id="community-link"><span class="icon solid fa-envelope">SNS</span></a></li>
+							<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
+							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<% }%>
+					<% }%>
+						<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
+						<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="bottom">
+
+			<!-- Social Icons -->
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- Intro -->
+		<section id="top" class="#">
+			<div class="container">
+				<h1>친구</h1>
+				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
+			</div>
+		</section>
+
+		<!-- Portfolio -->
+		<section id="#" class="two">
+
+			<div class="friend_list container">
+				<div class="row">
+					<div class="col-md-9">
+						<table class="table">
 						<tr>
 							<td class="text-center" rowspan="2">사진</td>
 							<td class="text-center" colspan="2"><%= friendDetail.get(0).getUser_email()%></td>
 						</tr>
 						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='FriendDetail.do?friend_email=<%= friendDetail.get(0).getUser_email()%>'">팔로우 해제</button></td>
+							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendDetail.get(0).getUser_email()%>'">팔로우 해제</button></td>
 						</tr>
 						<tr>
 							<td class="text-center" colspan="3">게시물</td>
 						</tr>
 						<% for (int i = 0; i < friendDetail.size(); i++) {%>
 						<tr>
-							<td colspan="3" onclick="location.href='#'"><%= friendDetail.get(i).getB_title()%></td>
+							<%-- <td colspan="3" onclick="location.href='#'"><%= friendDetail.get(i).%></td> --%>
 						</tr>
 						<% }%>
 					</table>
+					</div>
 				</div>
+
 			</div>
-		</div>
-		<!-- tm-main-content -->
-		
-		<footer class="tm-footer text-right">
-			<p>
-				Copyright &copy; <span class="tm-current-year">2018</span> Your Company - Designed by 
-				<a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
-			</p>
-		</footer>
+		</section>
 	</div>
-	<!-- container-fluid -->
-	
-	<!-- load JS files -->
-	<script src="js/jquery-1.11.3.min.js"></script>	<!-- jQuery (https://jquery.com/download/) -->
-	<script>
-		$(document).ready(function(){
-		// Update the current year in copyright
-			$('.tm-current-year').text(new Date().getFullYear());
-		});
-	</script>
-	<script type="text/javascript">
-		$(".friendBox").click(function () {
-			$(".friend_list").toggle();
-			$(".chatBox").css("background-color","#ABEBC6");
-			$(".chatting").hide();
-			
-			var friend_dp = $(".friend_list").css("display");
 
-			if (friend_dp == "none") {
-				$(".friendBox").css("background-color","#ABEBC6");
-			} else {
-				$(".friendBox").css("background-color","#58D68D");
-			}
-		});
+	<!-- Footer -->
+	<div id="footer">
 
-		$(".chatBox").click(function () {
-			$(".chatting").toggle();
-			$(".friendBox").css("background-color","#ABEBC6");
-			$(".friend_list").hide();
+		<!-- Copyright -->
+		<ul class="copyright">
+			<li>&copy; Untitled. All rights reserved.</li>
+			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul>
 
-			var chat_dp = $(".chatting").css("display");
-			
-			if (chat_dp == "none") {
-				$(".chatBox").css("background-color","#ABEBC6");
-			} else {
-				$(".chatBox").css("background-color","#58D68D");
-			}
-		});
-	</script>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

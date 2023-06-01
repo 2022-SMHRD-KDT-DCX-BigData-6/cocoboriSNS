@@ -39,7 +39,7 @@ public class FrontController extends HttpServlet {
 		if (rsltURI.equals("FriendDetail.do")) {
 			service = new FriendDetail();
 // 친구 추가
-		} else if (rsltURI.equals("DeleteFriend.do")) {
+		} else if (rsltURI.equals("InsertFriend.do")) {
 			service = new InsertFriend();
 // 친구 삭제
 		} else if (rsltURI.equals("DeleteFriend.do")) {

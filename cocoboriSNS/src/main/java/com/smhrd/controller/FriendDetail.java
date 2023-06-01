@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.command.Command;
-import com.smhrd.model.CocoBoardDTO;
 import com.smhrd.model.CocoFriendDAO;
+import com.smhrd.model.CocoMemberDTO;
 
 public class FriendDetail implements Command {
 
@@ -17,7 +17,7 @@ public class FriendDetail implements Command {
 		String user_email = request.getParameter("user_email");
 		
 		CocoFriendDAO dao = new CocoFriendDAO();
-		List<CocoBoardDTO> friendDetail = dao.friendDetail(user_email);
+		List<CocoMemberDTO> friendDetail = dao.friendDetail(user_email);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("friendDetail", friendDetail);
