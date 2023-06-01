@@ -2652,7 +2652,7 @@ input, select, textarea {
 	#top {
 		background-color: #F7E1AE;
 	}
-	
+
 	@font-face { 
 		font-family: 'omu';
 		font-style: normal;
@@ -2663,3 +2663,8 @@ input, select, textarea {
 		font-family: "omu";
 	}
 	
+
+/* add */
+	.friend_email:hover {
+		font-weight: bolder;
+	}

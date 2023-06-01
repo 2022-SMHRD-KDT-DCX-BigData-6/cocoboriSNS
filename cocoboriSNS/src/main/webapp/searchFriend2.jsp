@@ -1,8 +1,8 @@
-<%@page import="com.smhrd.model.CocoBoardDTO"%>
+<%@page import="com.smhrd.model.CocoFriendDAO"%>
+<%@page import="com.smhrd.model.CocoFriendDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.CocoMemberDTO"%>
-<%@page import="com.smhrd.model.CocoFriendDTO"%>
-<%@page import="com.smhrd.model.CocoFriendDAO"%>
+<%@page import="com.smhrd.model.CocoMemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -26,12 +26,10 @@
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
-
-		// 친구 상세정보
-		@SuppressWarnings("unchecked")
-		List<CocoMemberDTO> friendDetail = (List<CocoMemberDTO>)session.getAttribute("friendDetail");
+		String user_email = request.getParameter("searchFriend");
+		List<CocoMemberDTO> friendSearch = new CocoMemberDAO().searchFriend(user_email); //dto 변경
 	%>
-
+	
 	<!-- Header -->
 	<div id="header">
 
@@ -88,7 +86,7 @@
 		<!-- Intro -->
 		<section id="top" class="#">
 			<div class="container">
-				<h1>친구 정보</h1>
+				<h1>친구 찾기</h1>
 				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
 			</div>
 		</section>
@@ -98,31 +96,33 @@
 
 			<div class="friend_list container">
 				<div class="row">
-					<div class="col-md-9">
-						<table class="table">
-						<tr>
-							<td class="text-center" rowspan="2">사진</td>
-							<td class="text-center" colspan="2"><%= friendDetail.get(0).getUser_email()%></td>
-						</tr>
-						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='chat.jsp'">채팅</button></td>
-						</tr>
-						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendDetail.get(0).getUser_email()%>'">팔로우 해제</button></td>
-						</tr>
-						<tr>
-							<td class="text-center" colspan="3">게시물</td>
-						</tr>
-						<% for (int i = 0; i < friendDetail.size(); i++) {%>
-							<tr>
-								<%-- <td colspan="3" onclick="location.href='#'"><%= friendDetail.get(i).%></td> --%>
-							</tr>
-						<% }%>
-					</table>
+					<div id="board">
+						<form action="searchFriend2.jsp">
+							<table id="list">
+								<tr>
+									<td><input type="text" placeholder="이메일을 입력해주세요" name="searchFriend"></td>
+									<td><input type="submit" value="검색"></td>
+								</tr>
+								<tr>
+									<td>'<%=user_email%>'에 대한 검색 결과</td>
+								</tr>
+								<% for (CocoMemberDTO i : friendSearch) {%> <!-- dto 변경 -->
+									<tr>
+										<td colspan="4">
+											<%=i.getUser_email()%>
+											<button type="button" onclick="location.href='InsertFriend.do?friend_email=<%=i.getUser_email()%>'">팔로우</button>
+										</td>
+										<!-- 친구 신청으로 들어가게 만들기 -->
+									</tr>
+								<% }%>
+							</table>
+						</form>
+						<a href="friend.jsp"><button id="writer">친구 페이지</button></a>
+						<!-- 경로 변경 -->
 					</div>
 				</div>
-
 			</div>
+
 		</section>
 	</div>
 
