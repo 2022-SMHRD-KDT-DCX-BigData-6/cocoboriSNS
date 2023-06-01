@@ -1,8 +1,6 @@
 package com.smhrd.controller;
 
-import java.awt.Window;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
