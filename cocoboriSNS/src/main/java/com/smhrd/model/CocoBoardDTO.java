@@ -4,19 +4,14 @@ import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
 
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 // 게시판 
 public class CocoBoardDTO {
-
-	
-	
 	
     // 글 순번(식별자) 
 	private int b_seq;
