@@ -19,8 +19,12 @@ public class ChatService extends HttpServlet {
 		HttpSession session = request.getSession();
 		String me = (String)session.getAttribute("me");
 		
-		String FRIEND_EMAIL = "S";
-		double FriendCode = new CocoChattingDAO().FriendCode(FRIEND_EMAIL);	// 친구DAO 변경
+		String FRIEND_EMAIL = "scott@gmail.com";
+		/*
+		 * int FriendCode = (int)new CocoChattingDAO().FriendCode(FRIEND_EMAIL); //
+		 * 친구DAO 변경
+		 */		
+		int FriendCode = 6;	// 친구DAO 변경
 		
 		// 발화자 수정해야 함. 로그인한 내 닉네임 값 가져올 것.
 		String talker = me;
@@ -31,9 +35,9 @@ public class ChatService extends HttpServlet {
 		int cnt = dao.SaveChat(dto);
 		
 		if(cnt > 0) {
-			response.sendRedirect("ChatMain.jsp");
+			response.sendRedirect("chat.jsp");
 		} else {
-			response.sendRedirect("ChatMain.jsp");
+			response.sendRedirect("chat.jsp");
 		}
 		
 	}
