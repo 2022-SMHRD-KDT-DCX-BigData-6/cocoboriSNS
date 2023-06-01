@@ -12,7 +12,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.model.CocoBoardDAO;
 import com.smhrd.model.CocoBoardDTO;
 
-
 //@WebServlet("/WriteBoardService")
 public class WriteBoardService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
