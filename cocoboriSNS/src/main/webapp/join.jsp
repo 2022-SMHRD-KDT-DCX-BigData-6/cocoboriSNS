@@ -98,23 +98,19 @@
 						<input type="text" name="user_phone" class="form-control-sm"
 							placeholder="Phone">
 					</div>
-					<div class="check-pet">
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"	name="user_pet" value="강아지">강아지
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"	name="user_pet" value="고양이">고양이
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"	name="user_pet" value="파충류">파충류
-					</div>
-					</div>
 					<div>
 						<input type="file"	name="user_file" vlaue="파일등록">
 					</div>
 					<div>
-						<button style="margin-top: 10px" type="submit" class="btn btn-info">SIGN UP</button>
+						<button style="margin-top: 10px" type="submit" class="btn btn-info" onclick="joinMember()" >SIGN UP</button>
 					</div>
+					
+					<script>
+					function joinMember() {
+  					alert("회원가입 완료");
+  					window.location.href ="JoinService";
+					}
+					</script>
 				</form>
 			</div>
 		</section>

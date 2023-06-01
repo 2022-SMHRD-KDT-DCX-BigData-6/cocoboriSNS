@@ -9,18 +9,16 @@ public class CocoMemberDTO {
 	private String user_name;
 	private String user_nick;
 	private String user_phone;
-	private String user_pet;
 	private Date user_joindate;
 	private String admin_yn;
 	private String user_file;
 
 
-	public CocoMemberDTO(String user_email, String user_pw, String user_nick, String user_phone, String user_pet, String user_file ) {
+	public CocoMemberDTO(String user_email, String user_pw, String user_nick, String user_phone, String user_file ) {
 		this.user_email = user_email;
 		this.user_pw = user_pw;
 		this.user_nick = user_nick;
 		this.user_phone = user_phone;
-		this.user_pet = user_pet;
 		this.user_file = user_file;		
 	}
 
@@ -34,14 +32,13 @@ public class CocoMemberDTO {
 	}
 
 	public CocoMemberDTO(String user_email, String user_pw, String user_name, String user_nick, String user_phone,
-			String user_pet, Date user_joindate, String admin_yn, String user_file) {
+			Date user_joindate, String admin_yn, String user_file) {
 		super();
 		this.user_email = user_email;
 		this.user_pw = user_pw;
 		this.user_name = user_name;
 		this.user_nick = user_nick;
 		this.user_phone = user_phone;
-		this.user_pet = user_pet;
 		this.user_joindate = user_joindate;
 		this.admin_yn = admin_yn;
 		this.user_file = user_file;
@@ -87,14 +84,6 @@ public class CocoMemberDTO {
 		this.user_phone = user_phone;
 	}
 
-	public String getUser_pet() {
-		return user_pet;
-	}
-
-	public void setUser_pet(String user_pet) {
-		this.user_pet = user_pet;
-	}
-
 	public Date getUser_joindate() {
 		return user_joindate;
 	}
@@ -122,11 +111,9 @@ public class CocoMemberDTO {
 	@Override
 	public String toString() {
 		return "CocoMemberDTO [user_email=" + user_email + ", user_pw=" + user_pw + ", user_name=" + user_name
-				+ ", user_nick=" + user_nick + ", user_phone=" + user_phone + ", user_pet=" + user_pet
-				+ ", user_joindate=" + user_joindate + ", admin_yn=" + admin_yn + ", user_file=" + user_file + "]";
+				+ ", user_nick=" + user_nick + ", user_phone=" + user_phone + ", user_joindate=" + user_joindate
+				+ ", admin_yn=" + admin_yn + ", user_file=" + user_file + "]";
 	}
-
-
 
 	
 	
