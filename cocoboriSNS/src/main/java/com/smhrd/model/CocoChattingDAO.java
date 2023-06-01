@@ -13,8 +13,14 @@ public class CocoChattingDAO {
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 	
 	// 친구 코드를 통해 채팅방 찾는 메소드
-	public List<CocoFriendDTO> ChatCode(String FRIEND_EMAIL) {	
-		List<CocoFriendDTO> FriendCode = sqlSession.selectList("com.smhrd.database.CocoChatMapper.ChatCode", FRIEND_EMAIL);
+	public double ChatCode(String FRIEND_EMAIL) {	
+		List<CocoFriendDTO> friendList = sqlSession.selectList("com.smhrd.database.CocoChatMapper.ChatCode", FRIEND_EMAIL);
+		
+		double FriendCode = 0;
+		
+		for (CocoFriendDTO i : friendList) {
+			FriendCode = i.getFriend_seq();
+		}
 		
 		sqlSession.close();
 		
@@ -41,21 +47,20 @@ public class CocoChattingDAO {
 		return chat_List;
 	}
 	
-	public double FriendCode(String FRIEND_EMAIL) {
-			
-			// 친구코드 가져오는 메소드
-			FRIEND_EMAIL = "scott@gmail.com";
-			List<CocoFriendDTO> friendList = new CocoChattingDAO().ChatCode(FRIEND_EMAIL);
-			
-			double FriendCode = 0;
-			
-			for (CocoFriendDTO i : friendList) {
-				FriendCode = i.getFriend_seq();
-			}
-	
-			return FriendCode;
-			
-	}
+	/*
+	 * public double FriendCode(String FRIEND_EMAIL) {
+	 * 
+	 * List<CocoFriendDTO> friendList = new
+	 * CocoChattingDAO().ChatCode(FRIEND_EMAIL);
+	 * 
+	 * double FriendCode = 0;
+	 * 
+	 * for (CocoFriendDTO i : friendList) { FriendCode = i.getFriend_seq(); }
+	 * 
+	 * return FriendCode;
+	 * 
+	 * }
+	 */
 	
 	
 }

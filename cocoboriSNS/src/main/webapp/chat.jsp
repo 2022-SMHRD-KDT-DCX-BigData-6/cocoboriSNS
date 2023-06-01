@@ -81,7 +81,6 @@
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } else {%>
 							<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
-							<li><a href="chat.jsp" id="community-link"><span class="icon solid fa-envelope">SNS</span></a></li>
 							<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% }%>
@@ -129,20 +128,20 @@
 		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");	// 멤버 dto 변경
 		String me = member.getUser_email();
 	
+		String FRIEND_EMAIL = (String)session.getAttribute("friend_email");
 		session.setAttribute("me", member.getUser_email());
-		String FRIEND_EMAIL = "scott@gmail.com"; // 지금은 임의의 값인 "Y"를 친구 이메일 값으로 설정했지만 친구 이메일 값을 받아오는 걸로 변경해야 한다.
-		/* int FriendCode = (int)new CocoChattingDAO().FriendCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드 */
-		int FriendCode = 6; // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
-	
+		int FriendCode = (int)new CocoChattingDAO().ChatCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
+		/* int FriendCode = 6; // 친구 이메일을 이용하여 친구 코드 가져오는 메소드 */
+		
 		List<CocoChattingDTO> chatList = new CocoChattingDAO().ShowChat(FriendCode); // 채팅 리스트 값
 		LocalDate now = LocalDate.now(); // 현재 날짜
 		String day = now.toString();
 	%> 
 	
-	<form action="ChatService" method="post">
+	<form action="ChatService?friend_email=<%= FRIEND_EMAIL%>" method="post">
 		<table border="1">
 			<tr>
-				<td colspan="2"><h2 style="text-align: center;"> <%= FRIEND_EMAIL %>님과의 채팅 </h2></td> <!-- 친구목록에서 닉네임을 받아와서 출력해 주어야 함! -->
+				<td colspan="2"><h2 style="text-align: center;"> <%= FRIEND_EMAIL %>님과의 채팅 </h2></td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -155,7 +154,7 @@
 					int idx = time.indexOf(" "); // 빈 곳 문자열 찾기
 					String judgeTime = time.substring(0, idx); // 오늘과 같은 날짜인지 판단을 위한 날짜 추출
 					
-					if(!talker.equals(me)){ // <"나" 부분을 내 이메일 값을 가져와서 판단해야 한다. 수정할 것!>
+					if(!talker.equals(me)){ 
 				%>
 						<h4><%= talker %> - <%= talkking %></h4> <!-- 내가 발화자가 아닐 경우 발화자 부분에 프로필사진을 넣을 수 있는지 고려 -->
 						<% if(judgeTime.equals(day)){ %>
