@@ -13,7 +13,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.model.CocoBoardDAO;
 import com.smhrd.model.CocoBoardDTO;
-import com.smhrd.model.WebMemberDTO;
+//import com.smhrd.model.WebMemberDTO;
 
 
 //@WebServlet("/WriteBoardService")
