@@ -16,18 +16,18 @@ import lombok.RequiredArgsConstructor;
 public class CocoChattingDTO {
 
     // 채팅 순번 
-    private int chat_seq;
+    private int CHAT_SEQ;
 
     // 채팅방 순번 
-    @NonNull private Double cr_seq;
+    @NonNull private int CR_SEQ;
 
     // 발화자 
-    @NonNull private String talker;
+    @NonNull private String TALKER;
 
     // 발화 내용 
-    @NonNull private String talking;
+    @NonNull private String TALKING;
 
     // 발화 시간 
-    private String talking_at;
+    private String TALKING_AT;
 
 }

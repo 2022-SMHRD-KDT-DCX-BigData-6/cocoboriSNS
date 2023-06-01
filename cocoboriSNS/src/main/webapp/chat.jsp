@@ -10,6 +10,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <title>COCOBORI</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script>
@@ -37,17 +41,12 @@
 		    }
 		}
 	</script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="is-preload">
 
 	<%
-		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
+		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
 		String user_email = member.getUser_email();
-		List<CocoFriendDTO> friendList = new CocoFriendDAO().showAllFriends(user_email);
 	%>
 	
 	<!-- Header -->
@@ -126,13 +125,14 @@
 			<div class="chatting container">
 				<div class="row">
 					<div class="col-md-9">
-						<%
+	<%
 		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");	// 멤버 dto 변경
 		String me = member.getUser_email();
 	
 		session.setAttribute("me", member.getUser_email());
-		String FRIEND_EMAIL = "S"; // 지금은 임의의 값인 "Y"를 친구 이메일 값으로 설정했지만 친구 이메일 값을 받아오는 걸로 변경해야 한다.
-		int FriendCode = (int)new CocoChattingDAO().FriendCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
+		String FRIEND_EMAIL = "scott@gmail.com"; // 지금은 임의의 값인 "Y"를 친구 이메일 값으로 설정했지만 친구 이메일 값을 받아오는 걸로 변경해야 한다.
+		/* int FriendCode = (int)new CocoChattingDAO().FriendCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드 */
+		int FriendCode = 6; // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
 	
 		List<CocoChattingDTO> chatList = new CocoChattingDAO().ShowChat(FriendCode); // 채팅 리스트 값
 		LocalDate now = LocalDate.now(); // 현재 날짜
@@ -148,10 +148,10 @@
 				<td colspan="2">
 				<%
 					for (CocoChattingDTO i : chatList) {
-					String talker = i.getTalker();
-					String talkking = i.getTalking();
+					String talker = i.getTALKER();
+					String talkking = i.getTALKING();
 					
-					String time = i.getTalking_at(); // 테이블에 있는 작성 시간
+					String time = i.getTALKING_AT(); // 테이블에 있는 작성 시간
 					int idx = time.indexOf(" "); // 빈 곳 문자열 찾기
 					String judgeTime = time.substring(0, idx); // 오늘과 같은 날짜인지 판단을 위한 날짜 추출
 					

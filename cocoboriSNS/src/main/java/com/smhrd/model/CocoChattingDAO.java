@@ -44,7 +44,7 @@ public class CocoChattingDAO {
 	public double FriendCode(String FRIEND_EMAIL) {
 			
 			// 친구코드 가져오는 메소드
-			FRIEND_EMAIL = "S";
+			FRIEND_EMAIL = "scott@gmail.com";
 			List<CocoFriendDTO> friendList = new CocoChattingDAO().ChatCode(FRIEND_EMAIL);
 			
 			double FriendCode = 0;
@@ -55,7 +55,7 @@ public class CocoChattingDAO {
 	
 			return FriendCode;
 			
-		}
+	}
 	
 	
 }
