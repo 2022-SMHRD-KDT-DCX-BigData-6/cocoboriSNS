@@ -107,7 +107,7 @@
 					</div>
 					</div>
 					<div>
-						<input type="file"	name="user_file" vlaue="파일등록">
+						<input type="file"	name="user_file" value="파일등록">
 					</div>
 					<div>
 						<button style="margin-top: 10px" type="submit" class="btn btn-info">UPDATE</button>

@@ -10,12 +10,7 @@
      <description></description>
      <servlet-class>com.smhrd.controller.Ex_page</servlet-class>
   </servlet>
-  <servlet>
-     <servlet-name>JoinService</servlet-name>
-     <display-name>JoinService</display-name>
-     <description></description>
-     <servlet-class>com.smhrd.controller.JoinService</servlet-class>
-  </servlet>
+ 
   <servlet>
   	<servlet-name>LoginService</servlet-name>
   	<display-name>LoginService</display-name>
@@ -29,19 +24,34 @@
   	<servlet-class>com.smhrd.controller.LogoutService</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>JoinService</servlet-name>
+  	<display-name>JoinService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.JoinService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteService</servlet-name>
+  	<display-name>DeleteService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.DeleteService</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>FrontController</servlet-name>
   	<display-name>FrontController</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.frontcontroller.FrontController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateService</servlet-name>
+  	<display-name>UpdateService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.UpdateService</servlet-class>
+  </servlet>
   <servlet-mapping>
      <servlet-name>Ex_page</servlet-name>
      <url-pattern>/Ex_page</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-     <servlet-name>JoinService</servlet-name>
-     <url-pattern>/JoinService</url-pattern>
-  </servlet-mapping>
+ 
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
   	<url-pattern>/LoginService</url-pattern>
@@ -51,7 +61,19 @@
   	<url-pattern>/LogoutService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+  	<servlet-name>JoinService</servlet-name>
+  	<url-pattern>/JoinService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteService</servlet-name>
+  	<url-pattern>/DeleteService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
-  	<url-pattern>*.do</url-pattern>
+  	<url-pattern>/FrontController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateService</servlet-name>
+  	<url-pattern>/UpdateService</url-pattern>
   </servlet-mapping>
 </web-app>

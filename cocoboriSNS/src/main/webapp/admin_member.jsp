@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.CocoMemberDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.CocoMemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -20,6 +23,11 @@
 </head>
 <body class="is-preload" style="font-family: 'omyu_pretty'">
 
+
+<%
+	CocoMemberDAO dao = new CocoMemberDAO();
+	List<CocoMemberDTO> list = dao.selectAllMember();
+	%>
 	<!-- Header -->
 	<div id="header">
 
@@ -82,38 +90,30 @@
 		
 		<!-- Portfolio -->
 		<section id="portfolio" class="two">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+			<table class="table">
+				<thead>
+
+					<%
+					for (CocoMemberDTO l : list) {
+					%>
+					<tr>
+						<td><%=l.getUser_email()%></td>
+						<td><%=l.getUser_name()%></td>
+						<td><%=l.getUser_nick()%></td>
+						<td><%=l.getUser_phone()%></td>
+						<!-- 쿼리스트링방식 : url?name=value&name=value -->
+						<td><a
+							href="DeleteService?user_email=<%=l.getUser_email()%>">삭제</a></td>
+					</tr>
+					<%
+					}
+					%>
+				
+				</tbody>
+			</table>
 		</section>
 
-		
+
 	</div>
 
 	<!-- Footer -->
