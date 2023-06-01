@@ -53,7 +53,6 @@
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } else {%>
 							<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
-							<li><a href="chat.jsp" id="community-link"><span class="icon solid fa-envelope">SNS</span></a></li>
 							<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% }%>

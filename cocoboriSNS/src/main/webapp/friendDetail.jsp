@@ -56,7 +56,6 @@
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } else {%>
 							<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
-							<li><a href="chat.jsp" id="community-link"><span class="icon solid fa-envelope">SNS</span></a></li>
 							<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% }%>
@@ -104,6 +103,9 @@
 						<tr>
 							<td class="text-center" rowspan="2">사진</td>
 							<td class="text-center" colspan="2"><%= friendDetail.get(0).getUser_email()%></td>
+						</tr>
+						<tr>
+							<td class="text-center"><button type="button" onclick="location.href='chat.jsp?friend_email=<%= friendDetail.get(0).getUser_email()%>'">채팅</button></td>
 						</tr>
 						<tr>
 							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendDetail.get(0).getUser_email()%>'">팔로우 해제</button></td>
