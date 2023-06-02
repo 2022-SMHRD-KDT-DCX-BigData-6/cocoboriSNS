@@ -34,7 +34,7 @@ public class DeleteFriend implements Command {
 		friendInfo.clear();
 		friendHistory.clear();
 		
-		return "FriendDetail.do?user_email=" + friend_email;
+		return "friend.jsp";
 	}
 
 }

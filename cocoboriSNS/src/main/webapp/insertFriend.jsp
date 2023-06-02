@@ -18,6 +18,12 @@
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
+		
+		String user_email = member.getUser_email();
+		String search_email = request.getParameter("search_email");
+		
+		CocoFriendDTO dto = new CocoFriendDTO(null, user_email, search_email, null);
+		List<CocoMemberDTO> memberList = new CocoMemberDAO().searchMember(dto);
 	%>
 	
 	<!-- Header -->
@@ -90,9 +96,21 @@
 						<form action="insertFriend2.jsp">
 							<table id="list">
 								<tr>
-									<td><input type="text" placeholder="이메일을 입력해주세요" name="searchFriend"></td>
+									<td><input type="text" placeholder="이메일을 입력해주세요" name="search_email"></td>
 									<td><input type="submit" value="검색"></td>
 								</tr>
+								<tr>
+									<td>'<%=user_email%>'에 대한 검색 결과</td>
+								</tr>
+								<% for (CocoMemberDTO i : memberList) {%> <!-- dto 변경 -->
+									<tr>
+										<td colspan="4">
+											<%=i.getUser_email()%>
+											<button type="button" onclick="location.href='InsertFriend.do?friend_email=<%=i.getUser_email()%>'">팔로우</button>
+										</td>
+										<!-- 친구 신청으로 들어가게 만들기 -->
+									</tr>
+								<% }%>
 							</table>
 						</form>
 						<a href="friend.jsp"><button id="writer">친구 페이지</button></a>
