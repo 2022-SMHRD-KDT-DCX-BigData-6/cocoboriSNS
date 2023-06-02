@@ -35,8 +35,7 @@
 
 			<!-- Logo -->
 			<div id="logo">
-			<span class="image avatar48"><img src="images/관리자.png"
-					alt="" /></span>
+			<span class="image avatar48"><img src="images/admin.png" alt="" /></span>
 				<h1 id="title">COCOBORI</h1>
 				<p>
 					관리자
@@ -86,13 +85,17 @@
 		<!-- Intro -->
 		<section id="top" class="#">
 			<div class="container">
-				<h1>회원정보조회 페이지</h1>
+				<h1>회원정보조회</h1>
+				<p>회원삭제가 가능한 관리자 페이지입니다.</p>
 			</div>
 		</section>
 		
 		
 		<!-- Portfolio -->
 		<section id="portfolio" class="two">
+			
+			<div class="container-b">
+				
 			<table class="table">
 				<thead>
 
@@ -105,8 +108,11 @@
 						<td><%=l.getUser_nick()%></td>
 						<td><%=l.getUser_phone()%></td>
 						<!-- 쿼리스트링방식 : url?name=value&name=value -->
-						<td><a
-							href="DeleteService?user_email=<%=l.getUser_email()%>">삭제</a>
+						<td>
+						
+						<button type="button" class="btn btn-danger" onclick="DeleteService?user_email=<%=l.getUser_email()%>">삭제</button>
+						<%-- <a
+							href="DeleteService?user_email=<%=l.getUser_email()%>">삭제</a> --%>
 						</td>
 					</tr>
 					<%
@@ -115,6 +121,7 @@
 				
 				</tbody>
 			</table>
+			</div>
 		</section>
 
 

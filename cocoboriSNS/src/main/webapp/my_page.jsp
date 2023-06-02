@@ -18,8 +18,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://kit.fontawesome.com/87eea0d038.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <!-- CSS only -->
@@ -87,28 +86,42 @@
 	<div id="main">
 
 		<!-- Intro -->
-		<section id="top" class="#">
-		<h1>프로필 수정</h1>
+		<section id="top" class="#" style="padding-top: 20px; padding-bottom: 20px" >
+		<h1>마이페이지</h1>
 		<p>비밀번호, 닉네임, 휴대폰번호를 변경할 수 있습니다.</p>
+				<p><%= user_email %></p>
 		</section>
 		
 		<section id="portfolio" class="two">
-			<div class="container-a">
-				<h3><%= user_email %></h3>
-			<%-- <h1><%= user_name %></h1> --%>
+			<div class="container-a" >
 				<form action="UpdateService" method="post" enctype="multipart/form-data">
-					<div class="form-floating">
+						
+						<div class="input-group mb-3">
+ 						 <span class="input-group-text" id="modify" ><i class="fas fa-thin fa-lock"></i></span>
+ 						 <input type="text" class="form-control" name="user_pw" placeholder="변경할 비밀번호" aria-label="user_pw" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group mb-3">
+ 						 <span class="input-group-text" id="modify"><i class="fas fa-thin fa-paw"></i></span>
+ 						 <input type="text" class="form-control" name="user_nick" placeholder="변경할 닉네임" aria-label="user_nick" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group mb-3">
+ 						 <span class="input-group-text" id="modify"><i class="fas fa-thin fa-phone"></i></span>
+ 						 <input type="text" class="form-control" name="user_phone" placeholder="변경할 휴대폰 번호" aria-label="user_phone" aria-describedby="basic-addon1">
+						</div>
+						
+						
+						
+					<!-- <div class="form-floating">
 						<input type="password" name="user_pw" class="form-control-sm"
 							placeholder="변경할 비밀번호를 입력하세요">
-					</div>
-					<div class="form-floating">
 						<input type="text" name="user_nick" class="form-control-sm"
 							placeholder="변경할 닉네임을 입력하세요">
-					</div>
-					<div class="form-floating">
 						<input type="text" name="user_phone" class="form-control-sm"
 							placeholder="변경할 휴대폰 번호를 입력하세요">
-					</div>
+					</div> -->
+					
+					
+					
 					<div class="mb-3">
  					 <label for="formFileMultiple" class="form-label">변경하고 싶은 사진을 등록해주세요!</label>
  					 <input class="form-control" type="file" name="user_file" multiple>
