@@ -19,7 +19,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body class="is-preload" style="font-family: 'omyu_pretty'">
-
+<%String user_email = (String)session.getAttribute("user_email"); %>
 	<!-- Header -->
 	<div id="header">
 
@@ -27,21 +27,21 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/retriever.webp"
+				<span class="image avatar48"><img src="images/foot.png"
 					alt="" /></span>
 				<h1 id="title">COCOBORI</h1>
-				<p>LOGIN</p>
+		
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">HOME</span></a></li>
+							class="icon solid fa-home">홈</span></a></li>
 					<li><a href="login.jsp" id="login-link"><span
-							class="icon solid fa-th">LOGIN</span></a></li>
+							class="icon solid fa-th">로그인</span></a></li>
 					<li><a href="join.jsp" id="join-link"><span
-							class="icon solid fa-user">JOIN</span></a></li>
+							class="icon solid fa-user">회원가입</span></a></li>
 				</ul>
 			</nav>
 
@@ -79,9 +79,13 @@
 		<section id="portfolio" class="two">
 			<div class="container-a">
 				<form action="LoginService" method="post">
+				
+				
 					<div class="form-floating">
 						<input type="email" name="user_email" class="form-control-sm"
 							placeholder="Email">
+						
+							
 					</div>
 					<div class="form-floating">
 						<input type="password" name="user_pw" class="form-control-sm"
@@ -89,9 +93,9 @@
 					</div>
 					
 					<div>
-					<button style="margin-top: 10px" type="submit" class="btn btn-info" onclick="login()">Login</button>
-					</div>
-					 
+					<button style="margin-top: 10px" type="submit" class="btn btn-success" onclick="login()">로그인</button>
+					<button style="margin-top: 10px" type="button" class="btn btn-warning" onclick="location.href='join.jsp'">회원가입</button>
+					</div> 
 					
 					
 					<script>
@@ -101,15 +105,13 @@
 					} 
 					</script>
 					
-					<div>
-					<button style="margin-top: 10px" type="button" class="btn btn-info" onclick="location.href='join.jsp'">Join</button>
-					</div>
+					
 					
 					
 					
 				</form>
 			</div>
-			
+	
 			<br>
 			<br>
 			<br>

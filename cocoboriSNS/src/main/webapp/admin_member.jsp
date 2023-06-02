@@ -35,19 +35,22 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/avatar.jpg"
+			<span class="image avatar48"><img src="images/관리자.png"
 					alt="" /></span>
 				<h1 id="title">COCOBORI</h1>
-				<p>LOGIN</p>
+				<p>
+					관리자
+				</p>
+				
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">HOME</span></a></li>
+							class="icon solid fa-home">홈</span></a></li>
 					<li><a href="#portfolio" id="portfolio-link"><span
-							class="icon solid fa-th">Portfolio</span></a></li>
+							class="icon solid fa-th">전체회원정보</span></a></li>
 					<li><a href="#about" id="about-link"><span
 							class="icon solid fa-user">About Me</span></a></li>
 					<li><a href="login.jsp" id="contact-link"><span

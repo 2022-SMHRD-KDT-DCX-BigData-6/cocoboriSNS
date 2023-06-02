@@ -20,7 +20,7 @@ public class JoinService extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		request.setCharacterEncoding("UTF-8");
 		// MultipartRequest
 		// 파일 업로드 cos.jar에 포함 되어있음
 
@@ -38,46 +38,41 @@ public class JoinService extends HttpServlet {
 
 		// 5. 중복 제거 (파일명 뒤에 숫자 부여)
 		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
+		
+		Date now = new Date();
 
 		MultipartRequest multi = null;
 		try {
 			multi = new MultipartRequest(request, path, maxSize, encoding, rename);
+			String user_email = multi.getParameter("user_email");
+			String user_pw = multi.getParameter("user_pw");
+			String user_name = multi.getParameter("user_name");
+			String user_nick = multi.getParameter("user_nick");
+			String user_phone = multi.getParameter("user_phone");
+			Date user_joindate = now;
+			String admin_yn = "N";
+			String user_file = multi.getFilesystemName("user_file");
+			
+			CocoMemberDTO dto = new CocoMemberDTO(user_email, user_pw, user_name, user_nick, user_phone, user_joindate, admin_yn, user_file);
+			System.out.println("dto :" + dto);
+			CocoMemberDAO dao = new CocoMemberDAO();
+			
+			int cnt = dao.insertMember(dto);
+			System.out.println(cnt);
+			if(cnt != 0) {
+				System.out.println("회원가입 성공");
+				HttpSession session = request.getSession();
+				session.setAttribute("loginMember", dto);
+				response.sendRedirect("login.jsp");
+			}else {
+				System.out.println("회원가입 실패");
+				response.sendRedirect("login.jsp");		
+			}
+			
 		} catch (IOException e) {
 			System.out.println("글쓰기 값 읽기 실패");
-
 			e.printStackTrace();
 		}
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		
-		Date now = new Date();
-		
-		String user_email = multi.getParameter("user_email");
-		String user_pw = multi.getParameter("user_pw");
-		String user_name = multi.getParameter("user_name");
-		String user_nick = multi.getParameter("user_nick");
-		String user_phone = multi.getParameter("user_phone");
-		Date user_joindate = now;
-		String admin_yn = "N";
-		String user_file = multi.getFilesystemName("user_file");
-		
-		CocoMemberDTO dto = new CocoMemberDTO(user_email, user_pw, user_name, user_nick, user_phone, user_joindate, admin_yn, user_file);
-		System.out.println(dto);
-		CocoMemberDAO dao = new CocoMemberDAO();
-		
-		int cnt = dao.insertMember(dto);
-		System.out.println(cnt);
-		if(cnt != 0) {
-			System.out.println("회원가입 성공");
-			HttpSession session = request.getSession();
-			session.setAttribute("user_email", user_email);
-			response.sendRedirect("login.jsp");
-		}else {
-			System.out.println("회원가입 실패");
-			response.sendRedirect("login.jsp");		
-		}
-		
 	}
 }
 

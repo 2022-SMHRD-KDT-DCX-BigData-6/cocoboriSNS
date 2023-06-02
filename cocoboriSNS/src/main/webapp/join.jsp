@@ -21,7 +21,7 @@
 <!-- CSS only -->
 </head>
 <body class="is-preload" style="font-family: 'omyu_pretty'">
-
+	<%String user_email = (String)session.getAttribute("user_email"); %>
 	<!-- Header -->
 	<div id="header">
 
@@ -29,19 +29,19 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/retriever.webp"
+				<span class="image avatar48"><img src="images/foot.png"
 					alt="" /></span>
 				<h1 id="title">COCOBORI</h1>
-				<p>SIGN UP</p>
+
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">HOME</span></a></li>
+							class="icon solid fa-home">홈</span></a></li>
 					<li><a href="login.jsp" id="login-link"><span
-							class="icon solid fa-th">LOGIN</span></a></li>
+							class="icon solid fa-th">로그인</span></a></li>
 				</ul>
 			</nav>
 
@@ -72,43 +72,62 @@
 
 		<!-- Intro -->
 		<section id="top" class="#">
-		<h1> SIGN UP</h1>
+		<h1>회원가입</h1>
+		<h3> 귀여운 동물들의 사진과 동영상을 보려면 가입하세요!</h3>
 		</section>
 		
 		<section id="portfolio" class="two">
 			<div class="container-a">
 				<form action="JoinService" method="post" enctype="multipart/form-data">
+				
+				<input type="hidden" name="chk" value="0">
+				
 					<div class="form-floating">
 						<input type="email" name="user_email" class="form-control-sm"
-							placeholder="Email">
+							placeholder="이메일주소">
+						<button type="button" style="margin-top: 10px" class="btn btn-success" onclick="fn_idcheck()" >중복아이디체크</button>
 					</div>
 					<div class="form-floating">
 						<input type="password" name="user_pw" class="form-control-sm"
-							placeholder="Password">
+							placeholder="비밀번호">
 					</div>
 					<div class="form-floating">
 						<input type="text" name="user_name" class="form-control-sm"
-							placeholder="Name">
+							placeholder="사용자 이름">
 					</div>
 					<div class="form-floating">
 						<input type="text" name="user_nick" class="form-control-sm"
-							placeholder="Nick name">
+							placeholder="닉네임">
 					</div>
 					<div class="form-floating">
 						<input type="text" name="user_phone" class="form-control-sm"
-							placeholder="Phone">
+							placeholder="휴대폰 번호">
 					</div>
+					
+					<div class="mb-3">
+ 					 <label for="formFileMultiple" class="form-label">프로필사진을 등록해주세요!</label>
+ 					 <input class="form-control" type="file" name="user_file" multiple>
+					</div>
+					
+					<!-- <div>
+						<input type="file" name="user_file" value="파일등록">
+					</div> -->
+					
+					
+					
 					<div>
-						<input type="file"	name="user_file" vlaue="파일등록">
+						<button style="margin-top: 10px" type="submit" class="btn btn-warning" onclick="joinMember()" >회원가입</button>
 					</div>
-					<div>
-						<button style="margin-top: 10px" type="submit" class="btn btn-info" onclick="joinMember()" >SIGN UP</button>
-					</div>
+					
 					
 					<script>
 					function joinMember() {
-  					alert("회원가입 완료");
-  					window.location.href ="JoinService";
+  						window.location.href ="JoinService";
+  						if(user_email != null){
+  							alert("회원가입 성공");	
+  						}else {
+  							alert("회원가입 실패");
+  						}
 					}
 					</script>
 				</form>
