@@ -38,7 +38,7 @@
 					alt="" /></span>
 				<h1 id="title">COCOBORI</h1>
 				<p>
-					<%=member.getUser_nick()%>
+					<%= member.getUser_nick()%>
 				</p>
 			</div>
 
@@ -100,12 +100,12 @@
 									<td><input type="submit" value="검색"></td>
 								</tr>
 								<tr>
-									<td>'<%=user_email%>'에 대한 검색 결과</td>
+									<td>'<%= search_email%>'에 대한 검색 결과</td>
 								</tr>
 								<% for (CocoMemberDTO i : memberList) {%> <!-- dto 변경 -->
 									<tr>
 										<td colspan="4">
-											<%=i.getUser_email()%>
+											<%= i.getUser_email()%>
 											<button type="button" onclick="location.href='InsertFriend.do?friend_email=<%=i.getUser_email()%>'">팔로우</button>
 										</td>
 										<!-- 친구 신청으로 들어가게 만들기 -->

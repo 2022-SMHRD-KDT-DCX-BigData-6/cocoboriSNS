@@ -11,7 +11,6 @@ import com.smhrd.command.Command;
 import com.smhrd.controller.DeleteFriend;
 import com.smhrd.controller.FriendDetail;
 import com.smhrd.controller.InsertFriend;
-import com.smhrd.controller.SearchMember;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

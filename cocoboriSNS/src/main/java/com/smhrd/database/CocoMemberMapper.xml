@@ -42,9 +42,7 @@
 	</delete>
 
 <!-- 특정 회원 찾기 -->
-	<select id="searchMember"
-			parameterType="CocoFriend"
-			resultType="CocoMember">
+	<select id="searchMember" parameterType="CocoFriend" resultType="CocoMember">
 		SELECT u.user_email 
 		FROM tb_user u 
 		LEFT OUTER JOIN tb_friend f 
@@ -52,8 +50,7 @@
 		WHERE SUBSTR(u.user_email, 1, INSTR(u.user_email, '@') -1) LIKE '%'||#{friend_email}||'%' 
 		AND u.admin_yn = 'N' 
 		AND u.user_email != #{user_email} 
-		AND f.user_email IS NULL;
+		AND f.user_email IS NULL
 	</select>
-
 
 </mapper>
