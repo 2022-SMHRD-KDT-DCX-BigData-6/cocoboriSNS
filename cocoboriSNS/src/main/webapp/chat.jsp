@@ -45,6 +45,7 @@
 <body class="is-preload">
 
 	<%
+		
 		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
 		String user_email = member.getUser_email();
 	%>
@@ -69,6 +70,7 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">HOME</span></a></li>
+					
 					<% if (member.getUser_email().equals("admin@admin.com")) {%>
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
@@ -77,8 +79,8 @@
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% }%>
-					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
-					<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
+						<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 				</ul>
 			</nav>
 

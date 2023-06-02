@@ -22,6 +22,7 @@
 		// 친구 상세정보
 		@SuppressWarnings("unchecked")
 		List<CocoMemberDTO> friendDetail = (List<CocoMemberDTO>)session.getAttribute("friendDetail");
+		session.setAttribute("friend_email", friendDetail.get(0).getUser_email());
 	%>
 
 	<!-- Header -->
