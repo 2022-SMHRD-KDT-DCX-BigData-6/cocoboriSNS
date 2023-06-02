@@ -21,4 +21,9 @@
 	<delete id="deleteFriend" parameterType="CocoFriend">
 		DELETE FROM tb_friend WHERE user_email = #{user_email} AND friend_email = #{friend_email}
 	</delete>
+	<!-- 친구 번호 수정 -->
+	<update id="updateFriend" parameterType="CocoFriend">
+		UPDATE tb_friend SET friend_seq = #{friend_seq} WHERE user_email = #{user_email} AND friend_email = #{friend_email}
+	</update>
+	
 </mapper>

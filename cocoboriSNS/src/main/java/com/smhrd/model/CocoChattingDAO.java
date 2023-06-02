@@ -47,20 +47,5 @@ public class CocoChattingDAO {
 		return chat_List;
 	}
 	
-	/*
-	 * public double FriendCode(String FRIEND_EMAIL) {
-	 * 
-	 * List<CocoFriendDTO> friendList = new
-	 * CocoChattingDAO().ChatCode(FRIEND_EMAIL);
-	 * 
-	 * double FriendCode = 0;
-	 * 
-	 * for (CocoFriendDTO i : friendList) { FriendCode = i.getFriend_seq(); }
-	 * 
-	 * return FriendCode;
-	 * 
-	 * }
-	 */
-	
 	
 }
