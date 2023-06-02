@@ -16,6 +16,8 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">	
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <!-- CSS only -->
@@ -85,9 +87,12 @@
 					<div class="form-floating">
 						<input type="email" name="user_email" class="form-control-sm"
 							placeholder="이메일주소">
-						<button type="button" style="margin-top: 10px" class="btn btn-success" onclick="fn_idcheck()" >중복아이디체크</button>
+						
+						<!-- <button type="button" style="margin-top: 10px" class="btn btn-success" onclick="fn_idcheck()" >중복아이디체크</button> -->
+					
 					</div>
 					<div class="form-floating">
+					
 						<input type="password" name="user_pw" class="form-control-sm"
 							placeholder="비밀번호">
 					</div>
@@ -99,8 +104,8 @@
 						<input type="text" name="user_nick" class="form-control-sm"
 							placeholder="닉네임">
 					</div>
-					<div class="form-floating">
-						<input type="text" name="user_phone" class="form-control-sm"
+					<div class="form-floating" >
+						<input type="text" name="user_phone" class="form-control-sm" 
 							placeholder="휴대폰 번호">
 					</div>
 					
