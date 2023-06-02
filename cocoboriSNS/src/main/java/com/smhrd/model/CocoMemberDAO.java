@@ -45,16 +45,6 @@ public class CocoMemberDAO {
 		return list;
 	}
 
-	// 친구 검색 기능
-	public List<CocoMemberDTO> searchFriend(String user_email) {
-		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchFriend",
-				user_email);
-
-		sqlSession.close();
-
-		return searchFriend;
-	}
-
 	// 회원탈퇴
 	public int deleteMember(String user_email) {
 		int cnt = 0;
@@ -66,5 +56,14 @@ public class CocoMemberDAO {
 		return cnt;
 	}
 	
+	// 친구 검색 기능
+	public List<CocoMemberDTO> searchFriend(String user_email) {
+		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchMember",
+				user_email);
+		
+		sqlSession.close();
+		
+		return searchFriend;
+	}
 	
 }
