@@ -55,7 +55,7 @@ public class UpdateService extends HttpServlet {
 
 		if (cnt > 0) {
 			System.out.println("회원정보수정 성공!");
-			session.setAttribute("member", dto);
+			session.setAttribute("loginMember", dto);
 			response.sendRedirect("main.jsp");
 		} else {
 			System.out.println("회원정보수정 실패...");

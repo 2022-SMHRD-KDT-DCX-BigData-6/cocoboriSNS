@@ -27,6 +27,10 @@
 <body class="is-preload" style="font-family: 'omyu_pretty'">
 	<% CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember"); %>
 	<% String user_email = member.getUser_email(); %>
+	<% String user_pw = member.getUser_pw(); %>
+	<% String user_nick = member.getUser_nick(); %>
+	<% String user_phone = member.getUser_phone(); %>
+	
 	<%-- <% String user_name = member.getUser_name(); %> --%>
 	<!-- Header -->
 	<div id="header">
@@ -35,19 +39,22 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/retriever.webp"
-					alt="" /></span>
+				
+				<span class="image avatar48">
+					<img alt="" src="<%= "./upload/"+ member.getUser_file() %>">
+				</span>
+				
 				<h1 id="title">COCOBORI</h1>
-				<p>SIGN UP</p>
+
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">HOME</span></a></li>
-					<li><a href="login.jsp" id="login-link"><span
-							class="icon solid fa-th">LOGIN</span></a></li>
+							class="icon solid fa-home">홈</span></a></li>
+					<li><a href="LogoutService" id="login-link"><span
+							class="icon solid fa-th">로그아웃</span></a></li>
 					
 				</ul>
 			</nav>
@@ -81,56 +88,37 @@
 
 		<!-- Intro -->
 		<section id="top" class="#">
-		<h1>UPDATE</h1>
+		<h1>프로필 수정</h1>
+		<p>비밀번호, 닉네임, 휴대폰번호를 변경할 수 있습니다.</p>
 		</section>
 		
 		<section id="portfolio" class="two">
 			<div class="container-a">
-				<h1><%= user_email %></h1>
+				<h3><%= user_email %></h3>
 			<%-- <h1><%= user_name %></h1> --%>
 				<form action="UpdateService" method="post" enctype="multipart/form-data">
 					<div class="form-floating">
 						<input type="password" name="user_pw" class="form-control-sm"
-							placeholder="Password">
+							placeholder="변경할 비밀번호를 입력하세요">
 					</div>
 					<div class="form-floating">
 						<input type="text" name="user_nick" class="form-control-sm"
-							placeholder="Nick name">
+							placeholder="변경할 닉네임을 입력하세요">
 					</div>
 					<div class="form-floating">
 						<input type="text" name="user_phone" class="form-control-sm"
-							placeholder="Phone">
+							placeholder="변경할 휴대폰 번호를 입력하세요">
+					</div>
+					<div class="mb-3">
+ 					 <label for="formFileMultiple" class="form-label">변경하고 싶은 사진을 등록해주세요!</label>
+ 					 <input class="form-control" type="file" name="user_file" multiple>
 					</div>
 					<div>
-						<input type="file"	name="user_file" value="파일등록">
-					</div>
-					<div>
-						<button style="margin-top: 10px" type="submit" class="btn btn-info">UPDATE</button>
-					</div>
-					
-		
-					<%-- <div>
-					<button style="margin-top: 10px" type="button" class="btn btn-link" onclick="location.href='MemberDeleteService?user_email=<%=user_email%>'">회원탈퇴</button>
-					</div> --%>
-				
-				
-
-					<%-- <script type="text/javascript">
-					alert("회원탈퇴 완료");
-					function load()
-					{
-					window.location.href = "MemberDeleteService?user_email=<%=user_email%>";}
-					</script> --%>
-
-					<%-- <div>
-					<button style="margin-top: 10px" type="button" class="btn btn-link" onclick="location.href='MemberDeleteService?user_email=<%=user_email%>'">회원탈퇴</button>
-					</div> --%>
-					
-					<div>
-
-					<button style="margin-top: 10px" type="button" class="btn btn-link" onclick="deleteMember()">회원탈퇴</button>
+						<button style="margin-top: 10px" type="submit" class="btn btn-success">적용</button>
+						<button style="margin-top: 10px" type="button" class="btn btn-secondary" onclick="deleteMember()">회원탈퇴</button>
 					</div> 
-					
+	
+
 					<script>
 					function deleteMember() {
   					alert("회원탈퇴 완료");
