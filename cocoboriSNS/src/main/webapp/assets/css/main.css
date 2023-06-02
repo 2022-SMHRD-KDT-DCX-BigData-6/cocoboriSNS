@@ -1,5 +1,11 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+@font-face {
+	font-family: 'omyu_pretty';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
 
 /*
 	Prologue by HTML5 UP
@@ -85,7 +91,7 @@ input, select, textarea {
 
 	body {
 		background: #FFFFDE;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'omyu_pretty' !important;
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
@@ -2654,18 +2660,6 @@ input, select, textarea {
 	}
 	
 /* add */
-	@font-face {
-   	 	font-family: 'omyu_pretty';
-   	 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-    	font-weight: normal;
-   	 	font-style: normal;
-	}
-	
-	body {
-		font-family: 'omyu_pretty';
-	}
-	
-	.friend_email:hover {
-		font-weight: bolder;
-	}
-	
+.friend_email:hover {
+	font-weight: bolder;
+}
