@@ -1,16 +1,20 @@
 package com.smhrd.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.command.Command;
+import com.smhrd.model.CocoBoardDTO;
 import com.smhrd.model.CocoFriendDAO;
 import com.smhrd.model.CocoFriendDTO;
 import com.smhrd.model.CocoMemberDTO;
 
 public class DeleteFriend implements Command {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -24,7 +28,13 @@ public class DeleteFriend implements Command {
 		
 		dao.deleteFriend(dto);
 		
-		return null;
+		List<CocoMemberDTO> friendInfo = (List<CocoMemberDTO>)session.getAttribute("friendInfo");
+		List<CocoBoardDTO> friendHistory = (List<CocoBoardDTO>)session.getAttribute("friendHistory");
+		
+		friendInfo.clear();
+		friendHistory.clear();
+		
+		return "FriendDetail.do?user_email=" + user_email;
 	}
 
 }

@@ -11,13 +11,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 <body class="is-preload">
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
 		String user_email = member.getUser_email();
+		
+		// 친구 목록
 		List<CocoFriendDTO> friendList = new CocoFriendDAO().showAllFriends(user_email);
 	%>
 

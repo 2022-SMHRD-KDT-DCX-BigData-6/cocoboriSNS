@@ -12,17 +12,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 <body class="is-preload">
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
 
-		// 친구 상세정보
+		// 친구 정보
 		@SuppressWarnings("unchecked")
-		List<CocoMemberDTO> friendDetail = (List<CocoMemberDTO>)session.getAttribute("friendDetail");
-		session.setAttribute("friend_email", friendDetail.get(0).getUser_email());
+		List<CocoMemberDTO> friendInfo = (List<CocoMemberDTO>)session.getAttribute("friendInfo");
+		
+		// 친구 활동 내력
+		@SuppressWarnings("unchecked")
+		List<CocoBoardDTO> friendHistory = (List<CocoBoardDTO>)session.getAttribute("friendHistory");
 	%>
 
 	<!-- Header -->
@@ -54,7 +57,7 @@
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% }%>
 					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
-					<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+					<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 				</ul>
 			</nav>
 
@@ -95,20 +98,24 @@
 						<table class="table">
 						<tr>
 							<td class="text-center" rowspan="2">사진</td>
-							<td class="text-center" colspan="2"><%= friendDetail.get(0).getUser_email()%></td>
+							<td class="text-center" colspan="2"><%= friendInfo.get(0).getUser_email()%></td>
 						</tr>
 						<tr>
 							<td class="text-center"><button type="button" onclick="location.href='chat.jsp'">채팅</button></td>
 						</tr>
 						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendDetail.get(0).getUser_email()%>'">팔로우 해제</button></td>
+							<% if (!friendInfo.equals(null)) {%>
+								<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">팔로우 해제</button></td>
+							<% } else {%>
+								<td class="text-center"><button type="button" onclick="location.href='#'">팔로우</button></td>
+							<% }%>
 						</tr>
 						<tr>
 							<td class="text-center" colspan="3">게시물</td>
 						</tr>
-						<% for (int i = 0; i < friendDetail.size(); i++) {%>
+						<% for (int i = 0; i < friendHistory.size(); i++) {%>
 							<tr>
-								<%-- <td colspan="3" onclick="location.href='#'"><%= friendDetail.get(i).%></td> --%>
+								<td colspan="3" onclick="location.href='#'"><%= friendHistory.get(i).getB_title()%></td>
 							</tr>
 						<% }%>
 					</table>
