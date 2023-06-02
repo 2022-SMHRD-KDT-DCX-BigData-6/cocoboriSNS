@@ -22,6 +22,15 @@ public class CocoFriendDAO {
 		return friendList;
 	}
 	
+	// 친구 검색
+	public List<CocoFriendDTO> searchFriend(CocoFriendDTO dto) {
+		List<CocoFriendDTO> searchResult = null;
+		
+		searchResult = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.searchFriend", dto);
+		
+		return searchResult;
+	}
+	
 	// 친구 정보
 	public List<CocoMemberDTO> friendInfo(String user_email) {
 		List<CocoMemberDTO> friendInfo = null;

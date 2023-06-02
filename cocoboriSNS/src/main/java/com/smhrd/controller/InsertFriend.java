@@ -8,6 +8,7 @@ import com.smhrd.command.Command;
 import com.smhrd.model.CocoChattingDAO;
 import com.smhrd.model.CocoFriendDAO;
 import com.smhrd.model.CocoFriendDTO;
+import com.smhrd.model.CocoMemberDAO;
 import com.smhrd.model.CocoMemberDTO;
 
 public class InsertFriend implements Command {
@@ -20,21 +21,21 @@ public class InsertFriend implements Command {
 		String user_email = member.getUser_email();
 		String friend_email = request.getParameter("friend_email");
 		
-		CocoFriendDTO dto = new CocoFriendDTO(null, user_email, friend_email, null);
-		CocoFriendDAO dao = new CocoFriendDAO();
+		CocoFriendDTO fDto = new CocoFriendDTO(null, user_email, friend_email, null);
+		CocoFriendDAO fDao = new CocoFriendDAO();
 		
-		dao.insertFriend(dto);
+		fDao.insertFriend(fDto);
 		
-		CocoFriendDTO searchDto = new CocoFriendDTO(null, friend_email, user_email, null);
+		CocoFriendDTO fDto2 = new CocoFriendDTO(null, friend_email, user_email, null);
 		
-		if(dao.searchFriend(searchDto) != null) {
-			System.out.println(dao.searchFriend(searchDto));
+		if(fDao.searchFriend(fDto2) != null) {
+			// System.out.println(fDao.searchFriend(fDto2));
 			
 			double friend_seq = new CocoChattingDAO().ChatCode(user_email);
-			System.out.println(friend_seq);
+			// System.out.println(friend_seq);
 			
 			CocoFriendDTO updateDto = new CocoFriendDTO(friend_seq, user_email, friend_email, null);
-			int cnt = dao.updateFriend(updateDto);
+			int cnt = fDao.updateFriend(updateDto);
 			
 			if (cnt > 0) {
 				System.out.println("수정 성공");
