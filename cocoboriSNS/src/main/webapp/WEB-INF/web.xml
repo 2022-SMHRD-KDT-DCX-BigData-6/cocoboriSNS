@@ -58,6 +58,24 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.ChatService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteBoardService</servlet-name>
+  	<display-name>DeleteBoardService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.DeleteBoardService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateBoardService</servlet-name>
+  	<display-name>UpdateBoardService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.UpdateBoardService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WriteBoardService</servlet-name>
+  	<display-name>WriteBoardService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.WriteBoardService</servlet-class>
+  </servlet>
 
   <servlet-mapping>
      <servlet-name>Ex_page</servlet-name>
@@ -94,6 +112,18 @@
   <servlet-mapping>
   	<servlet-name>ChatService</servlet-name>
   	<url-pattern>/ChatService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteBoardService</servlet-name>
+  	<url-pattern>/DeleteBoardService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateBoardService</servlet-name>
+  	<url-pattern>/UpdateBoardService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WriteBoardService</servlet-name>
+  	<url-pattern>/WriteBoardService</url-pattern>
   </servlet-mapping>
 
 </web-app>
