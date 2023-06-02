@@ -57,9 +57,13 @@ public class CocoMemberDAO {
 	}
 	
 	// 친구 검색 기능
-	public List<CocoMemberDTO> searchFriend(String user_email) {
-		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchMember",
-				user_email);
+	public List<CocoMemberDTO> searchMember(String user_email, String search_email) {
+		CocoFriendDTO fdto = new CocoFriendDTO();
+		
+		fdto.setUser_email(user_email);
+		fdto.setFriend_email(search_email);
+		
+		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchMember", fdto);
 		
 		sqlSession.close();
 		

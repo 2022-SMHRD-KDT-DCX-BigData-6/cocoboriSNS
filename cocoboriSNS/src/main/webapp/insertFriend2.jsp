@@ -18,8 +18,9 @@
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
-		String user_email = request.getParameter("searchFriend");
-		List<CocoMemberDTO> friendSearch = new CocoMemberDAO().searchFriend(user_email); //dto 변경
+		String user_email = member.getUser_email();
+		String search_email = request.getParameter("search_email");
+		List<CocoMemberDTO> friendSearch = new CocoMemberDAO().searchMember(user_email, search_email); //dto 변경
 	%>
 	
 	<!-- Header -->
@@ -92,7 +93,7 @@
 						<form action="insertFriend2.jsp">
 							<table id="list">
 								<tr>
-									<td><input type="text" placeholder="이메일을 입력해주세요" name="searchFriend"></td>
+									<td><input type="text" placeholder="이메일을 입력해주세요" name="search_email"></td>
 									<td><input type="submit" value="검색"></td>
 								</tr>
 								<tr>

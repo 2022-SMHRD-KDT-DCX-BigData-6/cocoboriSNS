@@ -94,7 +94,6 @@
 							<tr>
 								<td>친구 목록</td>
 								<td>
-									<button type="button" onclick="location.href='searchFriend1.jsp'">친구 검색</button> 
 									<button type="button" onclick="location.href='insertFriend1.jsp'">친구 추가</button>
 								</td>
 							</tr>
