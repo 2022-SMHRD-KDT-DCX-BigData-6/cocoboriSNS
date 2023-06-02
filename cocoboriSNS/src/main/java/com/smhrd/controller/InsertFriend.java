@@ -8,7 +8,6 @@ import com.smhrd.command.Command;
 import com.smhrd.model.CocoChattingDAO;
 import com.smhrd.model.CocoFriendDAO;
 import com.smhrd.model.CocoFriendDTO;
-import com.smhrd.model.CocoMemberDAO;
 import com.smhrd.model.CocoMemberDTO;
 
 public class InsertFriend implements Command {

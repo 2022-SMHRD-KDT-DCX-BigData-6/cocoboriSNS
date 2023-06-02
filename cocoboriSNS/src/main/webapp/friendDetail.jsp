@@ -103,11 +103,7 @@
 							<td class="text-center"><button type="button" onclick="location.href='chat.jsp'">채팅</button></td>
 						</tr>
 						<tr>
-							<% if (!friendInfo.equals(null)) {%>
-								<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">팔로우 해제</button></td>
-							<% } else {%>
-								<td class="text-center"><button type="button" onclick="location.href='#'">팔로우</button></td>
-							<% }%>
+							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">팔로우 해제</button></td>
 						</tr>
 						<tr>
 							<td class="text-center" colspan="3">게시물</td>
