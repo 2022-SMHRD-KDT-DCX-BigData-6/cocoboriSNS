@@ -34,12 +34,11 @@
 			<!-- Logo -->
 			<div id="logo">
 				<!-- 프로필 사진 넣는 자리 -->
-				<span class="image avatar48"><img src="images/retriever.webp"
-					alt="" /></span>
+				<span class="image avatar48">
+					<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
+				</span>
 				<h1 id="title">COCOBORI</h1>
-				<p>
-					<%= member.getUser_nick()%>
-				</p>
+				<p><%= member.getUser_nick()%>님</p>
 			</div>
 
 			<!-- Nav -->

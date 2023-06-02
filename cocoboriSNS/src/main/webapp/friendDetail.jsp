@@ -36,12 +36,11 @@
 			<!-- Logo -->
 			<div id="logo">
 				<!-- 프로필 사진 넣는 자리 -->
-				<span class="image avatar48"><img src="images/retriever.webp"
-					alt="" /></span>
+				<span class="image avatar48">
+					<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
+				</span>
 				<h1 id="title">COCOBORI</h1>
-				<p>
-					<%=member.getUser_nick()%>
-				</p>
+				<p><%= member.getUser_nick()%>님</p>
 			</div>
 
 			<!-- Nav -->
@@ -97,7 +96,7 @@
 					<div class="col-md-9">
 						<table class="table">
 						<tr>
-							<td class="text-center" rowspan="2">사진</td>
+							<td class="text-center" rowspan="2"><img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>"></td>
 							<td class="text-center" colspan="2"><%= friendInfo.get(0).getUser_email()%></td>
 						</tr>
 						<tr>

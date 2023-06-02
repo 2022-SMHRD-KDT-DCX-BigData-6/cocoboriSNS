@@ -56,7 +56,7 @@ public class CocoMemberDAO {
 		return cnt;
 	}
 	
-	// 친구 검색 기능
+	// 유저 검색
 	public List<CocoMemberDTO> searchMember(CocoFriendDTO dto) {		
 		List<CocoMemberDTO> searchMember = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchMember", dto);
 		
