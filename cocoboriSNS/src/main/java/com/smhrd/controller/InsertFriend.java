@@ -25,14 +25,14 @@ public class InsertFriend implements Command {
 		
 		dao.insertFriend(dto);
 		
-		int FriendCode = (int)new CocoChattingDAO().ChatCode(user_email);
-		
 		CocoFriendDTO searchDto = new CocoFriendDTO(null, friend_email, user_email, null);
 		
 		if(dao.searchFriend(searchDto) != null) {
 			System.out.println(dao.searchFriend(searchDto));
+			
 			double friend_seq = new CocoChattingDAO().ChatCode(user_email);
 			System.out.println(friend_seq);
+			
 			CocoFriendDTO updateDto = new CocoFriendDTO(friend_seq, user_email, friend_email, null);
 			int cnt = dao.updateFriend(updateDto);
 			
@@ -43,7 +43,7 @@ public class InsertFriend implements Command {
 			}
 		}
 		
-		return null;
+		return "friend.jsp";
 		
 	}
 

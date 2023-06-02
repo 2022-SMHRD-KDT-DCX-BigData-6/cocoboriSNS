@@ -28,8 +28,6 @@ public class CocoFriendDAO {
 				
 		searchResult = sqlSession.selectList("com.smhrd.database.CocoFriendMapper.searchFriend", dto);
 		
-		sqlSession.close();
-		
 		return searchResult;
 	}
 	
@@ -58,8 +56,6 @@ public class CocoFriendDAO {
 		int insertResult = 0;
 		
 		insertResult = sqlSession.insert("com.smhrd.database.CocoFriendMapper.insertFriend", dto);
-		
-		sqlSession.close();
 		
 		return insertResult;
 	}

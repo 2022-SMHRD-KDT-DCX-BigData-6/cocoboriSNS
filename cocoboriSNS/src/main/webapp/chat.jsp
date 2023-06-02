@@ -45,7 +45,6 @@
 <body class="is-preload">
 
 	<%
-		
 		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
 		String user_email = member.getUser_email();
 	%>
