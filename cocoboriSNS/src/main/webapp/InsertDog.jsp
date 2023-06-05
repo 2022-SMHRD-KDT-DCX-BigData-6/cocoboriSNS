@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.CocoMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -19,7 +20,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body class="is-preload" style="font-family: 'omyu_pretty'">
-
+	
+	<%
+		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
+	%>
 	<!-- Header -->
 	<div id="header">
 
@@ -27,10 +31,29 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/retriever.webp"
-					alt="" /></span>
+				<!-- 프로필 사진 넣는 자리 -->
+				<% if (member == null) {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./images/foot.png"%>">
+					</span>
+				<% } else if (member.getUser_file() == null) {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./images/foot.png"%>">
+					</span>
+				<% } else {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
+					</span>
+				<% }%>
+			
 				<h1 id="title">COCOBORI</h1>
-				<p>반려동물 백과사전</p>
+				<p>
+					<% if (member == null) {%>
+						SNS
+					<% } else {%>
+						<%= member.getUser_nick()%>님
+					<% }%>	
+				</p>
 			</div>
 
 			<!-- Nav -->
@@ -134,7 +157,9 @@
 						<input type="text" name="pet_act" class="form-control-sm" placeholder="활동성 지표">
 					</div>
 					<button type="submit" class="btn btn-warning">동물백과 등록</button>
+					<button type="button" class="btn btn-light" style="background-color: #b37c57;" onclick="location.href='InsertPet.jsp'">뒤로가기</button>
 				</form>
+				
 		
 		
 		
