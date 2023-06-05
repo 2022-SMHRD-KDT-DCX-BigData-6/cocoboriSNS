@@ -111,7 +111,7 @@
 								<% if (friendInfo.get(0).getUser_file() == null) {%>
 									<img alt="" src="<%= "./images/foot.png"%>" style="width: 50px; height: 50px;">
 								<% } else {%>
-									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>">
+									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>" style="width: 50px; height: 50px;">
 								<% }%>
 							</td>
 							<td class="text-center">
