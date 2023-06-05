@@ -20,7 +20,7 @@ public class UpdateBoardService extends HttpServlet {
 		// 파일 업로드 -> MultipartRequest ->  cos.jar
 		// 1.모든 요청정보가 담겨있는 request객체
 		// 2.업로드 된 파일(이미지)을 저장할 경로	
-		String path = request.getServletContext().getRealPath("./cocoimg");
+		String path = request.getServletContext().getRealPath("./upload");
 		System.out.println("저장경로:" + path);
 		
 		// 3.파일의 max size
