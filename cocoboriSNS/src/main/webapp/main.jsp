@@ -26,7 +26,7 @@
 				<!-- 프로필 사진 넣는 자리 -->
 				<% if (member == null) {%>
 					<span class="image avatar48">
-						<img alt="" src="<%= "./images/foot.png"%>">
+						<img alt="" src="<%= "./images/home_cocobori.png"%>">
 					</span>
 				<% } else {%>
 					<span class="image avatar48">
