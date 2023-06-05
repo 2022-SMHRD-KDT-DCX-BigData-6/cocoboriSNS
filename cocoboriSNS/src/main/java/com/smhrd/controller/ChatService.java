@@ -24,7 +24,7 @@ public class ChatService extends HttpServlet {
 		String talker = me;
 		String talking = request.getParameter("talking");
 		
-		int FriendCode = (int)new CocoChattingDAO().ChatCode(FRIEND_EMAIL); 
+		Double FriendCode = new CocoChattingDAO().ChatCode(FRIEND_EMAIL); 
 			
 		CocoChattingDTO dto = new CocoChattingDTO(FriendCode, talker, talking); // 채팅방 번호는 친구 테이블에서 가져온다.
 		CocoChattingDAO dao = new CocoChattingDAO();

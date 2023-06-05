@@ -16,7 +16,7 @@ public class CocoChattingDTO {
     private int CHAT_SEQ;
 
     // 채팅방 순번 
-    @NonNull private int CR_SEQ;
+    @NonNull private Double CR_SEQ;
 
     // 발화자 
     @NonNull private String TALKER;
