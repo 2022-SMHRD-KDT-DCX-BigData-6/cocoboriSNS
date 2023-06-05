@@ -76,6 +76,57 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.WriteBoardService</servlet-class>
   </servlet>
+  
+  
+  <!-- 백재석 -->
+  <servlet>
+  	<servlet-name>InsertDog</servlet-name>
+  	<display-name>InsertDog</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.InsertDog</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SelectDog</servlet-name>
+  	<display-name>SelectDog</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SelectDog</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InsertCat</servlet-name>
+  	<display-name>InsertCat</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.InsertCat</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SelectCat</servlet-name>
+  	<display-name>SelectCat</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SelectCat</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>resetPet</servlet-name>
+  	<display-name>resetPet</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.resetPet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InsertRep</servlet-name>
+  	<display-name>InsertRep</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.InsertRep</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SelectRep</servlet-name>
+  	<display-name>SelectRep</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SelectRep</servlet-class>
+  </servlet>
+  
+  
+  
+  
+  
+  
 
   <servlet-mapping>
      <servlet-name>Ex_page</servlet-name>
@@ -125,5 +176,40 @@
   	<servlet-name>WriteBoardService</servlet-name>
   	<url-pattern>/WriteBoardService</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  
+  
+  <!-- 백재석 -->
+   <servlet-mapping>
+  	<servlet-name>InsertDog</servlet-name>
+  	<url-pattern>/InsertDog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectDog</servlet-name>
+  	<url-pattern>/SelectDog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertCat</servlet-name>
+  	<url-pattern>/InsertCat</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectCat</servlet-name>
+  	<url-pattern>/SelectCat</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>resetPet</servlet-name>
+  	<url-pattern>/resetPet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertRep</servlet-name>
+  	<url-pattern>/InsertRep</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectRep</servlet-name>
+  	<url-pattern>/SelectRep</url-pattern>
+  </servlet-mapping>
+  
 
 </web-app>

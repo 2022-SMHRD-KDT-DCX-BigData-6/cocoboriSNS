@@ -40,9 +40,15 @@
 			<!-- Logo -->
 			<div id="logo">
 				<!-- 프로필 사진 넣는 자리 -->
-				<span class="image avatar48">
-					<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
-				</span>
+				<% if (member.getUser_file() == null) {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./images/foot.png"%>">
+					</span>
+				<% } else {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
+					</span>
+				<% }%>
 				<h1 id="title">COCOBORI</h1>
 				<p><%= member.getUser_nick()%>님</p>
 			</div>
@@ -55,12 +61,13 @@
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% } else {%>
-						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 					<% }%>
+					<li><a href="board.jsp" id="board-link"><span class="icon solid fa-envelope">게시판</span></a></li>
 					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
-					<li><a href="#" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+					<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 				</ul>
 			</nav>
 
@@ -95,30 +102,38 @@
 		<!-- Portfolio -->
 		<section id="#" class="two">
 
-			<div class="friend_list container">
-				<div class="row">
+			<div class="friend_list container" style="width: 1000px;">
+				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 						<table class="table">
 						<tr>
-							<td class="text-center" rowspan="2"><img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>"></td>
-							<td class="text-center" colspan="2"><%= friendInfo.get(0).getUser_email()%></td>
+							<td class="text-center" rowspan="2">
+								<% if (friendInfo.get(0).getUser_file() == null) {%>
+									<img alt="" src="<%= "./images/foot.png"%>" style="width: 50px; height: 50px;">
+								<% } else {%>
+									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>">
+								<% }%>
+							</td>
+							<td class="text-center">
+								<%= friendInfo.get(0).getUser_email()%>
+								<button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">언팔로우</button>
+							</td>
 						</tr>
 						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='chat.jsp'">채팅</button></td>
-
+							<td class="text-center">
+								<button type="button" onclick="location.href='chat.jsp'">채팅</button>
+							</td>
 						</tr>
 						<tr>
-							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">팔로우 해제</button></td>
-						</tr>
-						<tr>
-							<td class="text-center" colspan="3">게시물</td>
+							<td class="text-center" colspan="2">게시물</td>
 						</tr>
 						<% for (int i = 0; i < friendHistory.size(); i++) {%>
 							<tr>
-								<td colspan="3" onclick="location.href='#'"><%= friendHistory.get(i).getB_title()%></td>
+								<td colspan="2" onclick="location.href='#'"><%= friendHistory.get(i).getB_title()%></td>
 							</tr>
 						<% }%>
 					</table>
+					<button id="writer" onclick="location.href='friend.jsp'">친구 페이지</button>
 					</div>
 				</div>
 

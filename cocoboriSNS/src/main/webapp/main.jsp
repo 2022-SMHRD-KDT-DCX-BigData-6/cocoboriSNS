@@ -28,6 +28,10 @@
 					<span class="image avatar48">
 						<img alt="" src="<%= "./images/home_cocobori.png"%>">
 					</span>
+				<% } else if (member.getUser_file() == null) {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./images/foot.png"%>">
+					</span>
 				<% } else {%>
 					<span class="image avatar48">
 						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
@@ -56,8 +60,8 @@
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } else {%>
 							<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
-							<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
 							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+							<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
 						<% }%>
 					<% }%>
 					<li><a href="board.jsp" id="board-link"><span class="icon solid fa-envelope">게시판</span></a></li>
