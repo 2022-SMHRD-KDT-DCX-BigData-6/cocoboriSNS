@@ -114,7 +114,7 @@
 		<section id="#" class="two">
 
 			<div class="chatting container">
-				<div class="row">
+				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 	<%
 		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");
@@ -130,7 +130,7 @@
 	%> 
 	
 	<form action="ChatService?friend_email=<%= FRIEND_EMAIL%>" method="post">
-		<table border="1">
+		<table border="1" >
 			<tr>
 				<td colspan="2"><h2 style="text-align: center;"> <%= FRIEND_EMAIL %>님과의 채팅 </h2></td>
 			</tr>
@@ -171,7 +171,7 @@
 				</td>
 			</tr>
 			<tr style="text-align: center;">
-				<td id='emoticon1' style="border: thin; display: none;">
+				<td id='emoticon1' style="border: thin; display: none; font-size:14px;">
 					<input type="button" id="emo1" value="😺" title="고양이에요">
 					<script>$("#emo1").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'😺');});</script>
 					<input type="button" id="emo2" value="🐶" title="강아지에요">
@@ -189,7 +189,7 @@
 				</td>
 			</tr>
 			<tr style="text-align: center;">
-				<td id='emoticon2' style="border: thin; display: none;">	
+				<td id='emoticon2' style="border: thin; display: none; font-size:14px;">	
 					<input type="button" id="emo8" value="🐍" title="뱀이에요">
 					<script>$("#emo8").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐍');});</script>
 					<input type="button" id="emo9" value="🐟" title="물고기에요">
@@ -205,8 +205,8 @@
 					<input type="button" id="emo14" value="✌" title="V에요">
 				</td>
 			</tr>
-			<tr style="text-align: center;">
-				<td id='emoticon3' style="border: thin; display: none;">
+			<tr style="text-align: center;"> 
+				<td id='emoticon3' style="border: thin; display: none; font-size:14px;">
 					<script>$("#emo14").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'✌');});</script>
 					<input type="button" id="emo15" value="👏" title="박수쳐요">
 					<script>$("#emo15").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'👏');});</script>
