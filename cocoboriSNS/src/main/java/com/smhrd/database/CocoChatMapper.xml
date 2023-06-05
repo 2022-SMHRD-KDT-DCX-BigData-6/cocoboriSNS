@@ -4,9 +4,9 @@
 
 	<!-- 친구코드 -->
 	<select id="ChatCode"
-			parameterType="CocoFriend"
+			parameterType="String"
 			resultType="CocoFriend">
-		SELECT FRIEND_SEQ FROM TB_FRIEND WHERE FRIEND_EMAIL = #{FRIEND_EMAIL}
+		SELECT * FROM TB_FRIEND WHERE FRIEND_EMAIL = #{FRIEND_EMAIL}
 	</select>
 	
 	<!-- 채팅 저장 -->

@@ -57,6 +57,8 @@ public class CocoFriendDAO {
 		
 		insertResult = sqlSession.insert("com.smhrd.database.CocoFriendMapper.insertFriend", dto);
 
+		sqlSession.close();
+
 		return insertResult;
 	}
 	

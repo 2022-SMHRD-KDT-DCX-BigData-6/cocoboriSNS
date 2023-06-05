@@ -27,24 +27,25 @@ public class InsertFriend implements Command {
 		
 		CocoFriendDTO fDto2 = new CocoFriendDTO(null, friend_email, user_email, null);
 		
-		if(fDao.searchFriend(fDto2) != null) {
+		if(fDao.searchFriend(fDto2) != null) { //
 			// System.out.println(fDao.searchFriend(fDto2));
-			
-			double friend_seq = new CocoChattingDAO().ChatCode(user_email);
+		
+			Double friend_seq = new CocoChattingDAO().ChatCode(user_email); //
 			// System.out.println(friend_seq);
-			
+		
 			CocoFriendDTO updateDto = new CocoFriendDTO(friend_seq, user_email, friend_email, null);
-			int cnt = fDao.updateFriend(updateDto);
 			
-			if (cnt > 0) {
+			int cnt = fDao.updateFriend(updateDto);
+		
+			if (cnt > 0) { 
 				System.out.println("수정 성공");
 			} else {
-				System.out.println("수정 실패");
-			}
+				System.out.println("수정 실패"); 
+			} 
+		
 		}
 		
 		return "friend.jsp";
-		
 	}
 
 }
