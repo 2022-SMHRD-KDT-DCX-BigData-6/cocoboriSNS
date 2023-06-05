@@ -12,8 +12,7 @@
 	<!-- 게시글 작성 기능 -->
 	
 	<% 
-		//작성자 자동으로 써있게 하려고 가져온값 
-		//CocoMemberDTO loginMember =(CocoMemberDTO)session.getAttribute("loginMember");
+		CocoMemberDTO Member =(CocoMemberDTO)session.getAttribute("loginMember");
 	%>
 	
 	<div id="board">
@@ -25,8 +24,8 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="writer"></td>
-					<%-- <td><%=loginMember.getUser_email()%></td> --%>
+					<!-- <td><input type="text" name="writer"></td> -->
+					<td><%=Member.getUser_email()%></td> 
 				</tr>
 				<tr>
 					<td colspan="2">내용</td>

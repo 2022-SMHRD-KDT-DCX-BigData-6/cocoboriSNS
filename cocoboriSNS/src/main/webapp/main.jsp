@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.CocoBoardDAO"%>
+<%@page import="com.smhrd.model.CocoBoardDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.CocoMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,6 +17,7 @@
 
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
+		List<CocoBoardDTO> board_list = new CocoBoardDAO().showBoard();
 	%>
 
 	<!-- Header -->
@@ -105,32 +109,34 @@
 				<div class="row">
 					<div class="col-4 col-12-mobile">
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+						
+							<a href="BoardDetail.jsp?num=<%=board_list.get(0).getB_seq()%>" class="image fit"><img alt="" src="<%= "./upload/"+ board_list.get(0).getB_file() %>" /></a>
 							<header><h3>Ipsum Feugiat</h3></header>
 						</article>
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+							<a href="BoardDetail.jsp?num=<%=board_list.get(1).getB_seq()%>" class="image fit"><img alt="" src="<%= "./upload/"+ board_list.get(1).getB_file() %>" /></a>
 							<header><h3>Rhoncus Semper</h3></header>
 						</article>
 					</div>
 					<div class="col-4 col-12-mobile">
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+							<a href="BoardDetail.jsp?num=<%=board_list.get(2).getB_seq()%>" class="image fit"><img alt="" src="<%= "./upload/"+ board_list.get(2).getB_file() %>" /></a>
 							<header><h3>Magna Nullam</h3></header>
 						</article>
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+							<a href="BoardDetail.jsp?num=<%=board_list.get(3).getB_seq()%>" class="image fit"><img alt="" src="<%= "./upload/"+ board_list.get(3).getB_file() %>" /></a>
 							<header><h3>Natoque Vitae</h3></header>
 						</article>
 					</div>
 					<div class="col-4 col-12-mobile">
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+							<a href="BoardDetail.jsp?num=<%=board_list.get(4).getB_seq()%>" class="image fit"><img alt="" src="<%= "./upload/"+ board_list.get(4).getB_file() %>" /></a>
 							<header><h3>Dolor Penatibus</h3></header>
 						</article>
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+							<a href="BoardDetail.jsp?num=<%=board_list.get(5).getB_seq()%>" class="image fit"><img alt="" src="<%= "./upload/"+ board_list.get(5).getB_file() %>" /></a>
 							<header><h3>Orci Convallis</h3></header>
+						
 						</article>
 					</div>
 				</div>
