@@ -21,6 +21,7 @@
 		String BoardB_title  = (String)session.getAttribute("BoardB_title");
 		String BoardUser_email  = (String)session.getAttribute("BoardUser_email");
 		String BoardB_Content  = (String)session.getAttribute("BoardB_Content");
+		String BoardB_file = (String)session.getAttribute("BoardB_file");
 		
 		int num=Integer.parseInt(request.getParameter("num"));
 		%>
@@ -46,11 +47,25 @@
 				<tr>
 					<td colspan="2">내용</td>
 				</tr>
-				
+				<tr>
+					<td>
+					<%	if (BoardB_file != null){ %>
+			            <span class="image avatar48">
+			               <img alt="" src="<%= "./upload/"+ BoardB_file%>">
+			            </span>
+			            <%}else{ %>
+			            <span class="image avatar48">
+			               <img alt="" src="<%= "./images/foot.png"%>">
+			            </span><br>
+			            <%} %>
+			         </td>
+				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="file" name="filename" value="사진보이게 하는거 확인" style="float:right;">
+<!---------------------파일 이름값 불러오는거 안됌,,, 나중에 확인하기/ input의 value값 ----------------------------->
+						<input type="file" name="filename" value="<%=BoardB_file %>" style="float:right;">
 						<textarea row="10" name="content" style="resize:none;"><%=BoardB_Content%></textarea>
+						
 					</td>
 				</tr>
 				<tr>

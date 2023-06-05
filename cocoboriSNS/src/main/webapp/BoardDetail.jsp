@@ -38,6 +38,7 @@
 		session.setAttribute("BoardB_title",post.getB_title());
 		session.setAttribute("BoardUser_email",post.getUser_email());
 		session.setAttribute("BoardB_Content", post.getB_content());
+		session.setAttribute("BoardB_file", post.getB_file());
 	%>
 	
 	
@@ -53,7 +54,23 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><%=post.getB_content() %></td>
+				<td>
+				
+				<% if (post.getB_file()!= null){ %>
+	            <span class="image avatar48">
+	               <img alt="" src="<%= "./upload/"+ post.getB_file()%>">
+	            </span>
+	            <%}else{ %>
+	            <span class="image avatar48">
+	               <img alt="" src="<%= "./images/foot.png"%>">
+	            </span>
+	            <%} %>
+				<br>	
+				
+				
+				<%=post.getB_content() %>
+				
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2"></td>
@@ -62,7 +79,7 @@
 				<td colspan="2">
 					<a href="board.jsp"><button>뒤로가기</button></a>
 					<a href="BoardUpdate.jsp?num=<%=post.getB_seq()%>"><button>수정</button></a>
-                  	<a href = "DeleteBoardService?num=<%=post.getB_seq()%>"><button onclick = "return confirm('정말 삭제 하시겠습니까?');">삭제</button></a>
+                  	<a href ="DeleteBoardService?num=<%=post.getB_seq()%>"><button onclick = "return confirm('정말 삭제 하시겠습니까?');">삭제</button></a>
 				</td>  
 			</tr>
 		</table>
