@@ -135,23 +135,22 @@
 			<div class="container-a" style="width: 70%; font-size: 18px;">
 					<div>
 					<img class="icon_pet" alt="" src="./images/icon_dog.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #55cbcd;" onclick="location.href='dic_dog.jsp'">강아지 백과사전</button>
+					<button type="button" class="btn btn-light btn-lg" style="background-color: #55cbcd;" onclick="location.href='InsertDog.jsp'">강아지 백과사전 정보 등록</button>
 					</div>
 					<div>
 					<img class="icon_pet" alt="" src="./images/icon_cat.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #caa6fe;" onclick="location.href='dic_cat.jsp'">고양이 백과사전</button>
+					<button type="button" class="btn btn-light btn-lg" style="background-color: #caa6fe;" onclick="location.href='InsertCat.jsp'">고양이 백과사전 정보 등록</button>
 					</div>
 					<div>
 					<img class="icon_pet" alt="" src="./images/icon_rep.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #a9d39e;" onclick="location.href='dic_rep.jsp'">파충류 백과사전</button>
+					<button type="button" class="btn btn-light btn-lg" style="background-color: #a9d39e;" onclick="location.href='InsertRep.jsp'">파충류 백과사전 정보 등록</button>
 					</div>
 					<div>
 					<img class="icon_pet" alt="" src="./images/icon_bird.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #b37c57;" onclick="location.href='dic_bird.jsp'">조 류 백과사전</button>
+					<button type="button" class="btn btn-light btn-lg" style="background-color: #b37c57;" onclick="location.href='#'">조 류 백과사전 정보 등록</button>
 					<p>버튼 색상 및 디자인 고민중</p>
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #b37c57;" onclick="location.href='main.jsp'">HOME</button>
 					</div>
-				
+					<button type="button" class="btn btn-light btn-lg" style="background-color: #b37c57;" onclick="location.href='main.jsp'">HOME</button>	
 				<!-- <video style="margin-top: 10px;" src="./images/video_dog.mp4" autoplay="autoplay" muted="muted" loop="loop" width="80%" height="50%">
 				</video> -->
 			
