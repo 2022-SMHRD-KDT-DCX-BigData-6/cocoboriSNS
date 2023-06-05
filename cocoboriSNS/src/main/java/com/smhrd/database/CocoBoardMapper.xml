@@ -10,12 +10,12 @@
 	
 	<!-- 게시글 조회  -->
 	<select id="showBoard" resultType="CocoBoard">
-		select * from TB_BOARD
+		select * from TB_BOARD order by uploaded_at desc
 	</select>
 	
 	<!-- 게시글 세부 조회 -->
 	<select id="detail_showBoard" resultType="CocoBoard" parameterType="CocoBoard">
-		select * from TB_BOARD where b_seq = #{b_seq}
+		select * from TB_BOARD where b_seq = #{b_seq} 
 	</select>
 	
 	<!-- 게시글 수정 -->
