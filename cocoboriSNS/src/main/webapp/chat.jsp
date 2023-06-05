@@ -170,65 +170,65 @@
 				%>
 				</td>
 			</tr>
-			<tr style="text-align: center;">
-				<td id='emoticon1' style="border: thin; display: none; font-size:14px;">
-					<input type="button" id="emo1" value="😺" title="고양이에요">
+			<tr style="text-align: center; style="background="">
+				<td id='emoticon1' style="border: thin; display: none; font-size:20px;">
+					<input type="button" id="emo1" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFF7D4;" value="😺" title="고양이에요">
 					<script>$("#emo1").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'😺');});</script>
-					<input type="button" id="emo2" value="🐶" title="강아지에요">
+					<input type="button" id="emo2" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;" value="🐶" title="강아지에요">
 					<script>$("#emo2").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐶');});</script>
-					<input type="button" id="emo3" value="🐰" title="토끼에요">
+					<input type="button" id="emo3" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #C07F00;" value="🐰" title="토끼에요">
 					<script>$("#emo3").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐰');});</script>
-					<input type="button" id="emo4" value="🐹" title="햄스터에요">
+					<input type="button" id="emo4" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #4C3D3D;" value="🐹" title="햄스터에요">
 					<script>$("#emo4").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐹');});</script>
-					<input type="button" id="emo5" value="🐦" title="새에요">
+					<input type="button" id="emo5" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #CCD5AE;" value="🐦" title="새에요">
 					<script>$("#emo5").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐦');});</script>
-					<input type="button" id="emo6" value="🐸" title="개구리에요">
+					<input type="button" id="emo6" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #E9EDC9;" value="🐸" title="개구리에요">
 					<script>$("#emo6").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐸');});</script>
-					<input type="button" id="emo7" value="🦎" title="도마뱀이에요">
+					<input type="button" id="emo7" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="🦎" title="도마뱀이에요">
 					<script>$("#emo7").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🦎');});</script>
 				</td>
 			</tr>
 			<tr style="text-align: center;">
-				<td id='emoticon2' style="border: thin; display: none; font-size:14px;">	
-					<input type="button" id="emo8" value="🐍" title="뱀이에요">
+				<td id='emoticon2' style="border: thin; display: none; font-size:20px;">	
+					<input type="button" id="emo8" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD5CD;" value="🐍" title="뱀이에요">
 					<script>$("#emo8").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐍');});</script>
-					<input type="button" id="emo9" value="🐟" title="물고기에요">
+					<input type="button" id="emo9" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #4C3D3D;" value="🐟" title="물고기에요">
 					<script>$("#emo9").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐟');});</script>
-					<input type="button" id="emo10" value="🐛" title="애벌레에요">
+					<input type="button" id="emo10" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="🐛" title="애벌레에요">
 					<script>$("#emo10").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🐛');});</script>
-					<input type="button" id="emo11" value="🖐" title="안녕하세요">
+					<input type="button" id="emo11" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;" value="🖐" title="안녕하세요">
 					<script>$("#emo11").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🖐');});</script>
-					<input type="button" id="emo12" value="👍" title="좋아요">
+					<input type="button" id="emo12" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="👍" title="좋아요">
 					<script>$("#emo12").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'👍');});</script>
-					<input type="button" id="emo13" value="👎" title="나빠요">
+					<input type="button" id="emo13" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="👎" title="나빠요">
 					<script>$("#emo13").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'👎');});</script>
-					<input type="button" id="emo14" value="✌" title="V에요">
+					<input type="button" id="emo14" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="✌" title="V에요">
 				</td>
 			</tr>
 			<tr style="text-align: center;"> 
-				<td id='emoticon3' style="border: thin; display: none; font-size:14px;">
+				<td id='emoticon3' style="border: thin; display: none; font-size:20px;">
 					<script>$("#emo14").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'✌');});</script>
-					<input type="button" id="emo15" value="👏" title="박수쳐요">
+					<input type="button" id="emo15" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFE8DF;" value="👏" title="박수쳐요">
 					<script>$("#emo15").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'👏');});</script>
-					<input type="button" id="emo16" value="🙏" title="미안해요">
+					<input type="button" id="emo16" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFE8DF;" value="🙏" title="미안해요">
 					<script>$("#emo16").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'🙏');});</script>
-					<input type="button" id="emo17" value="❗" title="놀라요">
+					<input type="button" id="emo17" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #F0F0F0;" value="❗" title="놀라요">
 					<script>$("#emo17").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'❗');});</script>
-					<input type="button" id="emo18" value="❓" title="궁금해요">
+					<input type="button" id="emo18" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #F0F0F0;" value="❓" title="궁금해요">
 					<script>$("#emo18").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'❓');});</script>
-					<input type="button" id="emo19" value="💤" title="졸려요">
+					<input type="button" id="emo19" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="💤" title="졸려요">
 					<script>$("#emo19").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'💤');});</script>
-					<input type="button" id="emo20" value="💢" title="화나요">
+					<input type="button" id="emo20" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="💢" title="화나요">
 					<script>$("#emo20").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'💢');});</script>
-					<input type="button" id="emo21" value="💕" title="사랑해요">
+					<input type="button" id="emo21" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FCF1F1;" value="💕" title="사랑해요">
 					<script>$("#emo21").on('click',function() {$('input[name=talking]').val($('input[name=talking]').val()+'💕');});</script>
 				</td>
 			</tr>
 			<tr>
-				<td>
-					<input type="button" id="emo" value="이모티콘" onclick="toggleEmo()">
-					<input type="text" name="talking" id="chat" placeholder="채팅 내용을 입력해 주세요" >
-					<input type="submit" value="전송">
+				<td align="center">
+					<input type="button" id="emo" value="이모티콘" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;" onclick="toggleEmo()">
+					<input type="text" name="talking" id="chat" style="display: inline-block; padding: 0.25em 0.5em 0.25em 0.5em; width: 80%;" placeholder="채팅 내용을 입력해 주세요" >
+					<input type="submit" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;" value="전송">
 				</td>
 			</tr>
 					
