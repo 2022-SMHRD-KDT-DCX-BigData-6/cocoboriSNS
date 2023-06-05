@@ -26,6 +26,10 @@
 		// 친구 활동 내력
 		@SuppressWarnings("unchecked")
 		List<CocoBoardDTO> friendHistory = (List<CocoBoardDTO>)session.getAttribute("friendHistory");
+		
+		// 친구 이메일 세션에 저장
+		String friend_email = friendInfo.get(0).getUser_email();
+		session.setAttribute("friend_email", friend_email);
 	%>
 
 	<!-- Header -->
@@ -101,6 +105,7 @@
 						</tr>
 						<tr>
 							<td class="text-center"><button type="button" onclick="location.href='chat.jsp'">채팅</button></td>
+
 						</tr>
 						<tr>
 							<td class="text-center"><button type="button" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">팔로우 해제</button></td>

@@ -92,7 +92,7 @@
 			<div class="friend_list container">
 				<div class="row">
 					<div id="board">
-						<form action="insertFriend2.jsp">
+						<form action="insertFriend.jsp">
 							<table id="list">
 								<tr>
 									<td><input type="text" placeholder="이메일을 입력해주세요" name="search_email"></td>
