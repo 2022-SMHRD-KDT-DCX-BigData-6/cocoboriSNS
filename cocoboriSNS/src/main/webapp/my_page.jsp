@@ -96,15 +96,15 @@
 			<div class="container-a" >
 				<form action="UpdateService" method="post" enctype="multipart/form-data">
 						
-						<div class="input-group mb-3">
+						<div class="input-group mb-3" style="padding-bottom: 5px">
  						 <span class="input-group-text" id="modify" ><i class="fas fa-thin fa-lock"></i></span>
  						 <input type="text" class="form-control" name="user_pw" placeholder="변경할 비밀번호" aria-label="user_pw" aria-describedby="basic-addon1">
 						</div>
-						<div class="input-group mb-3">
- 						 <span class="input-group-text" id="modify"><i class="fas fa-thin fa-paw"></i></span>
+						<div class="input-group mb-3" style="padding-bottom: 5px">
+ 						 <span class="input-group-text" id="modify"><i class="fas fa-thin fa-pencil"></i></span>
  						 <input type="text" class="form-control" name="user_nick" placeholder="변경할 닉네임" aria-label="user_nick" aria-describedby="basic-addon1">
 						</div>
-						<div class="input-group mb-3">
+						<div class="input-group mb-3" style="padding-bottom: 5px">
  						 <span class="input-group-text" id="modify"><i class="fas fa-thin fa-phone"></i></span>
  						 <input type="text" class="form-control" name="user_phone" placeholder="변경할 휴대폰 번호" aria-label="user_phone" aria-describedby="basic-addon1">
 						</div>

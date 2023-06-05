@@ -16,7 +16,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-	
+<script src="https://kit.fontawesome.com/87eea0d038.js" crossorigin="anonymous"></script>	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">	
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -31,9 +31,8 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/foot.png"
+				<span class="image avatar48"><img src="images/cocobori_logo.png"
 					alt="" /></span>
-				<h1 id="title">COCOBORI</h1>
 
 			</div>
 
@@ -81,50 +80,49 @@
 		<section id="portfolio" class="two">
 			<div class="container-a">
 				<form action="JoinService" method="post" enctype="multipart/form-data">
-				
-				<input type="hidden" name="chk" value="0">
-				
-					<div class="form-floating">
-						<input type="email" name="user_email" class="form-control-sm"
-							placeholder="이메일주소">
-						
-						<!-- <button type="button" style="margin-top: 10px" class="btn btn-success" onclick="fn_idcheck()" >중복아이디체크</button> -->
-					
+
+					<input type="hidden" name="chk" value="0">
+
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="login"><i
+							class="fas fa-light fa-envelope"></i></span> <input type="text"
+							class="form-control" name="user_email" placeholder="이메일 주소"
+							aria-label="user_email" aria-describedby="basic-addon1">
 					</div>
-					<div class="form-floating">
-					
-						<input type="password" name="user_pw" class="form-control-sm"
-							placeholder="비밀번호">
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="modify"><i
+							class="fas fa-thin fa-lock"></i></span> <input type="text"
+							class="form-control" name="user_pw" placeholder="비밀번호"
+							aria-label="user_pw" aria-describedby="basic-addon1">
 					</div>
-					<div class="form-floating">
-						<input type="text" name="user_name" class="form-control-sm"
-							placeholder="사용자 이름">
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="modify"><i
+							class="fas fa-thin fa-user"></i></span> <input type="text"
+							class="form-control" name="user_name" placeholder="사용자 이름"
+							aria-label="user_name" aria-describedby="basic-addon1">
 					</div>
-					<div class="form-floating">
-						<input type="text" name="user_nick" class="form-control-sm"
-							placeholder="닉네임">
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="modify"><i
+							class="fas fa-thin fa-pencil"></i></span> <input type="text"
+							class="form-control" name="user_nick" placeholder="닉네임"
+							aria-label="user_nick" aria-describedby="basic-addon1">
 					</div>
-					<div class="form-floating" >
-						<input type="text" name="user_phone" class="form-control-sm" 
-							placeholder="휴대폰 번호">
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="modify"><i
+							class="fas fa-thin fa-phone"></i></span> <input type="text"
+							class="form-control" name="user_phone" placeholder="휴대폰 번호"
+							aria-label="user_phone" aria-describedby="basic-addon1">
 					</div>
-					
 					<div class="mb-3">
- 					 <label for="formFileMultiple" class="form-label">프로필사진을 등록해주세요!</label>
- 					 <input class="form-control" type="file" name="user_file" multiple>
+						<label for="formFileMultiple" class="form-label">프로필사진을
+							등록해주세요!</label> <input class="form-control" type="file" name="user_file"
+							multiple>
 					</div>
-					
-					<!-- <div>
-						<input type="file" name="user_file" value="파일등록">
-					</div> -->
-					
-					
-					
 					<div>
-						<button style="margin-top: 10px" type="submit" class="btn btn-warning" onclick="joinMember()" >회원가입</button>
+						<button style="margin-top: 10px" type="submit"
+							class="btn btn-warning" onclick="joinMember()">회원가입</button>
 					</div>
-					
-					
+
 					<script>
 					function joinMember() {
   						window.location.href ="JoinService";
