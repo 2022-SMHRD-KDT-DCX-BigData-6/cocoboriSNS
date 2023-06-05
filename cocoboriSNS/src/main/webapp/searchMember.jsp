@@ -28,9 +28,15 @@
 			<!-- Logo -->
 			<div id="logo">
 				<!-- 프로필 사진 넣는 자리 -->
-				<span class="image avatar48">
-					<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
-				</span>
+				<% if (member.getUser_file() == null) {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./images/foot.png"%>">
+					</span>
+				<% } else {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
+					</span>
+				<% }%>
 				<h1 id="title">COCOBORI</h1>
 				<p><%= member.getUser_nick()%>님</p>
 			</div>
@@ -43,10 +49,11 @@
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% } else {%>
-						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 					<% }%>
+					<li><a href="board.jsp" id="board-link"><span class="icon solid fa-envelope">게시판</span></a></li>
 					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
 					<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 				</ul>
@@ -83,9 +90,9 @@
 		<!-- Portfolio -->
 		<section id="#" class="two">
 
-			<div class="friend_list container">
+			<div class="friend_list container" style="width: 800px;">
 				<div class="row">
-					<div id="board">
+					<div id="board" style="justify-content: center;">
 						<form action="insertFriend.jsp">
 							<table id="list">
 								<tr>
@@ -94,7 +101,7 @@
 								</tr>
 							</table>
 						</form>
-						<a href="friend.jsp"><button id="writer">친구 페이지</button></a>
+						<button id="writer" onclick="location.href='friend.jsp'">친구 페이지</button>
 						<!-- 경로 변경 -->
 					</div>
 				</div>

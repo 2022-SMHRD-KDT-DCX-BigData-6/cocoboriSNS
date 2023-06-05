@@ -31,9 +31,15 @@
 			<!-- Logo -->
 			<div id="logo">
 				<!-- 프로필 사진 넣는 자리 -->
-				<span class="image avatar48">
-					<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
-				</span>
+				<% if (member.getUser_file() == null) {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./images/foot.png"%>">
+					</span>
+				<% } else {%>
+					<span class="image avatar48">
+						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
+					</span>
+				<% }%>
 				<h1 id="title">COCOBORI</h1>
 				<p><%= member.getUser_nick()%>님</p>
 			</div>
@@ -46,10 +52,11 @@
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% } else {%>
-						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 					<% }%>
+					<li><a href="board.jsp" id="board-link"><span class="icon solid fa-envelope">게시판</span></a></li>
 					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
 					<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 				</ul>
@@ -86,13 +93,13 @@
 		<!-- Portfolio -->
 		<section id="#" class="two">
 
-			<div class="friend_list container">
-				<div class="row">
+			<div class="friend_list container" style="width: 800px;">
+				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 						<table class="table">
 							<tr>
-								<td>친구 목록</td>
-								<td>
+								<td style="text-align: center;">친구 목록</td>
+								<td style="text-align: right;">
 									<button type="button" onclick="location.href='searchMember.jsp'">유저 검색</button>
 								</td>
 							</tr>
