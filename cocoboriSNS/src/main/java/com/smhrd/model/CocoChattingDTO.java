@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class CocoChattingDTO {
 
     // 채팅 순번 
-    private int CHAT_SEQ;
+    private Double CHAT_SEQ;
 
     // 채팅방 순번 
     @NonNull private Double CR_SEQ;

@@ -39,7 +39,7 @@ public class CocoChattingDAO {
 	}
 	
 	// 채팅 출력 메소드
-	public List<CocoChattingDTO> ShowChat(int CR_SEQ) {
+	public List<CocoChattingDTO> ShowChat(Double CR_SEQ) {
 		List<CocoChattingDTO> chat_List = sqlSession.selectList("com.smhrd.database.CocoChatMapper.ChatList", CR_SEQ);
 		
 		sqlSession.close();
