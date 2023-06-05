@@ -100,7 +100,7 @@
 							<tr>
 								<td style="text-align: center;">친구 목록</td>
 								<td style="text-align: right;">
-									<button type="button" onclick="location.href='searchMember.jsp'">유저 검색</button>
+									<button type="button" style="background-color: #a9d39e;" onclick="location.href='searchMember.jsp'">유저 검색</button>
 								</td>
 							</tr>
 							<% for (int i = 0; i < friendList.size(); i++) {%>
