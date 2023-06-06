@@ -15,6 +15,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://kit.fontawesome.com/87eea0d038.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -27,9 +28,8 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/foot.png"
+				<span class="image avatar48"><img src="images/cocobori_logo.png"
 					alt="" /></span>
-				<h1 id="title">COCOBORI</h1>
 		
 			</div>
 
@@ -79,36 +79,35 @@
 		<section id="portfolio" class="two">
 			<div class="container-a">
 				<form action="LoginService" method="post">
-				
-				
-					<div class="form-floating">
-						<input type="email" name="user_email" class="form-control-sm"
-							placeholder="Email">
-						
-							
+
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="login"><i
+							class="fas fa-light fa-envelope"></i></span> <input type="text"
+							class="form-control" name="user_email" placeholder="이메일"
+							aria-label="user_email" aria-describedby="basic-addon1">
 					</div>
-					<div class="form-floating">
-						<input type="password" name="user_pw" class="form-control-sm"
-							placeholder="Password">
+					<div class="input-group mb-3" style="padding-bottom: 5px">
+						<span class="input-group-text" id="login"><i
+							class="fas fa-light fa-lock"></i></span> <input type="text"
+							class="form-control" name="user_pw" placeholder="비밀번호"
+							aria-label="user_pw" aria-describedby="basic-addon1">
 					</div>
-					
+
 					<div>
-					<button style="margin-top: 10px" type="submit" class="btn btn-success" onclick="login()">로그인</button>
-					<button style="margin-top: 10px" type="button" class="btn btn-warning" onclick="location.href='join.jsp'">회원가입</button>
-					</div> 
-					
-					
+						<button style="margin-top: 10px; background-color: hotpink;" type="submit"
+							class="btn btn-light" onclick="login()">로그인</button>
+						<button style="margin-top: 10px" type="button"
+							class="btn btn-warning" onclick="location.href='join.jsp'">회원가입</button>
+					</div>
+
+
 					<script>
 					function login() {
   					alert("로그인되었습니다.");
   					window.location.href ="LoginService";
 					} 
 					</script>
-					
-					
-					
-					
-					
+
 				</form>
 			</div>
 	

@@ -110,7 +110,7 @@
 						<!-- 쿼리스트링방식 : url?name=value&name=value -->
 						<td>
 						
-						<button type="button" class="btn btn-danger" onclick="DeleteService?user_email=<%=l.getUser_email()%>">삭제</button>
+						<button type="button" class="btn btn-danger" onclick="location.href='DeleteService?user_email=<%=l.getUser_email()%>'">삭제</button>
 						<%-- <a
 							href="DeleteService?user_email=<%=l.getUser_email()%>">삭제</a> --%>
 						</td>

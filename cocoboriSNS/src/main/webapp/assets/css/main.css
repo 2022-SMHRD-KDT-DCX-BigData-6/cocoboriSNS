@@ -90,7 +90,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #FFFFDE;
+		background: #FFFFFF;
 		font-family: 'omyu_pretty' !important;
 		font-size: 19pt;
 		font-weight: 300;
@@ -1763,8 +1763,8 @@ input, select, textarea {
 		}
 
 		.image.avatar48 {
-			width: 48px;
-			height: 48px;
+			width: 60px;
+			height: 55px;
 			/* 로고 배경색 투명하게 설정 */
 			background-color:transparent;
 			border-radius: 70%;
@@ -1772,10 +1772,14 @@ input, select, textarea {
 		}
 
 			.image.avatar48 img {
-				width: 48px;
-				height: 48px;
+				width: 200%;
+				height: 190%;
 				border-radius: 70%;
     			overflow: hidden;
+				margin-left: 60px;
+				margin-bottom: 10px;
+    			
+    		
 			}
 
 		.image.fit {
@@ -1940,7 +1944,7 @@ input, select, textarea {
 		}
 
 		table thead {
-			background: #FFFFDE;
+			background: #FFFFFF;
 			color: black;
 		}
 
@@ -2060,7 +2064,7 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		/* 네비게이션 배경색 */
-		background: #FFF8D6;
+		background: #FFFFFF;
 		box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.1);
 		color: #fff;
 		height: 100%;
@@ -2110,7 +2114,7 @@ input, select, textarea {
 
 	#logo {
 		position: relative;
-		margin: 1.75em 1.5em 1.5em 1.5em;
+		margin: 1.0em 1.8em 5em 2.5em;
 		min-height: 48px;
 		cursor: default;
 	}
@@ -2192,7 +2196,7 @@ input, select, textarea {
 		margin-left: 375px;
 		text-align: center;
 		/* 바닥글 배경색 */
-		background-color: #A4D0A4;
+		background-color: #CFD2CF;
 		padding: 3em 0 4em 0;
 		box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
 		font-size: 0.8em;
@@ -2268,7 +2272,7 @@ input, select, textarea {
 			}
 
 			#main > section.two {
-				background-color: #FFFFDE
+				background-image: linear-gradient(to bottom, white, #CFD2CF);
 			}
 
 			#main > section.three {
@@ -2662,7 +2666,8 @@ input, select, textarea {
 	}
 	
 	#top {
-		background-color: #F7E1AE;
+		background-image: linear-gradient(to bottom, white, #FFCCCC);
+		height: 200px;
 	}
 	
 /* add */
