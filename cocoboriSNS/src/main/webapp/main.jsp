@@ -48,6 +48,8 @@
 					<img src="<%= "./images/cocobori_logo_1.png" %>">
 				</span>
 				<%} %>
+				
+				
 				<p>
 					<% if (member == null) { %><!-- 	<h1 id="title">COCOBORI</h1> -->
 						SNS	
