@@ -31,7 +31,13 @@ public class InsertFriend implements Command {
 		
 		CocoFriendDTO searchDto = new CocoFriendDTO(null, friend_email, user_email, null);
 		
-		if (!fDao.searchFriend(searchDto).isEmpty()) { //
+		if (fDao.searchFriend(searchDto).isEmpty()) { //
+			SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			
+			sqlSession.close();
+		
+		} else {
 			System.out.println("친구 찾기 결과 : " + fDao.searchFriend(searchDto));
 			
 			Double friend_seq = new CocoChattingDAO().ChatCode(user_email); //
@@ -46,12 +52,6 @@ public class InsertFriend implements Command {
 			} else {
 				System.out.println("수정 실패"); 
 			}
-		
-		} else {
-			SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-			SqlSession sqlSession = sqlSessionFactory.openSession(true);
-			
-			sqlSession.close();
 		}
 		
 		return "friend.jsp";
