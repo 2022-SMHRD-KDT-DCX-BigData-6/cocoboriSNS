@@ -28,10 +28,10 @@ public class InsertFriend implements Command {
 		CocoFriendDTO fDto2 = new CocoFriendDTO(null, friend_email, user_email, null);
 		
 		if(fDao.searchFriend(fDto2) != null) { //
-			// System.out.println(fDao.searchFriend(fDto2));
+			System.out.println(fDao.searchFriend(fDto2));
 		
 			Double friend_seq = new CocoChattingDAO().ChatCode(user_email); //
-			// System.out.println(friend_seq);
+			System.out.println(friend_seq);
 		
 			CocoFriendDTO updateDto = new CocoFriendDTO(friend_seq, user_email, friend_email, null);
 			

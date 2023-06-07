@@ -56,7 +56,7 @@
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">HOME</span></a></li>
+					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
 					<% if (member.getUser_email().equals("admin@admin.com")) {%>
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
@@ -66,7 +66,7 @@
 						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
 					<% }%>
 					<li><a href="board.jsp" id="board-link"><span class="icon solid fa-envelope">게시판</span></a></li>
-					<li><a href="#" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
+					<li><a href="dic_pet" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 정보</span></a></li>
 					<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
 				</ul>
 			</nav>
@@ -129,7 +129,7 @@
 						</tr>
 						<% for (int i = 0; i < friendHistory.size(); i++) {%>
 							<tr>
-								<td colspan="2" onclick="location.href='#'"><%= friendHistory.get(i).getB_title()%></td>
+								<td colspan="2" class="friend_content" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'"><%= friendHistory.get(i).getB_title()%></td>
 							</tr>
 						<% }%>
 					</table>
