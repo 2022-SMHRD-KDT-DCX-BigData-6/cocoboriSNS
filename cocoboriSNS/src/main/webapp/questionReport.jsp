@@ -101,10 +101,9 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two" style="text-align: center;">
-			<h1>문의 및 신고</h1>
 			<div class="container">
 				<div class="row">
-					<div class="col-4 col-12-mobile">
+					<div class="col-4 col-12-mobile" style="align-content:center; text-align: center;">
 						<form action="QuestionService.do" method="post" enctype="multipart/form-data">
 							<table id="list">
 								<tr>
