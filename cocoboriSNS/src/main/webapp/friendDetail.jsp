@@ -129,7 +129,7 @@
 						</tr>
 						<% for (int i = 0; i < friendHistory.size(); i++) {%>
 							<tr>
-								<td colspan="2" onclick="location.href='#'"><%= friendHistory.get(i).getB_title()%></td>
+								<td colspan="2" class="friend_content" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'"><%= friendHistory.get(i).getB_title()%></td>
 							</tr>
 						<% }%>
 					</table>
