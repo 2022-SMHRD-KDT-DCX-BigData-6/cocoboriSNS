@@ -35,6 +35,11 @@
 					alt="" /></span>
 
 			</div>
+			
+			<br>
+			<br>
+			<br>
+			<br>
 
 			<!-- Nav -->
 			<nav id="nav">
@@ -119,7 +124,7 @@
 							multiple>
 					</div>
 					<div>
-						<button style="margin-top: 10px" type="submit"
+						<button style="margin-top: 10px; background-color: #FFD95A; type="submit"
 							class="btn btn-warning" onclick="joinMember()">회원가입</button>
 					</div>
 

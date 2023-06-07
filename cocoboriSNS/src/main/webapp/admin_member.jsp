@@ -35,12 +35,8 @@
 
 			<!-- Logo -->
 			<div id="logo">
-			<span class="image avatar48"><img src="images/admin.png" alt="" /></span>
-				<h1 id="title">COCOBORI</h1>
-				<p>
-					관리자
-				</p>
-				
+			<span class="image avatar48">
+			<img style="width: 20%; height: 20%; margin-top: 10px; margin-left: 20px; border-radius:70% " src="images/admin.png" alt="" /></span>
 			</div>
 
 			<!-- Nav -->
