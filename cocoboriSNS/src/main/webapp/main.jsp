@@ -21,7 +21,6 @@
 
 			<!-- Logo -->
 			<div id="logo">
-<!-- ================================================================================ -->			
 				<!-- 프로필 사진 넣는 자리 -->
 				
 				<span class="image avatar48">
@@ -47,11 +46,6 @@
 						<%= member.getUser_nick() %>님
 					<% } %>	
 				</p> --%>
-<!-- ================================================================================ -->			
-			
-<!-- ================================================================================ -->			
-			
-<!-- ================================================================================ -->			
 			</div>
 
 			<!-- Nav -->
@@ -62,12 +56,14 @@
 						<li><a href="login.jsp" id="login-link"><span class="icon solid fa-envelope">로그인</span></a></li>
 					<% } else { %>
 						<% if(member.getUser_email().equals("admin@admin.com")) { %>
-							<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
-							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
+						<li><a href="questionReportAdmin.jsp" id="questionReport-link"><span class="icon solid fa-user">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 						<% } else { %>
-							<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
-							<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
-							<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
+						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
+						<li><a href="friend.jsp" id="friend-link"><span class="icon solid fa-envelope">친구</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="questionReport.jsp" id="questionReport-link"><span class="icon solid fa-user">문의 및 신고</span></a></li>
 						<% } %>
 					<% } %>
 					<li><a href="board.jsp" id="board-link"><span class="icon solid fa-envelope">게시판</span></a></li>
