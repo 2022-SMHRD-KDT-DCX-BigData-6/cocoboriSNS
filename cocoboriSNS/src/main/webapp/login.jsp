@@ -32,7 +32,10 @@
 					alt="" /></span>
 		
 			</div>
-
+			<br>
+			<br>
+			<br>
+			<br>
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
@@ -94,10 +97,10 @@
 					</div>
 
 					<div>
-						<button style="margin-top: 10px; background-color: hotpink;" type="submit"
+						<button style="margin-top: 10px; background-color: #FFD95A;" type="submit"
 							class="btn btn-light" onclick="login()">로그인</button>
-						<button style="margin-top: 10px" type="button"
-							class="btn btn-warning" onclick="location.href='join.jsp'">회원가입</button>
+						<button style="margin-top: 10px; background-color: #4C3D3D;" type="button"
+							class="btn btn-light" onclick="location.href='join.jsp'">회원가입</button>
 					</div>
 
 

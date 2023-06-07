@@ -38,17 +38,27 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				
-				<span class="image avatar48">
+			
+			<span class="image avatar48">
+					<img  src="<%= "./images/cocobori_logo.png" %>">
+				</span>
+			
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			
+				<%-- <span class="image avatar48">
 					<img alt="" src="<%= "./upload/"+ member.getUser_file() %>">
 				</span>
-				
-				<h1 id="title">COCOBORI</h1>
-
+				 --%>
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
+				<br>
+				<br>
 				<ul>
 					<li><a href="main.jsp" id="main-link"><span
 							class="icon solid fa-home">홈</span></a></li>
