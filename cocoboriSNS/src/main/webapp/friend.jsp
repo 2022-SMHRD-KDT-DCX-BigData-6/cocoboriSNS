@@ -18,7 +18,7 @@
 	<%
 		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
 		String user_email = member.getUser_email();
-		
+
 		// 친구 목록
 		List<CocoFriendDTO> friendList = new CocoFriendDAO().showAllFriends(user_email);
 	%>
@@ -30,18 +30,24 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<!-- 프로필 사진 넣는 자리 -->
-				<% if (member.getUser_file() == null) {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./images/foot.png"%>">
-					</span>
-				<% } else {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
-					</span>
+
+				<!-- 로고 넣는 자리 -->
+				<span class="image avatar48">
+					<img src="<%="./images/cocobori_logo.png"%>">
+				</span><br><br><br><br><br>
+
+				<!-- 로그인시 프로필사진과 닉네임 나오는 자리 -->
+				<% if (member != null) {%>
+				<div class="card" style="padding-bottom: 10px">
+					<div style="height: 60px;" class="card-body">
+						<span class="image avatar49">
+							<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%="./upload/" + member.getUser_file()%>">
+						</span>
+						<h3 style="border: medium;"><%=member.getUser_nick()%></h3>
+					</div>
+				</div>
 				<% }%>
-				<h1 id="title">COCOBORI</h1>
-				<p><%= member.getUser_nick()%>님</p>
+
 			</div>
 
 			<!-- Nav -->
@@ -108,8 +114,8 @@
 							</tr>
 							<% for (int i = 0; i < friendList.size(); i++) {%>
 								<tr>
-									<td class="friend_email" colspan="2" onclick="location.href='FriendDetail.do?user_email=<%= friendList.get(i).getFriend_email()%>'">
-										<%= friendList.get(i).getFriend_email()%>
+									<td class="friend_email" colspan="2" onclick="location.href='FriendDetail.do?user_email=<%=friendList.get(i).getFriend_email()%>'">
+										<%=friendList.get(i).getFriend_email()%>
 									</td>
 								</tr>
 							<% }%>
