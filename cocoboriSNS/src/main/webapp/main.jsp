@@ -90,8 +90,6 @@
                   <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
                   <% } %>
                <% } %>
-                  
-               
             </ul>
          </nav>
 
