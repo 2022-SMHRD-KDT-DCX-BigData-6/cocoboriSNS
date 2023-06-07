@@ -101,65 +101,66 @@
 				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
 			</div>
 		</section>
+			<%
+				String num = request.getParameter("num");
+				String answer = null;
+				List<CocoQuestionDTO> questionDetail = new CocoQuestionDAO().showQuestionDetail(num);
+			%>
+		
 
 		<!-- Portfolio -->
 		<section id="#" class="two" style="text-align: center;">
-			<h1>문의 및 신고</h1>
-			<div class="container">
-				<div class="row">
-					<div class="col-4 col-12-mobile">
-					
-						<%
-							String num = request.getParameter("num");
-							List<CocoQuestionDTO> questionDetail = new CocoQuestionDAO().showQuestionDetail(num);
-						%>
-
-						<div id="board">
-							<table id="list">
-								<tr>
-									<td>제목</td>
-									<td>유형</td>
-									<td>작성자</td>
-									<td>작성시간</td>
-								</tr>
-								<%
-								for (CocoQuestionDTO i : questionDetail) {
-								%>
-								<tr>
-									<td><%=i.getTitle()%></td>
-									<td><%=i.getType()%></td>
-									<td><%=i.getWriter()%></td>
-									<td><%=i.getQ_date()%></td>
-								<tr>
-								<tr>
-									<td colspan="4">내용</td>
-								</tr>
-								<tr align="center">
-									<td colspan="4">
-									<% if (i.getQ_file()!= null){ %>
-						            <span class="image avatar48">
-						               <img alt="" src="<%= "./file/"+ i.getQ_file()%>">
-						            </span>
-						            <%}else{ %>
-						            <span class="image avatar48">
-						               <img alt="" src="<%= "./images/11.png"%>">
-						            </span>
-						            <%} %>
-						            </td>
-						        </tr>
-						        <tr>
-									<td colspan="4"> <%=i.getContent()%> </td>
-								</tr>
-								<%
-								}
-								%>
-								
-							</table>
-							<a href="questionReportAdmin.jsp"><button id="back">뒤로가기</button></a>
-							<a href="main.jsp"><button id="writer">홈으로가기</button></a>
-						</div>
-					</div>
-				</div>
+			<div class="container-b">
+				<table id="list" style="text-align: center;">
+					<tr>
+						<td>제목</td>
+						<td>유형</td>
+						<td>작성자</td>
+						<td>작성시간</td>
+					</tr>
+					<%
+					for (CocoQuestionDTO i : questionDetail) {
+					%>
+					<tr>
+						<td><%=i.getTitle()%></td>
+						<td><%=i.getType()%></td>
+						<td><%=i.getWriter()%></td>
+						<td><%=i.getQ_date()%></td>
+					<tr>
+					<tr>
+						<td colspan="4">내용</td>
+					</tr>
+					<tr align="center">
+						<td colspan="4">
+						<% if (i.getQ_file()!= null){ %>
+			               <img alt="" src="<%= "./file/"+ i.getQ_file()%>">
+			            <%}else{ %>
+			               <img alt="" src="<%= "./images/foot.png"%>">
+			            <%} %>
+			            <hr>
+			            <%=i.getContent()%>
+			            </td>
+			        </tr>
+			        <tr>
+			        	<td colspan="4">답변</td>
+			        	<%=i.getAnswer()%>
+			        </tr>
+					<%
+					answer = i.getNum();
+					}
+					%>
+				</table>
+				<% 
+					String go = "question.jsp";
+					if(member.getUser_email().equals("admin@admin.com")) { 
+						go = "questionReportAdmin.jsp";
+				%>
+					<a href=questionAnswer.jsp?num=<%= answer %>><button id="answer">답변작성하기</button></a>
+				<%
+					}
+				%>
+				<a href=<%= go %>><button id="back">뒤로가기</button></a>
+				<a href="main.jsp"><button id="writer">홈으로가기</button></a>
 			</div>
 		</section>
 	</div>

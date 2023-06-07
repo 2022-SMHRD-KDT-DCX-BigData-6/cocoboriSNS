@@ -4,7 +4,7 @@
 <!-- 문의 및 신고 업로드 -->
 	<insert id="questionUpload"
 			parameterType="CocoQuestion">
-		INSERT INTO TB_QUESTION VALUES(question_seq.nextval, #{title}, #{type}, #{writer}, #{content}, #{q_file}, sysdate)
+		INSERT INTO TB_QUESTION VALUES(question_seq.nextval, #{title}, #{type}, #{writer}, #{content}, #{q_file}, sysdate, null)
 	</insert>
 <!-- 문의 및 신고 목록 -->
 	<select id="questionList"
@@ -17,5 +17,18 @@
 			resultType="CocoQuestion">
 		SELECT * FROM TB_QUESTION WHERE NUM = #{num}
 	</select>
+	
+<!-- 내 문의 및 신고-->
+	<select id="myQuestion"
+			parameterType="CocoQuestion"
+			resultType="CocoQuestion">
+		SELECT *FROM  TB_QUESTION WHERE writer = #{writer}
+	</select>
+	
+<!-- 문의 및 신고 답변-->
+	<update id="QuestionAnswer"
+			parameterType="CocoQuestion">
+		Update TB_QUESTION set ANSWER = #{answer} WHERE NUM = #{num}
+	</update>
 
 </mapper>

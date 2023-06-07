@@ -11,6 +11,7 @@ import com.smhrd.command.Command;
 import com.smhrd.controller.DeleteFriend;
 import com.smhrd.controller.FriendDetail;
 import com.smhrd.controller.InsertFriend;
+import com.smhrd.controller.QuestionAnswerService;
 import com.smhrd.controller.QuestionService;
 
 public class FrontController extends HttpServlet {
@@ -48,6 +49,9 @@ public class FrontController extends HttpServlet {
 // 문의			
 		} else if (rsltURI.equals("QuestionService.do")) {
 			service = new QuestionService();
+// 문의 답변			
+		} else if (rsltURI.equals("QuestionAnswerService.do")) {
+			service = new QuestionAnswerService();
 		}
 		
 		moveURL = service.execute(request, response);

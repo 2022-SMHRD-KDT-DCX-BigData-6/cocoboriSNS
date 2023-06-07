@@ -38,4 +38,23 @@ public class CocoQuestionDAO {
 		
 		return qustionDetail;
 	}
+	
+	public List<CocoQuestionDTO> showMyQuestion(String writer) {
+
+		List<CocoQuestionDTO> qustionList = sqlSession.selectList("com.smhrd.database.CocoQuestionMapper.myQuestion", writer);
+		
+		sqlSession.close();
+		
+		return qustionList;
+	}
+	
+	public int questionUpdate(CocoQuestionDTO dto) {
+		int cnt = 0;
+		
+		cnt = sqlSession.update("com.smhrd.database.CocoQuestionMapper.QuestionAnswer", dto);
+		
+		sqlSession.close();
+		
+		return cnt;
+	}
 }

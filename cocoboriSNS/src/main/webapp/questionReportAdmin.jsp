@@ -104,40 +104,33 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two" style="text-align: center;">
-			<h1>문의 및 신고</h1>
-			<div class="container">
-				<div class="row">
-					<div class="col-4 col-12-mobile">
-					
-						<%
-							List<CocoQuestionDTO> questionList = new CocoQuestionDAO().showQuestion();
-						%>
+			<div class="container-b">
+				<%
+					List<CocoQuestionDTO> questionList = new CocoQuestionDAO().showQuestion();
+				%>
 
-						<div id="board">
-							<table id="list">
-								<tr>
-									<td>제목</td>
-									<td>유형</td>
-									<td>작성자</td>
-									<td>작성시간</td>
-								</tr>
-								<%
-								for (CocoQuestionDTO i : questionList) {
-								%>
-								<tr>
-									<td><a href="questionReportAdminDetail.jsp?num=<%= i.getNum() %>" target="_blank" rel="noopener noreferrer"><%=i.getTitle()%></a></td>
-									<td><%=i.getType()%></td>
-									<td><%=i.getWriter()%></td>
-									<td><%=i.getQ_date()%></td>
-								<tr>
-								<%
-								}
-								%>
-								
-							</table>
-							<a href="main.jsp"><button id="writer">홈으로가기</button></a>
-						</div>
-					</div>
+				<div id="board">
+					<table id="list" style="text-align: center;">
+						<tr>
+							<td>제목</td>
+							<td>유형</td>
+							<td>작성자</td>
+							<td>작성시간</td>
+						</tr>
+						<%
+						for (CocoQuestionDTO i : questionList) {
+						%>
+						<tr>
+							<td><a href="questionReportDetail.jsp?num=<%= i.getNum() %>" target="_blank" rel="noopener noreferrer"><%=i.getTitle()%></a></td>
+							<td><%=i.getType()%></td>
+							<td><%=i.getWriter()%></td>
+							<td><%=i.getQ_date()%></td>
+						<tr>
+						<%
+						}
+						%>
+					</table>
+					<a href="main.jsp"><button id="writer">홈으로가기</button></a>
 				</div>
 			</div>
 		</section>

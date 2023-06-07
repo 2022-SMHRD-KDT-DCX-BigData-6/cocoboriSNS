@@ -14,11 +14,12 @@ import lombok.RequiredArgsConstructor;
 public class CocoQuestionDTO {
 	
 	private String num;
-	@NonNull private String title;
-	@NonNull private String type;
-	@NonNull private String writer;
-	@NonNull private String content;
+	private String title;
+	private String type;
+	private String writer;
+	private String content;
 	private String q_file;
 	private String q_date;
+	private String answer;
 	
 }

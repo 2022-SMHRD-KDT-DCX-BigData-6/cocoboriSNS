@@ -1,5 +1,8 @@
 <%-- <%@page import="com.smhrd.model.CocoMemberDTO"%> --%>
 <%@page import="com.smhrd.model.CocoMemberDTO"%>
+<%@page import="com.smhrd.model.CocoQuestionDTO"%>
+<%@page import="com.smhrd.model.CocoQuestionDAO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -102,38 +105,33 @@
 		<!-- Portfolio -->
 		<section id="#" class="two" style="text-align: center;">
 			<div class="container-b">
-				<form action="QuestionService.do" method="post" enctype="multipart/form-data">
-					<table id="list">
+				<%
+					String writer = "y";
+					List<CocoQuestionDTO> questionList = new CocoQuestionDAO().showMyQuestion(writer);
+				%>
+
+				<div id="board">
+					<table id="list" style="text-align: center;">
 						<tr>
 							<td>제목</td>
-							<td><input type="text" name="title"></td>
-						</tr>
-						<tr>
 							<td>유형</td>
-							<td>
-								<select name="type">
-									<option value="문의">문의</option>
-									<option value="신고">신고</option>
-								</select>
-							</td>
+							<td>작성시간</td>
 						</tr>
+						<%
+						for (CocoQuestionDTO i : questionList) {
+						%>
 						<tr>
-							<td colspan="2" align="center">내용</td>
-						</tr>
+							<td><a href="questionReportDetail.jsp?num=<%= i.getNum() %>" target="_blank" rel="noopener noreferrer"><%=i.getTitle()%></a></td>
+							<td><%=i.getType()%></td>
+							<td><%=i.getQ_date()%></td>
 						<tr>
-							<td colspan="2">
-		                    <input type="file" name="filename" style="float: right;">
-							<textarea rows="10" name="content" style="resize: none;" placeholder="내용을 입력하세요(300자 이내)&#13;&#10;&#13;&#10;신고의 경우 신고하시는 게시물의 번호를 작성해 주세요!&#10;사진을 첨부해 주시면 빠른 문제 파악에 도움이 됩니다!"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2" align="center">
-								<input type="reset" value="초기화">
-								<input type="submit" value="작성하기">
-							</td>
-						</tr>
+						<%
+						}
+						%>
 					</table>
-				</form>
+					<a href="questionReport.jsp"><button id="writer">작성하기</button></a>
+					<a href="main.jsp"><button id="writer">홈으로가기</button></a>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -161,6 +159,7 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous">
+		
 	</script>
 
 </body>

@@ -41,7 +41,7 @@ public class QuestionService implements Command {
 			System.out.println("filename : " + filename);
 			System.out.println("content : " + content);
 			
-			CocoQuestionDTO question = new CocoQuestionDTO(null, title, type, writer, content, filename, null);
+			CocoQuestionDTO question = new CocoQuestionDTO(null, title, type, writer, content, filename, null, null);
 			CocoQuestionDAO dao = new CocoQuestionDAO();
 			cnt = dao.questionUpload(question);
 			

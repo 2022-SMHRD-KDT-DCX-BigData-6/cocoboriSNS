@@ -28,7 +28,10 @@
 </head>
 <body class="is-preload" style="font-family: 'omyu_pretty'">
 
-	<% CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember"); %>
+	<% 
+		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
+		String num = request.getParameter("num");
+	%>
 	
 	<!-- Header -->
 	<div id="header">
@@ -102,29 +105,15 @@
 		<!-- Portfolio -->
 		<section id="#" class="two" style="text-align: center;">
 			<div class="container-b">
-				<form action="QuestionService.do" method="post" enctype="multipart/form-data">
+				<form action="QuestionAnswerService.do" method="post">
 					<table id="list">
 						<tr>
-							<td>제목</td>
-							<td><input type="text" name="title"></td>
+							<td>번호</td>
+							<td><input type="text" name="num" value="<%=num%>"></td>
 						</tr>
 						<tr>
-							<td>유형</td>
-							<td>
-								<select name="type">
-									<option value="문의">문의</option>
-									<option value="신고">신고</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2" align="center">내용</td>
-						</tr>
-						<tr>
-							<td colspan="2">
-		                    <input type="file" name="filename" style="float: right;">
-							<textarea rows="10" name="content" style="resize: none;" placeholder="내용을 입력하세요(300자 이내)&#13;&#10;&#13;&#10;신고의 경우 신고하시는 게시물의 번호를 작성해 주세요!&#10;사진을 첨부해 주시면 빠른 문제 파악에 도움이 됩니다!"></textarea>
-							</td>
+							<td>답변</td>
+							<td><textarea rows="10" name="answer" style="resize: none;" placeholder="답변을 입력하세요(300자 이내)"></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
