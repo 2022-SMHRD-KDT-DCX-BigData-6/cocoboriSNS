@@ -127,12 +127,12 @@
 							</td>
 							<td class="text-center">
 								<%= friendInfo.get(0).getUser_email()%>
-								<button type="button" style="background-color: #a9d39e;" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">언팔로우</button>
+								<button class="btn btn-light" type="button" style="background-color: #a9d39e;" onclick="location.href='DeleteFriend.do?friend_email=<%= friendInfo.get(0).getUser_email()%>'">언팔로우</button>
 							</td>
 						</tr>
 						<tr>
 							<td class="text-center">
-								<button type="button" style="background-color: #a9d39e;" onclick="location.href='chat.jsp'">채팅</button>
+								<button class="btn btn-light" type="button" style="background-color: #a9d39e;" onclick="location.href='chat.jsp'">채팅</button>
 							</td>
 						</tr>
 						<tr>
@@ -144,7 +144,7 @@
 							</tr>
 						<% }%>
 					</table>
-					<button id="writer" style="background-color: #b37c57;" onclick="location.href='friend.jsp'">친구 페이지</button>
+					<button class="btn btn-light" id="writer" style="background-color: #b37c57;" onclick="location.href='friend.jsp'">친구 페이지</button>
 					</div>
 				</div>
 
