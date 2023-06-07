@@ -14,9 +14,9 @@ public class CocoChattingDAO {
 	
 	// 친구 코드를 통해 채팅방 찾는 메소드
 	public Double ChatCode(String FRIEND_EMAIL) {	
-		List<CocoFriendDTO> friendList = sqlSession.selectList("com.smhrd.database.CocoChatMapper.ChatCode", FRIEND_EMAIL);
-		
 		Double FriendCode = null;
+
+		List<CocoFriendDTO> friendList = sqlSession.selectList("com.smhrd.database.CocoChatMapper.ChatCode", FRIEND_EMAIL);
 		
 		for (CocoFriendDTO i : friendList) {
 			FriendCode = i.getFriend_seq();

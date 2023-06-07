@@ -1,10 +1,16 @@
 package com.smhrd.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import com.smhrd.command.Command;
+import com.smhrd.database.SqlSessionManager;
 import com.smhrd.model.CocoChattingDAO;
 import com.smhrd.model.CocoFriendDAO;
 import com.smhrd.model.CocoFriendDTO;
@@ -25,24 +31,30 @@ public class InsertFriend implements Command {
 		
 		fDao.insertFriend(fDto);
 		
-		CocoFriendDTO fDto2 = new CocoFriendDTO(null, friend_email, user_email, null);
+		CocoFriendDTO searchDto = new CocoFriendDTO(null, friend_email, user_email, null);
+		List<CocoFriendDTO> searchResult = fDao.searchFriend(searchDto);
 		
-		if(fDao.searchFriend(fDto2) != null) { //
-			// System.out.println(fDao.searchFriend(fDto2));
-		
+		if (!searchResult.isEmpty()) { //
+			System.out.println("친구 찾기 결과 : " + searchResult);
+			
 			Double friend_seq = new CocoChattingDAO().ChatCode(user_email); //
-			// System.out.println(friend_seq);
-		
+			System.out.println("친구 번호 : " + friend_seq);
+			
 			CocoFriendDTO updateDto = new CocoFriendDTO(friend_seq, user_email, friend_email, null);
 			
 			int cnt = fDao.updateFriend(updateDto);
-		
-			if (cnt > 0) { 
+			
+			if (cnt > 0) {
 				System.out.println("수정 성공");
 			} else {
 				System.out.println("수정 실패"); 
-			} 
+			}
 		
+		} else {
+			SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			
+			sqlSession.close();
 		}
 		
 		return "friend.jsp";
