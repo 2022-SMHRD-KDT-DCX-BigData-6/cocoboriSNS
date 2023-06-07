@@ -127,7 +127,7 @@
 		List<CocoChattingDTO> chatList = new CocoChattingDAO().ShowChat(FriendCode); // 채팅 리스트 값
 		LocalDate now = LocalDate.now(); // 현재 날짜
 		String day = now.toString();
-	%> 
+	%>
 	
 	<form action="ChatService?friend_email=<%= FRIEND_EMAIL%>" method="post">
 		<table border="1" >
