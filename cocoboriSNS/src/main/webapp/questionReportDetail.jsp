@@ -127,7 +127,7 @@
 		</section>
 			<%
 				String num = request.getParameter("num");
-				String answer = null;
+				String answer = member.getUser_email();
 				List<CocoQuestionDTO> questionDetail = new CocoQuestionDAO().showQuestionDetail(num);
 			%>
 		
@@ -167,8 +167,21 @@
 			        </tr>
 			        <tr>
 			        	<td colspan="4">답변</td>
-			        	<%=i.getAnswer()%>
+
 			        </tr>
+					<tr align="center">
+			        	<%
+			        		if (i.getAnswer() == null){
+			        	%>
+			        	<td colspan="4">아직 답변이 달리지 않은 글입니다. 잠시만 기다려주세요!</td>
+			        	<%	
+			        		} else {
+		        		%>
+			        	<td colspan="4"><%=i.getAnswer()%></td>
+			        	<%
+			        		}
+			        	%>
+					</tr>			        	
 					<%
 					answer = i.getNum();
 					}
