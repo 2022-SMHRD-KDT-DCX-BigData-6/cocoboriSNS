@@ -91,12 +91,6 @@
 	<!-- Main -->
 	<div id="main">
 	
-	<%
-		String search = request.getParameter("search");
-		List<CocoBoardDTO> contentSearch = new CocoBoardDAO().searchcontent(search);
-		List<CocoBoardDTO> writerSearch = new CocoBoardDAO().searchwriter(search);
-	%>
-		
 		<!-- Portfolio -->
 		<section id="#" class="two">
 			<div class="container-b">
@@ -114,13 +108,13 @@
 				<div class="container text-center">
 					<div class="row" >
 						<div class="col-md-9" >
-							<form action="boardSearchAfter">
+							<form action="boardSearchAfter.jsp">
 								<table class="table" >
 									<tr>
 										<!-- 2.게시판 검색 -->
 										<td align="right" colspan="3">
 											<a href="#">
-												<select class="form-select" aria-label="Default select example">
+												<select class="form-select" name="whatSearch" aria-label="Default select example">
 													<option value="content">내용</option>
 													<option value="writer">글쓴이</option>
 												</select>
