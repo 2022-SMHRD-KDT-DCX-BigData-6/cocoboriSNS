@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.command.Command;
+import com.smhrd.model.CocoMemberDTO;
 import com.smhrd.model.CocoQuestionDAO;
 import com.smhrd.model.CocoQuestionDTO;
 
@@ -21,6 +23,10 @@ public class QuestionService implements Command {
 		
 		String encoding = "UTF-8";
 		
+		HttpSession session = request.getSession();
+		
+		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
+		
 		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
 		
 		MultipartRequest multi;
@@ -29,9 +35,10 @@ public class QuestionService implements Command {
 		try {
 			
 			multi = new MultipartRequest(request, path, maxSize, encoding, rename);
+			
 			String title = multi.getParameter("title");
 			String type = multi.getParameter("type");
-			String writer = "y"; //request.getParameter("tel"); 작성자 세션으로 받아오기 String writer = multi.getParameter("writer"); 
+			String writer = member.getUser_email();  
 			String filename = multi.getFilesystemName("filename");
 			String content = multi.getParameter("content");
 			
@@ -40,6 +47,7 @@ public class QuestionService implements Command {
 			System.out.println("writer : " + writer);
 			System.out.println("filename : " + filename);
 			System.out.println("content : " + content);
+			
 			
 			CocoQuestionDTO question = new CocoQuestionDTO(null, title, type, writer, content, filename, null, null);
 			CocoQuestionDAO dao = new CocoQuestionDAO();

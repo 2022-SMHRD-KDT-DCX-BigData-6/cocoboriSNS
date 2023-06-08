@@ -137,7 +137,7 @@
 						}
 						%>
 					</table>
-					<a href="main.jsp"><button id="writer">홈으로가기</button></a>
+					<a href="main.jsp"><button id="home" class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">홈으로가기</button></a>
 				</div>
 			</div>
 		</section>

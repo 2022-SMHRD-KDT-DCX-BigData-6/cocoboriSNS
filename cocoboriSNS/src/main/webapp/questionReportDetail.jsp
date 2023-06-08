@@ -162,12 +162,12 @@
 					if(member.getUser_email().equals("admin@admin.com")) { 
 						go = "questionReportAdmin.jsp";
 				%>
-					<a href=questionAnswer.jsp?num=<%= answer %>><button id="answer">답변작성하기</button></a>
+					<a href=questionAnswer.jsp?num=<%= answer %>><button id="answer" class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">답변작성하기</button></a>
 				<%
 					}
 				%>
-				<a href=<%= go %>><button id="back">뒤로가기</button></a>
-				<a href="main.jsp"><button id="writer">홈으로가기</button></a>
+				<a href=<%= go %>><button id="back" class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #4C3D3D;">뒤로가기</button></a>
+				<a href="main.jsp"><button id="home" class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">홈으로가기</button></a>
 			</div>
 		</section>
 	</div>
