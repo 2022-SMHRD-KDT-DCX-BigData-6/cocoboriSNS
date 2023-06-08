@@ -43,11 +43,11 @@
 				<div class="card" style="padding-bottom: 10px">
 					<div style="height: 60px;" class="card-body">
 						<span class="image avatar49">
-						<% if (member.getUser_file() == null) {%>
-							<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%= "./images/foot.png"%>">
-						<% } else {%>
-							<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%="./upload/" + member.getUser_file()%>">
-						<% }%>
+							<% if (member.getUser_file() == null) {%>
+								<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%= "./images/foot.png"%>">
+							<% } else {%>
+								<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%="./upload/" + member.getUser_file()%>">
+							<% }%>
 						</span>
 						<h3 style="border: medium;"><%=member.getUser_nick()%></h3>
 					</div>
