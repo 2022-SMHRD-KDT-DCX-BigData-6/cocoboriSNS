@@ -118,11 +118,11 @@
 					<div class="col-md-9">
 						<table class="table">
 						<tr>
-							<td class="text-center" rowspan="2">
+							<td class="text-center" rowspan="2" style="width: 150px; height: 150px;">
 								<% if (friendInfo.get(0).getUser_file() == null) {%>
-									<img alt="" src="<%= "./images/foot.png"%>" style="width: 50px; height: 50px;">
+									<img alt="" src="<%= "./images/foot.png"%>" style="width: 150px; height: 150px;">
 								<% } else {%>
-									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>" style="width: 50px; height: 50px;">
+									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>" style="width: 150px; height: 150px;">
 								<% }%>
 							</td>
 							<td class="text-center">
