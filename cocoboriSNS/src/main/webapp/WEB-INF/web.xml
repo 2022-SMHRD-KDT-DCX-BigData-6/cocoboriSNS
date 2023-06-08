@@ -210,6 +210,14 @@
   	<servlet-name>SelectRep</servlet-name>
   	<url-pattern>/SelectRep</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertBird</servlet-name>
+  	<url-pattern>/InsertBird</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectBird</servlet-name>
+  	<url-pattern>/SelectBird</url-pattern>
+  </servlet-mapping>
   
 
 </web-app>

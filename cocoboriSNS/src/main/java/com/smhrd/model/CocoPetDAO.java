@@ -35,6 +35,13 @@ public class CocoPetDAO {
 		return cnt;
 	}
 	
+	public int insertBird(CocoPetDTO dto) {
+		int cnt = 0;
+		cnt = sqlSession.insert("com.smhrd.database.CocoPetMapper.insertBird", dto);
+		sqlSession.close();
+		return cnt;
+	}
+	
 	
 	public CocoPetDTO selectDog(CocoPetDTO dto) {
 		CocoPetDTO pet = null;
@@ -60,6 +67,13 @@ public class CocoPetDAO {
 		return pet;
 	}
 	
+	public CocoPetDTO selectBird(CocoPetDTO dto) {
+		CocoPetDTO pet = null;
+		pet = sqlSession.selectOne("com.smhrd.database.CocoPetMapper.selectBird", dto);
+		sqlSession.close();
+		return pet;
+	}
+	
 	// 고양이 백과사전 전체 목록 조회
 	public List<CocoPetDTO> selAllCat() {
 		List<CocoPetDTO> pet = null;
@@ -80,6 +94,14 @@ public class CocoPetDAO {
 	public List<CocoPetDTO> selAllRep() {
 		List<CocoPetDTO> pet = null;
 		pet = sqlSession.selectList("com.smhrd.database.CocoPetMapper.selAllRep");
+		sqlSession.close();
+		return pet;
+	}
+	
+	// 조류 백과사전 전체 목록 조회
+	public List<CocoPetDTO> selAllBird() {
+		List<CocoPetDTO> pet = null;
+		pet = sqlSession.selectList("com.smhrd.database.CocoPetMapper.selAllBird");
 		sqlSession.close();
 		return pet;
 	}
