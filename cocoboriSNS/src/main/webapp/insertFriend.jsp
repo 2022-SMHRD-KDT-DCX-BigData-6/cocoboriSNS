@@ -121,8 +121,8 @@
 								</tr>
 								<% for (CocoMemberDTO i : memberList) {%> <!-- dto 변경 -->
 									<tr>
-										<td colspan="2">
-											<%= i.getUser_email()%>
+										<td class="member_email" colspan="2">
+											<span><%= i.getUser_email()%></span>
 											<button type="button" class="btn btn-light" style="margin-top: 10px; background-color: #FFD95A;" onclick="location.href='InsertFriend.do?friend_email=<%= i.getUser_email()%>'">팔로우</button>
 										</td>
 										<!-- 친구 신청으로 들어가게 만들기 -->
