@@ -59,7 +59,7 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
-					<% if (member.getUser_email().equals("admin@admin.com")) {%>
+					<% if(member.getUser_email().equals("admin@admin.com")) {%>
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
 						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>

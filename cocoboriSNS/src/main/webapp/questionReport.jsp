@@ -130,13 +130,13 @@
 						<tr>
 							<td colspan="2">
 		                    <input type="file" name="filename" style="float: right;">
-							<textarea rows="10" name="content" style="resize: none;" placeholder="내용을 입력하세요(300자 이내)&#13;&#10;&#13;&#10;신고의 경우 신고하시는 게시물의 번호를 작성해 주세요!&#10;사진을 첨부해 주시면 빠른 문제 파악에 도움이 됩니다!"></textarea>
+							<textarea rows="10" name="content" style="resize: none;" placeholder="내용을 입력하세요(300자 이내)&#13;&#10;&#13;&#10;신고의 경우 신고하시는 게시물의 번호를 작성해 주세요!&#10;사진첨부는 필수입니다!"></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input type="reset" value="초기화">
-								<input type="submit" value="작성하기">
+								<input type="reset" value="초기화" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">
+								<input type="submit" value="작성하기" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #4C3D3D;">
 							</td>
 						</tr>
 					</table>

@@ -2206,7 +2206,7 @@ input, select, textarea {
 		margin-left: 375px;
 		text-align: center;
 		/* 바닥글 배경색 */
-		background-color: #CFD2CF;
+		background-color: #e9ecef;
 		padding: 3em 0 4em 0;
 		box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
 		font-size: 0.8em;
@@ -2282,7 +2282,7 @@ input, select, textarea {
 			}
 
 			#main > section.two {
-				background-image: linear-gradient(to bottom, white, #CFD2CF);
+				background-image: linear-gradient(to bottom, white, #e9ecef);	
 			}
 
 			#main > section.three {
@@ -2684,6 +2684,7 @@ input, select, textarea {
 .friend_email:hover, .friend_content:hover {
 	font-weight: bolder;
 }
+
 
 
 
