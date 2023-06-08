@@ -64,7 +64,7 @@ public class QuestionService implements Command {
 			System.out.println("업로드 실패");
 		}
 		
-		return "main.jsp";
+		return "question.jsp";
 		
 	}
 	
