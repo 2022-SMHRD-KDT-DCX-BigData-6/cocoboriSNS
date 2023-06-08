@@ -46,10 +46,11 @@
 							class="icon solid fa-home">홈</span></a></li>
 					<li><a href="#portfolio" id="portfolio-link"><span
 							class="icon solid fa-th">전체회원정보</span></a></li>
-					<li><a href="#about" id="about-link"><span
+					<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+				<!-- 	<li><a href="#about" id="about-link"><span
 							class="icon solid fa-user">About Me</span></a></li>
 					<li><a href="login.jsp" id="contact-link"><span
-							class="icon solid fa-envelope">Contact</span></a></li>
+							class="icon solid fa-envelope">Contact</span></a></li> -->
 				</ul>
 			</nav>
 

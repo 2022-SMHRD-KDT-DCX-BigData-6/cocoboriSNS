@@ -42,9 +42,9 @@
 					<li><a href="main.jsp" id="main-link"><span
 							class="icon solid fa-home">홈</span></a></li>
 					<li><a href="login.jsp" id="login-link"><span
-							class="icon solid fa-th">로그인</span></a></li>
+							class="icon solid fa-seedling">로그인</span></a></li>
 					<li><a href="join.jsp" id="join-link"><span
-							class="icon solid fa-user">회원가입</span></a></li>
+							class="icon solid fa-pencil">회원가입</span></a></li>
 				</ul>
 			</nav>
 
@@ -84,15 +84,15 @@
 				<form action="LoginService" method="post">
 
 					<div class="input-group mb-3" style="padding-bottom: 5px">
-						<span class="input-group-text" id="login"><i
-							class="fas fa-light fa-envelope"></i></span> <input type="text"
-							class="form-control" name="user_email" placeholder="이메일"
+						<span class="input-group-text" id="login">
+						<i	class="fas fa-light fa-envelope"></i></span> 
+						<input type="text"	class="form-control" name="user_email" placeholder="이메일"
 							aria-label="user_email" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group mb-3" style="padding-bottom: 5px">
-						<span class="input-group-text" id="login"><i
-							class="fas fa-light fa-lock"></i></span> <input type="text"
-							class="form-control" name="user_pw" placeholder="비밀번호"
+						<span class="input-group-text" id="pw">
+						<i	class="fas fa-light fa-lock"></i></span> 
+						<input type="text"	class="form-control" name="user_pw" placeholder="비밀번호"
 							aria-label="user_pw" aria-describedby="basic-addon1">
 					</div>
 
@@ -102,14 +102,6 @@
 						<button style="margin-top: 10px; background-color: #4C3D3D;" type="button"
 							class="btn btn-light" onclick="location.href='join.jsp'">회원가입</button>
 					</div>
-
-
-					<script>
-					function login() {
-  					alert("로그인되었습니다.");
-  					window.location.href ="LoginService";
-					} 
-					</script>
 
 				</form>
 			</div>

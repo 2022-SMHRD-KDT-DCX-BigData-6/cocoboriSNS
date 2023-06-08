@@ -114,7 +114,7 @@
 							<table id="list">
 								<tr>
 									<td align="right"><input type="text" style="width: 400px;" placeholder="이메일을 입력해주세요" name="search_email"></td>
-									<td style="width: 250px;"><button style="background-color: #a9d39e;">검색</button></td>
+									<td style="width: 250px;"><button class="btn btn-light" style="background-color: #a9d39e;">검색</button></td>
 								</tr>
 								<tr>
 									<td colspan="2">'<%= search_email%>'에 대한 검색 결과</td>
@@ -123,14 +123,14 @@
 									<tr>
 										<td colspan="2">
 											<%= i.getUser_email()%>
-											<button type="button" style="background-color: #a9d39e;" onclick="location.href='InsertFriend.do?friend_email=<%= i.getUser_email()%>'">팔로우</button>
+											<button type="button" class="btn btn-light" style="background-color: #a9d39e;" onclick="location.href='InsertFriend.do?friend_email=<%= i.getUser_email()%>'">팔로우</button>
 										</td>
 										<!-- 친구 신청으로 들어가게 만들기 -->
 									</tr>
 								<% }%>
 							</table>
 						</form>
-						<button id="writer" style="background-color: #b37c57;" onclick="location.href='friend.jsp'">친구 페이지</button>
+						<button class="btn btn-light" id="writer" style="background-color: #b37c57;" onclick="location.href='friend.jsp'">친구 페이지</button>
 						<!-- 경로 변경 -->
 					</div>
 				</div>

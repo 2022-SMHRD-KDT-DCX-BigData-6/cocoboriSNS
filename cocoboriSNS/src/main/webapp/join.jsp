@@ -47,7 +47,7 @@
 					<li><a href="main.jsp" id="main-link"><span
 							class="icon solid fa-home">홈</span></a></li>
 					<li><a href="login.jsp" id="login-link"><span
-							class="icon solid fa-th">로그인</span></a></li>
+							class="icon solid fa-seedling">로그인</span></a></li>
 				</ul>
 			</nav>
 
