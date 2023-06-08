@@ -112,9 +112,11 @@
 					<div id="board" style="justify-content: center;">
 						<form action="insertFriend.jsp">
 							<table id="list">
-								<tr>
-									<td align="right"><input type="text" style="width: 400px;" placeholder="이메일을 입력해주세요" name="search_email"></td>
-									<td style="width: 250px;"><button class="btn btn-light" style="margin-top: 10px; background-color: #FFD95A;">검색</button></td>
+								<tr align="center">
+									<td>
+										<input type="text" style="display: inline-block; padding: 6px 8px 6px 8px; width: 70%;" placeholder="이메일을 입력해주세요" name="search_email">
+										<button class="btn btn-light" style="background-color: #FFD95A;">검색</button>
+									</td>
 								</tr>
 								<tr>
 									<td colspan="2">'<%= search_email%>'에 대한 검색 결과</td>
