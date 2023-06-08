@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.model.CocoBoardDAO;
 import com.smhrd.model.CocoBoardDTO;
 //import com.smhrd.model.WebMemberDTO;
+import com.smhrd.model.CocoMemberDTO;
 
 
 //@WebServlet("/WriteBoardService")
@@ -39,7 +41,7 @@ public class WriteBoardService extends HttpServlet {
 	
 	MultipartRequest multi;
 	
-	
+
 	
 	int cnt = 0;
 	try {
@@ -48,7 +50,8 @@ public class WriteBoardService extends HttpServlet {
 		int b_views = 0;
 		int b_likes = 0;
 		String b_title = multi.getParameter("title");
-		String user_email = multi.getParameter("writer");
+		String user_email = multi.getParameter("user_email");
+
 		//String b_file = multi.getParameter("filename"); --> 이걸로는 null값 뜸
 		//String b_file=multi.getOriginalFileName("filename"); --> 값 받아옴
 		String b_file=multi.getFilesystemName("filename");
@@ -59,7 +62,7 @@ public class WriteBoardService extends HttpServlet {
 		System.out.println("filename:" + b_file);
 		System.out.println("content:" + b_content);
 		
-		CocoBoardDTO dto = new CocoBoardDTO(b_title, b_content, b_file, user_email, b_views, b_likes);
+		CocoBoardDTO dto = new CocoBoardDTO(b_content, b_file, user_email, b_views, b_likes);
 	
 		cnt = new CocoBoardDAO().boardUpload(dto);
 				
