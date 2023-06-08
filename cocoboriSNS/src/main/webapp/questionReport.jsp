@@ -135,7 +135,8 @@
 						<tr>
 							<td>유형</td>
 							<td>
-								<select name="type">
+								<select name="type" style="margin: auto;" class="form-select"
+										aria-label="Default select example">
 									<option value="문의">문의</option>
 									<option value="신고">신고</option>
 								</select>

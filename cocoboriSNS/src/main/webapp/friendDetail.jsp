@@ -66,19 +66,19 @@
 				<ul>
 					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
 					<% if(member.getUser_email().equals("admin@admin.com")) {%>
-						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
-						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-						<li><a href="questionReportAdmin.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
-						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-hammer">전체회원정보</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
+						<li><a href="questionReportAdmin.jsp" id="question-link"><span class="icon solid fa-thumbtack">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-share">로그아웃</span></a></li>
 					<% } else {%>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
-						<li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
-						<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
-						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-						<li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
-						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+						<li><a href="board.jsp" id="community-link"><span class="icon solid fa-comments">커뮤니티</span></a></li>
+						<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-heart">친구</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
+						<li><a href="question.jsp" id="question.jsp-link"><span class="icon solid fa-thumbtack">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-share">로그아웃</span></a></li>
 					<% }%>
 				</ul>
 			</nav>
@@ -113,7 +113,7 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-			<div class="friend_list container" style="width: 1000px;">
+			<div class="friend_detail container" style="width: 1000px;">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 						<table class="table">
@@ -132,17 +132,25 @@
 						</tr>
 						<tr>
 							<td class="text-center">
-								<button class="btn btn-light" type="button" style="margin-top: 10px; background-color: #FFD95A;" onclick="location.href='chat.jsp'">채팅</button>
+								<button class="btn btn-light" type="button" style="width: 150px; margin-top: 10px; background-color: #FFD95A;" onclick="location.href='chat.jsp'">채팅</button>
 							</td>
 						</tr>
 						<tr>
 							<td class="text-center" colspan="2">게시물</td>
 						</tr>
-						<% for (int i = 0; i < friendHistory.size(); i++) {%>
-							<tr>
-								<td colspan="2" class="friend_content" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'"><%= friendHistory.get(i).getB_title()%></td>
-							</tr>
-						<% }%>
+						<tr>
+							<td class="friend_content text-center" colspan="2">
+								<% if (friendHistory.size() < 9) {%>
+									<% for (int i = 0; i < friendHistory.size(); i++) {%>
+										<img style="width: 200px; height: 200px; margin: 5px;" alt="" src="<%="./upload/" + friendHistory.get(i).getB_file()%>" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'">
+									<% }%>
+								<% } else {%>
+									<% for (int i = 0; i < 9; i++) {%>
+										<img style="width: 200px; height: 200px; margin: 5px;" alt="" src="<%="./upload/" + friendHistory.get(i).getB_file()%>" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'">
+									<% }%>
+								<% }%>
+							</td>
+						</tr>
 					</table>
 					<button class="btn btn-light" id="writer" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='friend.jsp'">친구 페이지</button>
 					</div>
