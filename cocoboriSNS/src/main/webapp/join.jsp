@@ -26,21 +26,16 @@
 	<%String user_email = (String)session.getAttribute("user_email"); %>
 	<!-- Header -->
 	<div id="header">
-
 		<div class="top">
-
 			<!-- Logo -->
 			<div id="logo">
 				<span class="image avatar48"><img src="images/cocobori_logo.png"
 					alt="" /></span>
-
 			</div>
-			
 			<br>
 			<br>
 			<br>
 			<br>
-
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
@@ -50,11 +45,8 @@
 							class="icon solid fa-seedling">로그인</span></a></li>
 				</ul>
 			</nav>
-
 		</div>
-
 		<div class="bottom">
-
 			<!-- Social Icons -->
 			<ul class="icons">
 				<li><a href="#" class="icon brands fa-twitter"><span
@@ -68,9 +60,7 @@
 				<li><a href="#" class="icon solid fa-envelope"><span
 						class="label">Email</span></a></li>
 			</ul>
-
 		</div>
-
 	</div>
 
 	<!-- Main -->
@@ -96,7 +86,7 @@
 					</div>
 					<div class="input-group mb-3" style="padding-bottom: 5px">
 						<span class="input-group-text" id="modify"><i
-							class="fas fa-thin fa-lock"></i></span> <input type="text"
+							class="fas fa-thin fa-lock"></i></span> <input type="password"
 							class="form-control" name="user_pw" placeholder="비밀번호"
 							aria-label="user_pw" aria-describedby="basic-addon1">
 					</div>
@@ -141,9 +131,6 @@
 				</form>
 			</div>
 		</section>
-
-
-
 	</div>
 
 	<!-- Footer -->
