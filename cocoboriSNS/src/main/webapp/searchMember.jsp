@@ -100,7 +100,6 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-
 			<div class="friend_list container" style="width: 800px;">
 				<div class="row">
 					<div id="board" style="justify-content: center;">
@@ -108,17 +107,17 @@
 							<table id="list">
 								<tr>
 									<td align="right"><input type="text" style="width: 400px;" placeholder="이메일을 입력해주세요" name="search_email"></td>
-									<td style="width: 250px;"><button class="btn btn-light" style="background-color: #a9d39e;">검색</button></td>
+									<td style="width: 250px;"><button class="btn btn-light" style="margin-top: 10px; background-color: #FFD95A;">검색</button></td>
 								</tr>
 							</table>
 						</form>
-						<button class="btn btn-light" id="writer" style="background-color: #b37c57;" onclick="location.href='friend.jsp'">친구 페이지</button>
+						<button class="btn btn-light" id="writer" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='friend.jsp'">친구 페이지</button>
 						<!-- 경로 변경 -->
 					</div>
 				</div>
-			</div>
-
+			</div><br><br><br><br><br><br>
 		</section>
+
 	</div>
 
 	<!-- Footer -->

@@ -112,7 +112,6 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-
 			<div class="friend_list container" style="width: 1000px;">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
@@ -147,9 +146,9 @@
 					<button class="btn btn-light" id="writer" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='friend.jsp'">친구 페이지</button>
 					</div>
 				</div>
-
-			</div>
+			</div><br><br>
 		</section>
+
 	</div>
 
 	<!-- Footer -->

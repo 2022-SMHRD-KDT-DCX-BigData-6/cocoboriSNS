@@ -103,7 +103,6 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-
 			<div class="friend_list container" style="width: 800px;">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
@@ -124,9 +123,9 @@
 						</table>
 					</div>
 				</div>
-
-			</div>
+			</div><br><br><br><br><br><br><br><br>
 		</section>
+
 	</div>
 
 	<!-- Footer -->
