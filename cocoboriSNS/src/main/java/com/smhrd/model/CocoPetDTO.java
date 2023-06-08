@@ -23,6 +23,7 @@ public class CocoPetDTO {
 	private String pet_hum;
 	private String pet_eat;
 	private String pet_etc;
+	private String pet_cage;
 	
 	public CocoPetDTO() {
 	}
@@ -64,6 +65,20 @@ public class CocoPetDTO {
 		this.pet_groom = pet_groom;
 	}
 	
+	public CocoPetDTO(String pet_type, String pet_breed, String pet_pic, String pet_temp,
+			String pet_eat, String pet_cage, String pet_health, String pet_adapt, String pet_etc) {
+		super();
+		this.pet_type = pet_type;
+		this.pet_breed = pet_breed;
+		this.pet_pic = pet_pic;
+		this.pet_temp = pet_temp;
+		this.pet_eat = pet_eat;
+		this.pet_adapt = pet_adapt;
+		this.pet_health = pet_health;
+		this.pet_cage = pet_cage;
+		this.pet_etc = pet_etc;
+	}
+
 	public CocoPetDTO(String pet_type, String pet_breed, String pet_pic, String pet_temp, String pet_hum, String pet_eat, String pet_etc) {
 		super();
 		this.pet_type = pet_type;
@@ -76,6 +91,15 @@ public class CocoPetDTO {
 	}
 	
 	
+	
+	public String getPet_cage() {
+		return pet_cage;
+	}
+
+	public void setPet_cage(String pet_cage) {
+		this.pet_cage = pet_cage;
+	}
+
 	public CocoPetDTO(String pet_breed) {
 		this.pet_breed = pet_breed;
 	}
