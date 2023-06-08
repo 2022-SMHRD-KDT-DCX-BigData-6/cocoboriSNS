@@ -121,6 +121,18 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.SelectRep</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>InsertBird</servlet-name>
+  	<display-name>InsertBird</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.InsertBird</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SelectBird</servlet-name>
+  	<display-name>SelectBird</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SelectBird</servlet-class>
+  </servlet>
   
   
   
@@ -210,6 +222,13 @@
   	<servlet-name>SelectRep</servlet-name>
   	<url-pattern>/SelectRep</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+  	<servlet-name>InsertBird</servlet-name>
+  	<url-pattern>/InsertBird</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectBird</servlet-name>
+  	<url-pattern>/SelectBird</url-pattern>
+  </servlet-mapping>
 
 </web-app>

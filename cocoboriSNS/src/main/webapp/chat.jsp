@@ -47,6 +47,18 @@
 	<%
 		CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember");
 		String user_email = member.getUser_email();
+		
+		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");
+		String me = member.getUser_email();
+	
+		String FRIEND_EMAIL = (String)session.getAttribute("friend_email"); // friend_Email 세션에 담음
+		session.setAttribute("me", member.getUser_email());
+		Double FriendCode = new CocoChattingDAO().ChatCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
+		
+		List<CocoChattingDTO> chatList = new CocoChattingDAO().ShowChat(FriendCode); // 채팅 리스트 값
+		LocalDate now = LocalDate.now(); // 현재 날짜
+		String day = now.toString();
+		
 	%>
 	
 	<!-- Header -->
@@ -80,30 +92,24 @@
 
 			<!-- Nav -->
 			<nav id="nav">
-            <ul>
-               <li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
-               <% if (member == null) { %>
-               <li><a href="login.jsp" id="login-link"><span class="icon solid fa-envelope">로그인</span></a></li>
-               <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-               <% } else { %>
-                  <% if(member.getUser_email().equals("admin@admin.com")) { %>
-                  <li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
-                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
-                  <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-                  <li><a href="questionReportAdmin.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li> 
-                  <% } else { %>
-                  <li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
-                  <li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
-                  <li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
-                  <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-                  <li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
-                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
-                  <% } %>
-               <% } %>
-            </ul>
+				<ul>
+					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
+					<% if(member.getUser_email().equals("admin@admin.com")) {%>
+						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="questionReportAdmin.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+					<% } else {%>
+						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
+						<li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
+						<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+					<% }%>
+				</ul>
 			</nav>
 
 		</div>
@@ -136,23 +142,9 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-
 			<div class="chatting container">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
-	<%
-		CocoMemberDTO memberSecond = (CocoMemberDTO)session.getAttribute("member");
-		String me = member.getUser_email();
-	
-		String FRIEND_EMAIL = (String)session.getAttribute("friend_email"); // friend_Email 세션에 담음
-		session.setAttribute("me", member.getUser_email());
-		Double FriendCode = new CocoChattingDAO().ChatCode(FRIEND_EMAIL); // 친구 이메일을 이용하여 친구 코드 가져오는 메소드
-		
-		List<CocoChattingDTO> chatList = new CocoChattingDAO().ShowChat(FriendCode); // 채팅 리스트 값
-		LocalDate now = LocalDate.now(); // 현재 날짜
-		String day = now.toString();
-	%>
-	
 						<form action="ChatService?friend_email=<%= FRIEND_EMAIL%>" method="post">
 							<table border="1" >
 								<tr>
@@ -259,9 +251,9 @@
 						</form>
 					</div>
 				</div>
-			</div>
-
+			</div><br><br><br><br><br>
 		</section>
+
 	</div>
 
 	<!-- Footer -->

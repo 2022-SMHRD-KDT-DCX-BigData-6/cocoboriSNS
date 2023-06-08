@@ -69,6 +69,7 @@
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
 						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="questionReportAdmin.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% } else {%>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
@@ -112,17 +113,16 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-
 			<div class="friend_list container" style="width: 1000px;">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 						<table class="table">
 						<tr>
-							<td class="text-center" rowspan="2">
+							<td class="text-center" rowspan="2" style="width: 150px; height: 150px;">
 								<% if (friendInfo.get(0).getUser_file() == null) {%>
-									<img alt="" src="<%= "./images/foot.png"%>" style="width: 50px; height: 50px;">
+									<img alt="" src="<%= "./images/foot.png"%>" style="width: 150px; height: 150px;">
 								<% } else {%>
-									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>" style="width: 50px; height: 50px;">
+									<img alt="" src="<%= "./upload/" + friendInfo.get(0).getUser_file()%>" style="width: 150px; height: 150px;">
 								<% }%>
 							</td>
 							<td class="text-center">
@@ -147,9 +147,9 @@
 					<button class="btn btn-light" id="writer" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='friend.jsp'">친구 페이지</button>
 					</div>
 				</div>
-
-			</div>
+			</div><br><br>
 		</section>
+
 	</div>
 
 	<!-- Footer -->

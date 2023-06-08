@@ -35,10 +35,50 @@
 		margin-right: 20px;
 	}
 	
-	#top {
-		background-image: url("./images/pet01.jpg");
+	.sub_title {
+		font-size: 30px;
 	}
 	
+.item-bg01 {
+	width: 300px;
+	height: 400px;
+	background-image: url(./images/dic_dog03.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+}
+.item-bg02 {
+	width: 300px;
+	height: 250px;
+	background-image: url(./images/dic_rep01.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.item-bg03 {
+	width: 300px;
+	height: 400px;
+	background-position: center;
+	background-image: url(./images/dic_cat02.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.item-bg04 {
+	width: 300px;
+	height: 250px;
+	background-image: url(./images/dic_bird01.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.pet-a:hover {
+	color: #ffc107;
+}
+
+.icon:hover {
+	color: #ffc107;
+}
+
 	
 </style>
 <meta charset="utf-8" />
@@ -61,43 +101,64 @@
 		<div class="top">
 
 			<!-- Logo -->
-			<div id="logo">
-								<!-- 프로필 사진 넣는 자리 -->
-				<% if (member == null) {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./images/foot.png"%>">
-					</span>
-				<% } else if (member.getUser_file() == null) {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./images/foot.png"%>">
-					</span>
-				<% } else {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
-					</span>
-				<% }%>
-			
-				<h1 id="title">COCOBORI</h1>
-				<p>
-					<% if (member == null) {%>
-						SNS
-					<% } else {%>
-						<%= member.getUser_nick()%>님
-					<% }%>	
-				</p>
-				
-			</div>
+         <div id="logo">
+            <!-- 로고 넣는 자리 -->
+            
+            <span class="image avatar48">
+               <img  src="<%= "./images/cocobori_logo.png" %>">
+            </span>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+      
+            <!-- 로그인시 프로필사진과 닉네임 나오는 자리 -->
+                  <%
+                     if (member != null) {
+                  %>
+                     <div class="card" style="padding-bottom: 10px">
+                     <div style="height: 60px;" class="card-body">
+                     <span class="image avatar49"> 
+                        <img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius:70% " alt=""   src="<%="./upload/" + member.getUser_file()%>">
+                     </span>
+                     
+                  <h3 style="border: medium;">
+                  <%= member.getUser_nick() %>
+                  </h3>
+                     </div>
+                     </div>
+                  <% }%>
+                     
+         </div>			
 
 			<!-- Nav -->
 			<nav id="nav">
-				<ul>
-					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">HOME</span></a></li>
-				</ul>
-				<ul>
-					<li><a href="dic_pet.jsp" id="dic_pet"><span
-							class="icon solid fa-home">반려동물 백과사전</span></a></li>
-				</ul>
+			<ul>
+               <li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
+               <% if (member == null) { %>
+               <li><a href="login.jsp" id="login-link"><span class="icon solid fa-envelope">로그인</span></a></li>
+               <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+               <% } else { %>
+                  <% if(member.getUser_email().equals("admin@admin.com")) { %>
+                  <li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
+                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+                  <!-- 재석 수정 -->
+                  <li><a href="InsertPet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+                  <% } else { %>
+                  <li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
+                  <li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
+                  <li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
+                  <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+                  <li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
+                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+                  <% } %>
+               <% } %>
+            </ul>
 			</nav>
 
 		</div>
@@ -123,42 +184,37 @@
 	</div>
 
 	<!-- Main -->
-	<div id="main">
 
-		<!-- Intro -->
-		<section id="top" class="#" style="padding-top: 20px; padding-bottom: 20px;">
-			<h1>반려동물 백과사전</h1>
-			<h4>반려동물들에 대한 모든것!</h4>
-		</section>
-		<!-- Portfolio -->
-		<section id="portfolio" class="two">
-			<div class="container-a" style="width: 70%; font-size: 18px;">
-					<div>
-					<img class="icon_pet" alt="" src="./images/icon_dog.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #55cbcd;" onclick="location.href='dic_dog.jsp'">강아지 백과사전</button>
-					</div>
-					<div>
-					<img class="icon_pet" alt="" src="./images/icon_cat.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #caa6fe;" onclick="location.href='dic_cat.jsp'">고양이 백과사전</button>
-					</div>
-					<div>
-					<img class="icon_pet" alt="" src="./images/icon_rep.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #a9d39e;" onclick="location.href='dic_rep.jsp'">파충류 백과사전</button>
-					</div>
-					<div>
-					<img class="icon_pet" alt="" src="./images/icon_bird.gif">
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #b37c57;" onclick="location.href='dic_bird.jsp'">조 류 백과사전</button>
-					<p>버튼 색상 및 디자인 고민중</p>
-					<button type="button" class="btn btn-light btn-lg" style="background-color: #b37c57;" onclick="location.href='main.jsp'">HOME</button>
-					</div>
-				
-				<!-- <video style="margin-top: 10px;" src="./images/video_dog.mp4" autoplay="autoplay" muted="muted" loop="loop" width="80%" height="50%">
-				</video> -->
+	<div id="main">
+		<section class="two" style="padding-top: 20px; padding-bottom: 20px;">
 			
+			<img class="icon_pet" alt="" src="./images/icon_dog.gif"> <span	class="sub_title">반려동물 백과사전 등록</span> <img class="icon_pet" alt=""
+				src="./images/icon_cat.gif">
+			<br>
+			<br>
+			<br>
+			
+			<div class="container-c">
+				<div style="width: 700px; height: 228px; font-size: 0px;">
+				
+					<a href="dic_dog.jsp"><img alt="" src="./images/dic_dog01.png"
+						style="width: 49%;"></a> <a href="dic_cat.jsp"><img alt=""
+						src="./images/dic_cat01.png" style="width: 49%;"></a>
+				</div>
 			</div>
+			<div class="container-c">
+				<div style="width: 700px; height: 228px; font-size: 0px;">
+					<a href="dic_rep.jsp"><img alt="" src="./images/dic_rep01.png"
+						style="width: 49%;"></a> 
+					<a href="dic_bird.jsp"><img alt=""
+						src="./images/dic_bird01.png" style="width: 49%;"></a>
+				</div>
+			</div>
+			<br>
+			
+					
 		</section>
 	</div>
-	
 
 	<!-- Footer -->
 	<div id="footer">
@@ -170,7 +226,7 @@
 		</ul>
 
 	</div>
-
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

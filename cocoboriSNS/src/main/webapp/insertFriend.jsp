@@ -63,6 +63,7 @@
 						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
 						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
 						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="questionReportAdmin.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
 						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
 					<% } else {%>
 						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
@@ -106,7 +107,6 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-
 			<div class="friend_list container" style="width: 800px;">
 				<div class="row">
 					<div id="board" style="justify-content: center;">
@@ -114,7 +114,7 @@
 							<table id="list">
 								<tr>
 									<td align="right"><input type="text" style="width: 400px;" placeholder="이메일을 입력해주세요" name="search_email"></td>
-									<td style="width: 250px;"><button class="btn btn-light" style="background-color: #a9d39e;">검색</button></td>
+									<td style="width: 250px;"><button class="btn btn-light" style="margin-top: 10px; background-color: #FFD95A;">검색</button></td>
 								</tr>
 								<tr>
 									<td colspan="2">'<%= search_email%>'에 대한 검색 결과</td>
@@ -123,20 +123,20 @@
 									<tr>
 										<td colspan="2">
 											<%= i.getUser_email()%>
-											<button type="button" class="btn btn-light" style="background-color: #a9d39e;" onclick="location.href='InsertFriend.do?friend_email=<%= i.getUser_email()%>'">팔로우</button>
+											<button type="button" class="btn btn-light" style="margin-top: 10px; background-color: #FFD95A;" onclick="location.href='InsertFriend.do?friend_email=<%= i.getUser_email()%>'">팔로우</button>
 										</td>
 										<!-- 친구 신청으로 들어가게 만들기 -->
 									</tr>
 								<% }%>
 							</table>
 						</form>
-						<button class="btn btn-light" id="writer" style="background-color: #b37c57;" onclick="location.href='friend.jsp'">친구 페이지</button>
+						<button class="btn btn-light" id="writer" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='friend.jsp'">친구 페이지</button>
 						<!-- 경로 변경 -->
 					</div>
 				</div>
-			</div>
-
+			</div><br><br><br><br>
 		</section>
+
 	</div>
 
 	<!-- Footer -->
