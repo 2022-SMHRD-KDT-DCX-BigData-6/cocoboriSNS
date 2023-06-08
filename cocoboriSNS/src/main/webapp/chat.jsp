@@ -138,14 +138,14 @@
 		<!-- Intro -->
 		<section id="top" class="#">
 			<div class="container">
-				<h1>SNS</h1>
+				<h1>채팅</h1>
 				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
 			</div>
 		</section>
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-			<div class="chatting container">
+			<div class="chatting container" style="width: 800px;">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 						<form action="ChatService?friend_email=<%= FRIEND_EMAIL%>" method="post">
@@ -246,8 +246,8 @@
 								<tr>
 									<td align="center">
 										<input type="button" id="emo" value="이모티콘" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;" onclick="toggleEmo()">
-										<input type="text" name="talking" id="chat" style="display: inline-block; padding: 0.25em 0.5em 0.25em 0.5em; width: 80%;" placeholder="채팅 내용을 입력해 주세요" >
-										<input type="submit" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;" value="전송">
+										<input type="text" name="talking" id="chat" style="display: inline-block; padding: 0.25em 0.5em 0.25em 0.5em; width: 70%;" placeholder="채팅 내용을 입력해 주세요">
+										<button class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">전송</button>
 									</td>
 								</tr>
 							</table>
