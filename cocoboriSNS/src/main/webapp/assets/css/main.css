@@ -2681,7 +2681,7 @@ input, select, textarea {
 	}
 	
 /* add */
-.friend_email:hover, .friend_content:hover {
+.friend_email:hover, .member_email:hover {
 	font-weight: bolder;
 }
 
