@@ -100,7 +100,7 @@
 
 	</div>
 
-	<!-- Main -->
+	<!-- Main --> 
 	<div id="main">
 
 		<!-- Intro -->

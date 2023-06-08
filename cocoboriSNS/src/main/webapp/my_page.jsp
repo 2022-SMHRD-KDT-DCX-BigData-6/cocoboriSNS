@@ -38,58 +38,34 @@
 
 			<!-- Logo -->
 			<div id="logo">
-
-				<!-- 로고 넣는 자리 -->
-				<span class="image avatar48">
-					<img src="<%="./images/cocobori_logo.png"%>">
-				</span><br><br><br><br><br>
-
-				<!-- 로그인시 프로필사진과 닉네임 나오는 자리 -->
-				<div class="card" style="padding-bottom: 10px">
-					<div style="height: 60px;" class="card-body">
-						<span class="image avatar49">
-							<% if (member.getUser_file() == null) {%>
-								<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%= "./images/foot.png"%>">
-							<% } else {%>
-								<img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%" alt="" src="<%="./upload/" + member.getUser_file()%>">
-							<% }%>
-						</span>
-						<h3 style="border: medium;"><%=member.getUser_nick()%></h3>
-					</div>
-				</div>
-
+			
+			<span class="image avatar48">
+					<img  src="<%= "./images/cocobori_logo.png" %>">
+				</span>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
+				<br>
+				<br>
 				<ul>
-					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
-					<% if(member.getUser_email().equals("admin@admin.com")) {%>
-						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-hammer">전체회원정보</span></a></li>
-						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
-						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
-						<li><a href="questionReportAdmin.jsp" id="question-link"><span class="icon solid fa-thumbtack">문의 및 신고</span></a></li>
-						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-share">로그아웃</span></a></li>
-					<% } else {%>
-						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
-						<li><a href="board.jsp" id="community-link"><span class="icon solid fa-comments">커뮤니티</span></a></li>
-						<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-heart">친구</span></a></li>
-						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
-						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
-						<li><a href="question.jsp" id="question.jsp-link"><span class="icon solid fa-thumbtack">문의 및 신고</span></a></li>
-						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-share">로그아웃</span></a></li>
-					<% }%>
+					<li><a href="main.jsp" id="main-link"><span
+							class="icon solid fa-home">홈</span></a></li>
+					<li><a href="LogoutService" id="login-link"><span
+							class="icon solid fa-share">로그아웃</span></a></li>
 				</ul>
 			</nav>
-
-	
 		</div>
 
 		<div class="bottom">
 
 			<!-- Social Icons -->
 			<ul class="icons">
-			
 				<li><a href="#" class="icon brands fa-twitter"><span
 						class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon brands fa-facebook-f"><span
@@ -101,14 +77,12 @@
 				<li><a href="#" class="icon solid fa-envelope"><span
 						class="label">Email</span></a></li>
 			</ul>
-
 		</div>
 
 	</div>
 
 	<!-- Main -->
 	<div id="main">
-
 		<!-- Intro -->
 		<section id="top" class="#" style="padding-top: 20px; padding-bottom: 20px" >
 		<h1>마이페이지</h1>
@@ -122,7 +96,7 @@
 						
 						<div class="input-group mb-3" style="padding-bottom: 5px">
  						 <span class="input-group-text" id="modify" ><i class="fas fa-thin fa-lock"></i></span>
- 						 <input type="text" class="form-control" name="user_pw" placeholder="변경할 비밀번호" aria-label="user_pw" aria-describedby="basic-addon1">
+ 						 <input type="password" class="form-control" name="user_pw" placeholder="변경할 비밀번호" aria-label="user_pw" aria-describedby="basic-addon1">
 						</div>
 						<div class="input-group mb-3" style="padding-bottom: 5px">
  						 <span class="input-group-text" id="modify"><i class="fas fa-thin fa-pencil"></i></span>
@@ -133,51 +107,30 @@
  						 <input type="text" class="form-control" name="user_phone" placeholder="변경할 휴대폰 번호" aria-label="user_phone" aria-describedby="basic-addon1">
 						</div>
 						
-						
-						
-					<!-- <div class="form-floating">
-						<input type="password" name="user_pw" class="form-control-sm"
-							placeholder="변경할 비밀번호를 입력하세요">
-						<input type="text" name="user_nick" class="form-control-sm"
-							placeholder="변경할 닉네임을 입력하세요">
-						<input type="text" name="user_phone" class="form-control-sm"
-							placeholder="변경할 휴대폰 번호를 입력하세요">
-					</div> -->
-					
-					
-					
 					<div class="mb-3">
  					 <label for="formFileMultiple" class="form-label">변경하고 싶은 사진을 등록해주세요!</label>
  					 <input class="form-control" type="file" name="user_file" multiple>
 					</div>
 					<div>
-						<button style="margin-top: 10px" type="submit" class="btn btn-success">적용</button>
-						<button style="margin-top: 10px" type="button" class="btn btn-secondary" onclick="deleteMember()">회원탈퇴</button>
+						<button style="margin-top: 10px; background-color: #FFD95A;" type="submit"
+                     class="btn btn-light" >적용</button>
+						<button style="margin-top: 10px; background-color: #4C3D3D;" type="button"
+                     class="btn btn-light" onclick="deleteMember()">회원탈퇴</button>
 					</div> 
-	
 
 					<script>
 					function deleteMember() {
-  					alert("회원탈퇴 완료");
+  					confirm("정말 탈퇴하시겠습니까?");
   					window.location.href ="MemberDeleteService?user_email=<%=user_email%>";
 					}
 					</script>
-				
-					
 				</form>
-					
-					
-					
 			</div>
 		</section>
-
-
-
 	</div>
 
 	<!-- Footer -->
 	<div id="footer">
-
 
 		<!-- Copyright -->
 		<ul class="copyright">

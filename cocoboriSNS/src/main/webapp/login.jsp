@@ -30,7 +30,6 @@
 			<div id="logo">
 				<span class="image avatar48"><img src="images/cocobori_logo.png"
 					alt="" /></span>
-		
 			</div>
 			<br>
 			<br>
@@ -47,9 +46,7 @@
 							class="icon solid fa-pencil">회원가입</span></a></li>
 				</ul>
 			</nav>
-
 		</div>
-
 		<div class="bottom">
 
 			<!-- Social Icons -->
@@ -65,9 +62,7 @@
 				<li><a href="#" class="icon solid fa-envelope"><span
 						class="label">Email</span></a></li>
 			</ul>
-
 		</div>
-
 	</div>
 
 	<!-- Main -->
@@ -92,7 +87,7 @@
 					<div class="input-group mb-3" style="padding-bottom: 5px">
 						<span class="input-group-text" id="pw">
 						<i	class="fas fa-light fa-lock"></i></span> 
-						<input type="text"	class="form-control" name="user_pw" placeholder="비밀번호"
+						<input type="password"	class="form-control" name="user_pw" placeholder="비밀번호"
 							aria-label="user_pw" aria-describedby="basic-addon1">
 					</div>
 
@@ -102,21 +97,15 @@
 						<button style="margin-top: 10px; background-color: #4C3D3D;" type="button"
 							class="btn btn-light" onclick="location.href='join.jsp'">회원가입</button>
 					</div>
-
 				</form>
 			</div>
-	
 			<br>
 			<br>
 			<br>
 			<br>
 			<br>
 			<br>
-			
-			
 		</section>
-
-		
 	</div>
 
 	<!-- Footer -->
@@ -127,9 +116,8 @@
 			<li>&copy; Untitled. All rights reserved.</li>
 			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 		</ul>
-
 	</div>
-
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

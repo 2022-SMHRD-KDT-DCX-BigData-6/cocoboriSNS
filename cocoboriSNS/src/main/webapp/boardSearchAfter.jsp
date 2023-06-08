@@ -137,7 +137,9 @@
 										<option value="content">내용</option>
 										<option value="writer">글쓴이</option>
 									</select>
-									<input type="text" name="search"><button style="margin-top: 10px; background-color: #4C3D3D;" type="submit" class="btn btn-light" onclick="login()">검색</button>
+									<input type="text" name="search">
+									<button style="margin-top: 10px; background-color: #4C3D3D;" type="submit" class="btn btn-light">검색</button>
+									<button style="margin-top: 10px; background-color: #FFD95A;" type="button" class="btn btn-light" onclick="location.href='BoardWrite.jsp'">작성</button>
 								</a>
 							</td>
 						</tr>
@@ -153,22 +155,6 @@
 				</div>
 			</div>
 			
-			<div class="tm-main-content">
-				<div class="container text-center">
-					<div class="row" >
-						<div class="col-md-9" >
-							<table class="table" >
-								<tr>
-									<!-- 3.게시글 작성 -->
-									<td>
-										<a href="BoardWrite.jsp"><button style="margin-top: 10px; background-color: #FFD95A;" type="submit" class="btn btn-light" onclick="login()">작성</button></a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
 			
 	</section>
 		
