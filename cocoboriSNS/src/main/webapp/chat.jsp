@@ -138,7 +138,7 @@
 		<!-- Intro -->
 		<section id="top" class="#">
 			<div class="container">
-				<h1>SNS</h1>
+				<h1>채팅</h1>
 				<p>코코보리 - 반려인과 반려동물을 위한 SNS</p>
 			</div>
 		</section>
