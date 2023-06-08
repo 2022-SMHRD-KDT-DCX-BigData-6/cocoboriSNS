@@ -16,8 +16,6 @@ public class CocoBoardDTO {
     // 글 순번(식별자) 
 	private int b_seq;
 
-    // 글 제목 
-    @NonNull private String b_title;
 
     // 글 내용 
     @NonNull private String b_content;
