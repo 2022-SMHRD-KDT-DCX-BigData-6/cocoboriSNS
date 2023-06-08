@@ -130,7 +130,7 @@
 						<tr>
 							<td colspan="2">
 		                    <input type="file" name="filename" style="float: right;">
-							<textarea rows="10" name="content" style="resize: none;" placeholder="내용을 입력하세요(300자 이내)&#13;&#10;&#13;&#10;신고의 경우 신고하시는 게시물의 번호를 작성해 주세요!&#10;사진을 첨부는 필수입니다!"></textarea>
+							<textarea rows="10" name="content" style="resize: none;" placeholder="내용을 입력하세요(300자 이내)&#13;&#10;&#13;&#10;신고의 경우 신고하시는 게시물의 번호를 작성해 주세요!&#10;사진 첨부는 필수입니다!"></textarea>
 							</td>
 						</tr>
 						<tr>
