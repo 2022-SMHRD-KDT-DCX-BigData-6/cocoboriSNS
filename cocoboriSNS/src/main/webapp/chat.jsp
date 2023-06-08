@@ -249,6 +249,9 @@
 								</tr>
 							</table>
 						</form>
+					<div>
+						<button class="btn btn-light friend_email" type="button" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='FriendDetail.do?user_email=<%= FRIEND_EMAIL%>'">친구 정보</button>
+					</div>
 					</div>
 				</div>
 			</div><br><br><br><br><br>
