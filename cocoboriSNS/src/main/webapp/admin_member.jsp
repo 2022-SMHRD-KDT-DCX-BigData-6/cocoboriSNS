@@ -22,7 +22,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body class="is-preload" style="font-family: 'omyu_pretty'">
-
+<%
+		CocoMemberDTO member = (CocoMemberDTO) session.getAttribute("loginMember");
+	%>
 
 <%
 	CocoMemberDAO dao = new CocoMemberDAO();
@@ -35,22 +37,58 @@
 
 			<!-- Logo -->
 			<div id="logo">
+			
 			<span class="image avatar48">
-			<img style="width: 20%; height: 20%; margin-top: 10px; margin-left: 20px; border-radius:70% " src="images/admin.png" alt="" /></span>
+					<img  src="<%= "./images/cocobori_logo.png" %>">
+				</span>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<%
+				if (member != null) {
+				%>
+				<div class="card" style="padding-bottom: 10px">
+					<div style="height: 60px;" class="card-body">
+						<span class="image avatar49"> <img
+							style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius: 70%"
+							alt="" src="<%="./upload/" + member.getUser_file()%>">
+						</span>
+						<h3 style="border: medium;">
+							<%=member.getUser_nick()%>
+						</h3>
+					</div>
+				</div>
+				<%
+				}
+				%>
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">홈</span></a></li>
-					<li><a href="#portfolio" id="portfolio-link"><span
-							class="icon solid fa-th">전체회원정보</span></a></li>
-					<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
-				<!-- 	<li><a href="#about" id="about-link"><span
-							class="icon solid fa-user">About Me</span></a></li>
-					<li><a href="login.jsp" id="contact-link"><span
-							class="icon solid fa-envelope">Contact</span></a></li> -->
+					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
+					<% if (member == null) { %>
+					<li><a href="login.jsp" id="login-link"><span class="icon solid fa-seedling">로그인</span></a></li>
+					<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
+					<% } else { %>
+						<% if(member.getUser_email().equals("admin@admin.com")) { %>
+						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-hammer">전체회원정보</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-share">로그아웃</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
+						<% } else { %>
+						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-user">마이페이지</span></a></li>
+						<li><a href="board.jsp" id="community-link"><span class="icon solid fa-comments">커뮤니티</span></a></li>
+						<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-heart">친구</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-book">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-wifi">주변 정보</span></a></li>
+						<li><a href="question.jsp" id="community-link"><span class="icon solid fa-thumbtack">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-share">로그아웃</span></a></li>
+						<% } %>
+					<% } %>
 				</ul>
 			</nav>
 

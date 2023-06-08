@@ -4,8 +4,8 @@
 
 	<!-- 게시물 등록 -->
 	<insert id="boardUpload" parameterType="CocoBoard">
-		insert into TB_BOARD values(num_board.nextval,#{b_title}, #{b_content}, 
-				#{b_file}, sysdate, #{user_email}, #{b_views}, #{b_likes})
+		insert into TB_BOARD values(num_board.nextval,#{b_content},
+				#{b_file}, sysdate, #{user_email},0, 0)
 	</insert>
 	
 	<!-- 게시글 조회  -->
@@ -21,7 +21,7 @@
 	<!-- 게시글 수정 -->
 	<update id="boardModify"  parameterType="CocoBoard">
 		update TB_BOARD 
-		set   b_title=#{b_title}, user_email=#{user_email}, b_content=#{b_content},b_file=#{b_file}
+		set   b_content=#{b_content}, b_file=#{b_file}
 		where b_seq = #{b_seq} 
 	</update>
 	

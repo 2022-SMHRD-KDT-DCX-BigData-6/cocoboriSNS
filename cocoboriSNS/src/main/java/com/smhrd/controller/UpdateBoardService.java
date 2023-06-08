@@ -16,7 +16,7 @@ public class UpdateBoardService extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		System.out.println("ddd");
 		// 파일 업로드 -> MultipartRequest ->  cos.jar
 		// 1.모든 요청정보가 담겨있는 request객체
 		// 2.업로드 된 파일(이미지)을 저장할 경로	
@@ -46,7 +46,7 @@ public class UpdateBoardService extends HttpServlet {
 			int num=Integer.parseInt(multi.getParameter("num"));
 			
 			String b_title = multi.getParameter("title");
-			String user_email = multi.getParameter("writer");
+			String user_email = multi.getParameter("user_email");
 			//String b_file = multi.getParameter("filename"); --> 이걸로는 null값 뜸
 			//String b_file=multi.getOriginalFileName("filename"); --> 이건 값 받아옴
 			String b_file = multi.getFilesystemName("filename");
@@ -58,7 +58,7 @@ public class UpdateBoardService extends HttpServlet {
 			System.out.println("content:" + b_content);
 			
 			
-			CocoBoardDTO dto = new CocoBoardDTO(b_title, b_content, b_file, user_email, b_views, b_likes);// num값은 notnull이 아니라 이 구조에 안들어가니까 
+			CocoBoardDTO dto = new CocoBoardDTO(b_content, b_file, user_email, b_views, b_likes);// num값은 notnull이 아니라 이 구조에 안들어가니까 
 		    dto.setB_seq(num); // 숫자값만 따로 넣어주기 
 		    
 			cnt = new CocoBoardDAO().modifyBoard(dto);
