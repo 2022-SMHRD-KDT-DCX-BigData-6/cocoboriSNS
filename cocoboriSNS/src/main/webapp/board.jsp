@@ -90,6 +90,12 @@
 
 	<!-- Main -->
 	<div id="main">
+	
+	<%
+		String search = request.getParameter("search");
+		List<CocoBoardDTO> contentSearch = new CocoBoardDAO().searchcontent(search);
+		List<CocoBoardDTO> writerSearch = new CocoBoardDAO().searchwriter(search);
+	%>
 		
 		<!-- Portfolio -->
 		<section id="#" class="two">
@@ -104,42 +110,38 @@
 				</div>
 			</div>
 			
-			
-			
-		<div class="tm-main-content">
+			<div class="tm-main-content">
 				<div class="container text-center">
 					<div class="row" >
 						<div class="col-md-9" >
-							<table class="table" >
-							<tr>
-									<!-- 2.게시글 작성 -->
-									<td>
-										<a href="BoardWrite.jsp"><button style="margin-top: 10px; background-color: #FFD95A;" type="submit" class="btn btn-light" onclick="login()">작성</button></a>
-									</td>
-									
-									<!-- 3.게시판 검색 -->
-									<td align="right" colspan="3">
-										<a href="#">
-											<select class="form-select" aria-label="Default select example">
-												<!-- <option value="title">제목</option> -->
-												<option value="content">내용</option>
-												<option value="writer">글쓴이</option>
-												<option value="comment">댓글</option>
-											</select>
-											<!-- <input type="text"><button id="search">검색</button -->>
-											<input type="text"><button style="margin-top: 10px; background-color: #4C3D3D;" type="submit" class="btn btn-light" onclick="login()">검색</button>
-										</a>
-									</td>
-								</tr>
-							</table>
+							<form action="boardSearchAfter">
+								<table class="table" >
+									<tr>
+										<!-- 2.게시판 검색 -->
+										<td align="right" colspan="3">
+											<a href="#">
+												<select class="form-select" aria-label="Default select example">
+													<option value="content">내용</option>
+													<option value="writer">글쓴이</option>
+												</select>
+												<input type="text" name="search"><button style="margin-top: 10px; background-color: #4C3D3D;" type="submit" class="btn btn-light" onclick="login()">검색</button>
+											</a>
+										</td>
+										<!-- 3.게시글 작성 -->
+										<td>
+											<a href="BoardWrite.jsp"><button style="margin-top: 10px; background-color: #FFD95A;" type="submit" class="btn btn-light" onclick="login()">작성</button></a>
+										</td>
+									</tr>
+								</table>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-		</section>
+	</section>
 		
-		</div>	
+	</div>	
 	<!-- Footer -->
 	<div id="footer">
 

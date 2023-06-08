@@ -65,7 +65,25 @@ public class CocoBoardDAO {
 			return cnt;
 		}
 		
+	// 내용 검색
+		public List<CocoBoardDTO> searchcontent(String content) {
+			
+			List<CocoBoardDTO> searchContent = sqlSession.selectList("com.smhrd.database.CocoBoardMapper.searchContent", content);
+			
+			sqlSession.close();
+			
+			return searchContent;
+		}
 		
+	// 글쓴이 검색	
+		public List<CocoBoardDTO> searchwriter(String writer) {
+			
+			List<CocoBoardDTO> searchWriter = sqlSession.selectList("com.smhrd.database.CocoBoardMapper.searchWriter", writer);
+			
+			sqlSession.close();
+			
+			return searchWriter;
+		}
 }
 
 
