@@ -2727,3 +2727,45 @@ input, select, textarea {
 		margin: auto;
 		width: 80%;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* 백재석 container-c */
+	.container-c {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.icon_pet {
+		width: 100px;
+		height: 100px;
+		margin: 10px;
+		margin-right: 20px;
+	}
+	
+	.sub_title {
+		font-size: 30px;
+	}
+
+	
