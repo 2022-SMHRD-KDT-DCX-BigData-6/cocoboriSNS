@@ -25,11 +25,15 @@
 <body class="is-preload" style="font-family: 'omyu_pretty'">
 
 	<%
-	List<CocoBoardDTO> board_list = new CocoBoardDAO().showBoard();
-	String whatSearch = request.getparameter("whatSearch");
-	String search = request.getParameter("search");
-	List<CocoBoardDTO> contentSearch = new CocoBoardDAO().searchcontent(search);
-	List<CocoBoardDTO> writerSearch = new CocoBoardDAO().searchwriter(search);
+		String whatSearch = request.getParameter("whatSearch");
+		String search = request.getParameter("search");
+		
+		List<CocoBoardDTO> searchAfter = null;
+		if(whatSearch.equals("content")){
+			searchAfter = new CocoBoardDAO().searchcontent(search);
+		} else if(whatSearch.equals("writer")){
+			searchAfter = new CocoBoardDAO().searchwriter(search);
+		}
 	%>
 	
 	<!-- Header -->
@@ -101,9 +105,9 @@
 			<div class="container-b">
 				<div>
 				
-				<% for (int i = 0; i < board_list.size(); i++) {%>
+				<% for (int i = 0; i < searchAfter.size(); i++) {%>
 							
-				<a href="BoardDetail.jsp?num=<%=board_list.get(i).getB_seq()%>"><img style="width:300px; height:300px; margin: 2px; border-radius: 15px;" alt="" src="<%= "./upload/"+ board_list.get(i).getB_file() %>" /></a>
+				<a href="BoardDetail.jsp?num=<%=searchAfter.get(i).getB_seq()%>"><img style="width:300px; height:300px; margin: 2px; border-radius: 15px;" alt="" src="<%= "./upload/"+ searchAfter.get(i).getB_file() %>" /></a>
 							
 				<% }%>
 				</div>

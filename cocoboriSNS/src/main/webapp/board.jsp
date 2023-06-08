@@ -114,6 +114,7 @@
 										<!-- 2.게시판 검색 -->
 										<td align="right" colspan="3">
 											<a href="#">
+												<label for ="whatSearch"></label>
 												<select class="form-select" name="whatSearch" aria-label="Default select example">
 													<option value="content">내용</option>
 													<option value="writer">글쓴이</option>
