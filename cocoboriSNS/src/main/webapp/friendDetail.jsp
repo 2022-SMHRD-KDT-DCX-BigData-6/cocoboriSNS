@@ -113,7 +113,7 @@
 
 		<!-- Portfolio -->
 		<section id="#" class="two">
-			<div class="friend_list container" style="width: 1000px;">
+			<div class="friend_detail container" style="width: 1000px;">
 				<div class="row" style="justify-content: center;">
 					<div class="col-md-9">
 						<table class="table">
@@ -132,17 +132,25 @@
 						</tr>
 						<tr>
 							<td class="text-center">
-								<button class="btn btn-light" type="button" style="margin-top: 10px; background-color: #FFD95A;" onclick="location.href='chat.jsp'">채팅</button>
+								<button class="btn btn-light" type="button" style="width: 150px; margin-top: 10px; background-color: #FFD95A;" onclick="location.href='chat.jsp'">채팅</button>
 							</td>
 						</tr>
 						<tr>
 							<td class="text-center" colspan="2">게시물</td>
 						</tr>
-						<% for (int i = 0; i < friendHistory.size(); i++) {%>
-							<tr>
-								<td colspan="2" class="friend_content" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'"><%= friendHistory.get(i).getB_title()%></td>
-							</tr>
-						<% }%>
+						<tr>
+							<td class="friend_content text-center" colspan="2">
+								<% if (friendHistory.size() < 9) {%>
+									<% for (int i = 0; i < friendHistory.size(); i++) {%>
+										<img style="width: 200px; height: 200px; margin: 5px;" alt="" src="<%="./upload/" + friendHistory.get(i).getB_file()%>" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'">
+									<% }%>
+								<% } else {%>
+									<% for (int i = 0; i < 9; i++) {%>
+										<img style="width: 200px; height: 200px; margin: 5px;" alt="" src="<%="./upload/" + friendHistory.get(i).getB_file()%>" onclick="location.href='BoardDetail.jsp?num=<%= friendHistory.get(i).getB_seq()%>'">
+									<% }%>
+								<% }%>
+							</td>
+						</tr>
 					</table>
 					<button class="btn btn-light" id="writer" style="margin-top: 10px; background-color: #4C3D3D;" onclick="location.href='friend.jsp'">친구 페이지</button>
 					</div>

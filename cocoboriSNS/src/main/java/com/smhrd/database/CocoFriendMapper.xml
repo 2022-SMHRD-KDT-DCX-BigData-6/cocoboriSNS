@@ -15,7 +15,7 @@
 	</select>
 	<!-- 친구 활동 내력 -->
 	<select id="friendHistory" parameterType="String" resultType="CocoBoard">
-		SELECT * FROM tb_board WHERE user_email = #{user_email}
+		SELECT * FROM tb_board WHERE user_email = #{user_email} ORDER BY uploaded_at DESC
 	</select>
 	<!-- 친구 추가 -->
 	<insert id="insertFriend" parameterType="CocoFriend">

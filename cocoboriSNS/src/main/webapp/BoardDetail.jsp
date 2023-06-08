@@ -128,7 +128,7 @@
 		<div class="container-b">
 			<table border = "1" style="width: 50%; margin: auto;">
 				<tr>
-					<td><button style="margin-top: 10px; background-color: #FFD95A;" type="submit" class="btn btn-light" onclick="location.href='board.jsp'"> < </button></td> 
+					<td><button style="margin-top: 10px; background-color: #FFD95A;" type="submit" class="btn btn-light" onclick="location.href='board.jsp'"></button></td> 
 					<td></td>
 				</tr>
 				
