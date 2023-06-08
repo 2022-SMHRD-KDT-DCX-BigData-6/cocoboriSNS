@@ -18,26 +18,7 @@
 		font-style: normal;
 	}
 
-	.table .pet-state {
-		background-color: #fafabe;
-		opacity: 0.7;
-	}
-	 
-	.table .pet-score {
-		background: linear-gradient(to right, #ffe3ee, #f7e7b1);
-		opacity: 0.8;
-	}
-	
-		.icon_pet {
-		width: 100px;
-		height: 100px;
-		margin: 10px;
-		margin-right: 20px;
-	}
-	
-	.sub_title {
-		font-size: 30px;
-	}
+
 </style>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -59,7 +40,7 @@
    
     <%
 		CocoPetDAO dao = new CocoPetDAO();
-		List<CocoPetDTO> petList = dao.selAllCat();
+		List<CocoPetDTO> petList = dao.selAllBird();
 	%>
 	
 	<!-- Header -->
@@ -68,43 +49,64 @@
 		<div class="top">
 
 			<!-- Logo -->
-			<div id="logo">
-				<!-- 프로필 사진 넣는 자리 -->
-				<% if (member == null) {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./images/foot.png"%>">
-					</span>
-				<% } else if (member.getUser_file() == null) {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./images/foot.png"%>">
-					</span>
-				<% } else {%>
-					<span class="image avatar48">
-						<img alt="" src="<%= "./upload/" + member.getUser_file()%>">
-					</span>
-				<% }%>
-			
-				<h1 id="title">COCOBORI</h1>
-				<p>
-					<% if (member == null) {%>
-						SNS
-					<% } else {%>
-						<%= member.getUser_nick()%>님
-					<% }%>	
-				</p>
-			</div>
+         <div id="logo">
+            <!-- 로고 넣는 자리 -->
+            
+            <span class="image avatar48">
+               <img  src="<%= "./images/cocobori_logo.png" %>">
+            </span>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+      
+            <!-- 로그인시 프로필사진과 닉네임 나오는 자리 -->
+                  <%
+                     if (member != null) {
+                  %>
+                     <div class="card" style="padding-bottom: 10px">
+                     <div style="height: 60px;" class="card-body">
+                     <span class="image avatar49"> 
+                        <img style="width: 50px; height: 50px; margin-top: 10px; margin-left: 20px; border-radius:70% " alt=""   src="<%="./upload/" + member.getUser_file()%>">
+                     </span>
+                     
+                  <h3 style="border: medium;">
+                  <%= member.getUser_nick() %>
+                  </h3>
+                     </div>
+                     </div>
+                  <% }%>
+                     
+         </div>		
 
 			<!-- Nav -->
 			<nav id="nav">
-				<ul>
-					<li><a href="main.jsp" id="main-link"><span
-							class="icon solid fa-home">HOME</span></a></li>
-				</ul>
-				<ul>
-					<!-- 되돌아가기 : pet정보관련 session을 초기화 시켜주기 -->
-					<li><a href="resetPet" id="dic_pet"><span
-							class="icon solid fa-home">반려동물 백과사전</span></a></li>
-				</ul>
+			<ul>
+               <li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
+               <% if (member == null) { %>
+               <li><a href="login.jsp" id="login-link"><span class="icon solid fa-envelope">로그인</span></a></li>
+               <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+               <% } else { %>
+                  <% if(member.getUser_email().equals("admin@admin.com")) { %>
+                  <li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
+                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+                  <!-- 재석 수정 -->
+                  <li><a href="InsertPet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+                  <% } else { %>
+                  <li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
+                  <li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
+                  <li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
+                  <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+                  <li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
+                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+                  <% } %>
+               <% } %>
+            </ul>
 			</nav>
 
 		</div>
@@ -131,40 +133,97 @@
 
 	<!-- Main -->
 	<div id="main">
-
-		<!-- Intro -->
-		<section id="top" class="#" style="padding-top: 20px; padding-bottom: 20px;">
-			<img class="icon_pet" alt="" src="./images/icon_bird.gif"><span class="sub_title">조류 백과사전</span>
-
-		</section>
 		<!-- Portfolio -->
 		<section id="portfolio" class="two" style="padding-top: 20px; padding-bottom: 20px;">
+			<img class="icon_pet" alt="" src="./images/icon_bird.gif"><span class="sub_title">조류 백과사전</span>
 			<div class="container-a" style="width: 70%; font-size: 18px;">
 
-				<form action="SelectCat" method="post" enctype="multipart/form-data">
-					<h1>서비스 준비중 입니다...</h1>
-					<button style="margin-top: 10px; background-color: #b37c57;" type="button" class="btn btn-light" onclick="location.href='dic_pet.jsp'">뒤로가기</button>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
+				<form action="SelectBird" method="post" enctype="multipart/form-data">
 					
+					<!-- 품종 소분류 -->
+					<select style="width:50%; height:50px; margin: auto;" class="form-select"
+						aria-label="Default select example" name="pet_breed" id="pet_breed">
+						<option selected>상세품종</option>
+						
+							<%
+								for (int i = 0; i < petList.size(); i++) {
+							%>
+							<option value="<%=petList.get(i).getPet_breed()%>"><%=petList.get(i).getPet_breed()%></option>						
+							<%
+								}
+							%>
+					</select>
+					<button style="margin-top: 10px;" type="submit" class="btn btn-warning">동물백과 조회</button>
+					<button style="margin-top: 10px; background-color: #b37c57;" type="button" class="btn btn-light" onclick="location.href='resetPet'">뒤로가기</button>
 				</form>
 
-				
+				<%
+					if (pet == null) {
+				%>
+				<!-- 동영상 올리기 -->
+				<br>
+				<br>
+				<video style="margin-top: 10px; border-radius: 15px;"  src="./images/dic_parrot.mp4" autoplay="autoplay" muted="muted" loop="loop" width="60%" height="70%">
+				</video>
+				<%
+					}
+				%>
+				<%
+					if (pet != null) {
+				%>
+				<img alt="X" src="<%="./pet_file/" + pet.getPet_pic()%>"
+					width="50%" height="40%" style="margin-bottom: 10px; margin-top: 10px; border-radius: 15px;">
+				<h3><%=pet.getPet_breed()%></h3>
+				<table class="table" style="border: 1px solid black;">
+					<tr>
+						<td class="pet-score">온도</td>
+					</tr>
+					<tr>
+						<td class="pet-state" colspan="3"><%=pet.getPet_temp()%></td>
+					</tr>
+					<tr>
+						<td class="pet-score">먹이</td>
+					</tr>
+					<tr>
+						<td class="pet-state" colspan="3"><%=pet.getPet_eat()%></td>
+					</tr>
+					<tr>
+						<td class="pet-score">케이지</td>
+					</tr>
+					<tr>
+						<td class="pet-state" colspan="3"><%=pet.getPet_cage()%></td>
+					</tr>
+					<tr>
+						<td class="pet-score">질병</td>
+					</tr>
+					<tr>
+						<td class="pet-state" colspan="3"><%=pet.getPet_health()%></td>
+					</tr>
+					<tr>
+					<tr>
+						<td class="pet-score">성격</td>
+					</tr>
+					<tr>
+						<td class="pet-state" colspan="3"><%=pet.getPet_adapt()%></td>
+					</tr>
+					<tr>
+						<td class="pet-score">유의사항</td>
+					</tr>
+					<tr>
+						<td class="pet-state" colspan="3"><%=pet.getPet_etc()%></td>
+					</tr>
+
+				</table>
+				<%
+				}
+				%>
 			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			
+		
 		</section>
 	</div>
 	
