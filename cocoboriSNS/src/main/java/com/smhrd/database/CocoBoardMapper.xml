@@ -29,4 +29,18 @@
 	<delete id="boardDelete" parameterType="CocoBoard">
 		DELETE FROM TB_BOARD WHERE b_seq=#{b_seq}
 	</delete>
+	
+	<!-- 내용 검색 -->
+	<select id="searchContent"
+			parameterType="CocoBoard"
+			resultType="CocoBoard">
+		SELECT * FROM TB_BOARD WHERE content LIKE '%'||#{content}||'%' ORDER BY b_date DESC
+	</select>
+	
+	<!-- 글쓴이 검색 -->
+	<select id="searchWriter"
+			parameterType="CocoBoard"
+			resultType="CocoBoard">
+		SELECT * FROM TB_BOARD WHERE writer LIKE '%'||#{writer}||'%' ORDER BY b_date DESC
+	</select>
 </mapper>

@@ -188,7 +188,7 @@
 	<div id="main">
 		<section class="two" style="padding-top: 20px; padding-bottom: 20px;">
 			
-			<img class="icon_pet" alt="" src="./images/icon_dog.gif"> <span	class="sub_title">반려동물 백과사전 등록</span> <img class="icon_pet" alt=""
+			<img class="icon_pet" alt="" src="./images/icon_dog.gif"> <span	class="sub_title">반려동물 백과사전</span> <img class="icon_pet" alt=""
 				src="./images/icon_cat.gif">
 			<br>
 			<br>

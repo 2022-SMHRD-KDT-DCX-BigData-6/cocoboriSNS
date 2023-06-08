@@ -25,7 +25,15 @@
 <body class="is-preload" style="font-family: 'omyu_pretty'">
 
 	<%
-	List<CocoBoardDTO> board_list = new CocoBoardDAO().showBoard();
+		String whatSearch = request.getParameter("whatSearch");
+		String search = request.getParameter("search");
+		
+		List<CocoBoardDTO> searchAfter = null;
+		if(whatSearch.equals("content")){
+			searchAfter = new CocoBoardDAO().searchcontent(search);
+		} else if(whatSearch.equals("writer")){
+			searchAfter = new CocoBoardDAO().searchwriter(search);
+		}
 	%>
 	
 	<!-- Header -->
@@ -91,14 +99,15 @@
 	<!-- Main -->
 	<div id="main">
 	
+		
 		<!-- Portfolio -->
 		<section id="#" class="two">
 			<div class="container-b">
 				<div>
 				
-				<% for (int i = 0; i < board_list.size(); i++) {%>
+				<% for (int i = 0; i < searchAfter.size(); i++) {%>
 							
-				<a href="BoardDetail.jsp?num=<%=board_list.get(i).getB_seq()%>"><img style="width:300px; height:300px; margin: 2px; border-radius: 15px;" alt="" src="<%= "./upload/"+ board_list.get(i).getB_file() %>" /></a>
+				<a href="BoardDetail.jsp?num=<%=searchAfter.get(i).getB_seq()%>"><img style="width:300px; height:300px; margin: 2px; border-radius: 15px;" alt="" src="<%= "./upload/"+ searchAfter.get(i).getB_file() %>" /></a>
 							
 				<% }%>
 				</div>
@@ -108,13 +117,12 @@
 				<div class="container text-center">
 					<div class="row" >
 						<div class="col-md-9" >
-							<form action="boardSearchAfter.jsp">
+							<form action="boardSearchAfter">
 								<table class="table" >
 									<tr>
 										<!-- 2.게시판 검색 -->
 										<td align="right" colspan="3">
 											<a href="#">
-												<label for ="whatSearch"></label>
 												<select class="form-select" name="whatSearch" aria-label="Default select example">
 													<option value="content">내용</option>
 													<option value="writer">글쓴이</option>
