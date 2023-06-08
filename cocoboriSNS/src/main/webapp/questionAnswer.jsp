@@ -124,8 +124,8 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input type="reset" value="초기화">
-								<input type="submit" value="작성하기">
+								<input type="reset" value="초기화" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">
+								<input type="submit" value="작성하기" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #4C3D3D;">
 							</td>
 						</tr>
 					</table>

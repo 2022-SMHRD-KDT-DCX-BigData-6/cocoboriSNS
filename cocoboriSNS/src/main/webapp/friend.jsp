@@ -54,30 +54,23 @@
 
 			<!-- Nav -->
 			<nav id="nav">
-            <ul>
-               <li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
-               <% if (member == null) { %>
-               <li><a href="login.jsp" id="login-link"><span class="icon solid fa-envelope">로그인</span></a></li>
-               <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-               <% } else { %>
-                  <% if(member.getUser_email().equals("admin@admin.com")) { %>
-                  <li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
-                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
-                  <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-                  <li><a href="questionReportAdmin.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li> 
-                  <% } else { %>
-                  <li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
-                  <li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
-                  <li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
-                  <li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
-                  <li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
-                  <li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
-                  <li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
-                  <% } %>
-               <% } %>
-            </ul>
+				<ul>
+					<li><a href="main.jsp" id="top-link"><span class="icon solid fa-home">홈</span></a></li>
+					<% if(member.getUser_email().equals("admin@admin.com")) {%>
+						<li><a href="admin_member.jsp" id="admin-link"><span class="icon solid fa-th">전체회원정보</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+					<% } else {%>
+						<li><a href="my_page.jsp" id="my-link"><span class="icon solid fa-envelope">마이페이지</span></a></li>
+						<li><a href="board.jsp" id="community-link"><span class="icon solid fa-envelope">커뮤니티</span></a></li>
+						<li><a href="friend.jsp" id="community-link"><span class="icon solid fa-envelope">친구</span></a></li>
+						<li><a href="dic_pet.jsp" id="petinfo-link"><span class="icon solid fa-envelope">반려동물 백과사전</span></a></li>
+						<li><a href="veterinaryClinic.jsp" id="loc-link"><span class="icon solid fa-envelope">주변 정보</span></a></li>
+						<li><a href="question.jsp" id="community-link"><span class="icon solid fa-envelope">문의 및 신고</span></a></li>
+						<li><a href="LogoutService" id="logout-link"><span class="icon solid fa-user">로그아웃</span></a></li>
+					<% }%>
+				</ul>
 			</nav>
 
 		</div>
@@ -118,7 +111,7 @@
 							<tr>
 								<td style="text-align: center;">친구 목록</td>
 								<td style="text-align: right;">
-									<button class="btn btn-light" type="button" style="background-color: #a9d39e;" onclick="location.href='searchMember.jsp'">유저 검색</button>
+									<button class="btn btn-light" type="button" style="margin-top: 10px; background-color: #FFD95A;" onclick="location.href='searchMember.jsp'">유저 검색</button>
 								</td>
 							</tr>
 							<% for (int i = 0; i < friendList.size(); i++) {%>

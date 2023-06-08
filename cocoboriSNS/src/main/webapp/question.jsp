@@ -113,7 +113,7 @@
 		<section id="#" class="two" style="text-align: center;">
 			<div class="container-b">
 				<%
-					String writer = "y";
+					String writer = member.getUser_email();
 					List<CocoQuestionDTO> questionList = new CocoQuestionDAO().showMyQuestion(writer);
 				%>
 
@@ -136,8 +136,8 @@
 						}
 						%>
 					</table>
-					<a href="questionReport.jsp"><button id="writer">작성하기</button></a>
-					<a href="main.jsp"><button id="writer">홈으로가기</button></a>
+					<a href="questionReport.jsp"><button id="writer" class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #FFD95A;">작성하기</button></a>
+					<a href="main.jsp"><button id="home" class="btn btn-light" style="padding: 0.25em 0.5em 0.25em 0.5em; background-color: #4C3D3D;">홈으로가기</button></a>
 				</div>
 			</div>
 		</section>
