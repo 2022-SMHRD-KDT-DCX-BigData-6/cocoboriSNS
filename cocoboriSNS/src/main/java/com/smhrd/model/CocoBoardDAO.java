@@ -66,9 +66,9 @@ public class CocoBoardDAO {
 		}
 		
 	// 내용 검색
-		public List<CocoBoardDTO> searchcontent(String content) {
+		public List<CocoBoardDTO> searchcontent(String b_content) {
 			
-			List<CocoBoardDTO> searchContent = sqlSession.selectList("com.smhrd.database.CocoBoardMapper.searchContent", content);
+			List<CocoBoardDTO> searchContent = sqlSession.selectList("com.smhrd.database.CocoBoardMapper.searchContent", b_content);
 			
 			sqlSession.close();
 			
@@ -76,9 +76,9 @@ public class CocoBoardDAO {
 		}
 		
 	// 글쓴이 검색	
-		public List<CocoBoardDTO> searchwriter(String writer) {
+		public List<CocoBoardDTO> searchwriter(String user_email) {
 			
-			List<CocoBoardDTO> searchWriter = sqlSession.selectList("com.smhrd.database.CocoBoardMapper.searchWriter", writer);
+			List<CocoBoardDTO> searchWriter = sqlSession.selectList("com.smhrd.database.CocoBoardMapper.searchWriter", user_email);
 			
 			sqlSession.close();
 			
