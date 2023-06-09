@@ -44,6 +44,10 @@
 							class="icon solid fa-seedling">로그인</span></a></li>
 					<li><a href="join.jsp" id="join-link"><span
 							class="icon solid fa-pencil">회원가입</span></a></li>
+					<li><a href="dic_pet.jsp" id="petinfo-link"><span
+						  	class="icon solid fa-book">반려동물 백과사전</span></a></li>
+					<li><a href="veterinaryClinic.jsp" id="loc-link"><span
+							class="icon solid fa-wifi">주변 정보</span></a></li>
 				</ul>
 			</nav>
 		</div>
